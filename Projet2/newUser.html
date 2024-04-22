@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html> 
+<head> <link rel="stylesheet" type="text/css" href="newUser.css"> </head>
+<title>TP2 Formulaire </title>
+<form  action="newUser.php" enctype="multipart/form-data" method="post" >
+	<fieldset>
+		<legend>Create an account:</legend>
+		
+		<label>Username:
+		    <input type="texte" name="username">
+		</label>
+		<label>Email: 	
+		    <input type="email" name="email">
+		</label>
+        <label>Password:
+            <input type="password" name="password1">
+            <input type="password" name="password2">
+        </label>
+
+		<label>Sex: 	
+	   	<select name="sex">
+	      		<option value="man">Man</option>
+	      		<option value="woman">Woman</option>
+	      	</select>
+	      	</label>
+	   
+		<button type="reset">Reset</button>
+	</fieldset>
+</form>
+</html>
