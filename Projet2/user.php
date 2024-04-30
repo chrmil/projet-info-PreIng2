@@ -7,30 +7,29 @@
 	<body>
 		<?php
 			function addpfp(){
-				$test = 0;
-				if (empty($_FILES)){
-				}
-				else {
+				if (!empty($_FILES)){
 					$str = explode(".", $_FILES["photo"]["name"]);
-					echo $str[sizeof($str) - 1];
+					echo $str[0];
 					if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg"){
-						$test = 1;
-						echo $_FILES["photo"]["tmp_name"];
-						echo $_FILES["photo"]["name"];
-						move_uploaded_file($_FILES["photo"]["tmp_name"], "/cergy/homee/v/vohoangmin/Informatique_PreIng2/Sem2/Projet/pfp.jpg");
+						echo "<br>".$_FILES["photo"]["tmp_name"];
+						echo "<br>".$_FILES["photo"]["name"];
+						move_uploaded_file($_FILES["photo"]["tmp_name"], "./pfp.jpg");
 						echo "<br>".$str[sizeof($str) - 1];
+					}
+					else{
+						echo "Incorrect file format";
 					}
 				}
 				return 0;
 			}
 			addpfp();
 		?>
-		<img src="/cergy/homee/v/vohoangmin/Informatique_PreIng2/Sem2/Projet/pfp.jpg">
+		<img src="./pfp.jpg">
 		<a href=pfp.html target="_self">
 			<img src="pfp.jpg" id="pfp">
 		</a>
-		<form action="user.php" method="post">
-			<input type="file" id="addpfp">
+		<form action="user.php" method="post" enctype="multipart/form-data">
+			<input type="file" id="addpfp" name="photo">
 			<input type="submit" class="submit">
 		</form>
 		<p id="username"></p>
