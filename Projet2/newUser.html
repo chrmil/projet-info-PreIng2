@@ -2,29 +2,32 @@
 <html> 
 <head> <link rel="stylesheet" type="text/css" href="newUser.css"> </head>
 <title>TP2 Formulaire </title>
-<form  action="newUser.php" enctype="multipart/form-data" method="post" >
+<script  src="newUser.js" ></script>
+<form  action="newUser.php" enctype="multipart/form-data" method="post" id="userInfo">
 	<fieldset>
 		<legend>Create an account:</legend>
 		
 		<label>Username:
-		    <input type="texte" name="username">
+		    <input type="texte" name="username" maxlength="25" onkeyup="checkUsername()"required>
 		</label>
 		<label>Email: 	
-		    <input type="email" name="email">
+		    <input type="email" name="email" required>
 		</label>
         <label>Password:
-            <input type="password" name="password1">
-            <input type="password" name="password2">
+            <input type="password" name="password1" maxlength="25" minlength="5" onkeyup="checkPassword()" required >
+            <input type="password" name="password2" maxlength="25" minlength="5" onkeyup="checkPassword()" required>
         </label>
+		<p><div id="div3">Please enter a password</div></p>
 
 		<label>Sex: 	
-	   	<select name="sex">
+	   	<select name="sex" required>
 	      		<option value="man">Man</option>
 	      		<option value="woman">Woman</option>
 	      	</select>
 	      	</label>
-	   
-		<button type="reset">Reset</button>
+			
+			
+			<button type="submit" >Sign in </button>
 	</fieldset>
 </form>
 </html>
