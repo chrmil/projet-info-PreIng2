@@ -8,11 +8,13 @@
 		<legend>Create an account:</legend>
 		
 		<label>Username:
-		    <input type="texte" name="username" maxlength="25" onkeyup="checkUsername()"required>
+		    <input type="texte" name="username" maxlength="25" minlength="3" onkeyup="checkUsername()"required>
 		</label>
+		<p><div id="div1">Please enter an username</div></p>
 		<label>Email: 	
-		    <input type="email" name="email" required>
+		    <input type="email" name="email" onkeyup="checkEmail()"required>
 		</label>
+		<p><div id="div2">Please enter a valid email</div></p>
         <label>Password:
             <input type="password" name="password1" maxlength="25" minlength="5" onkeyup="checkPassword()" required >
             <input type="password" name="password2" maxlength="25" minlength="5" onkeyup="checkPassword()" required>

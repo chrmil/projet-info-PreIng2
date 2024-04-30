@@ -1,8 +1,8 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         try {
-            if(!isset($_POST["email"]) || empty($_POST["email"])){
-                throw new Exception("Error: incorrect email");
+            if(!isset($_POST["username"]) || empty($_POST["username"])){
+                throw new Exception("Error: incorrect username");
             }
             if(!isset($_POST["password"]) || empty($_POST["password"])){
                 throw new Exception("Error: incorretc password");
@@ -13,18 +13,18 @@
         }
         include("users.php");
         try {
-            if(!isset($user) || empty($user)){
+            if(!isset($users) || empty($users)){
                 throw new Exception("Error: user list");
             }
         }
         catch(Exception $e){
             echo $e->getMessage();
         }
-        reset($user);
+        reset($users);
         $i=0;
-        foreach ($user as $mail=>$password){
-            if($_POST["email"]==$mail && $_POST["password"]==$password ){
-                echo "Welcome back ".$mail."!<br>";
+        foreach ($users as $name=>$password){
+            if($_POST["username"]==$name && $_POST["username"]==$password){
+                echo "Welcome back ".$name."!<br>";
                 header("Location:home.html");
                 $i=1;
             }
