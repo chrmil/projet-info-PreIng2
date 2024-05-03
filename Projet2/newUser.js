@@ -34,25 +34,15 @@ function checkEmail() {  //reportValidity()
     };  
     var userInfo = document.forms.userInfo;
     var formData = new FormData(userInfo);
-    password1=formData.get("password1");
-    password2=formData.get("password2");
-    if (password1.length == 0 ) {
-        document.getElementById("div2").innerHTML = "Please enter a password.";
+    password1=formData.get("email");
+    if (email.length == 0 ) {
+        document.getElementById("div2").innerHTML = "Please enter an email adress.";
         return;
     }
-    else if (password1.length<5){
-        document.getElementById("div2").innerHTML = "This password is too short. The minimum length is 5 characters.";
+    else if (reportValidity()){
+        document.getElementById("div2").innerHTML = "This email is invalid.";
     }
-    else if (password2.length == 0 ) {
-        document.getElementById("div2").innerHTML = "Please confirm your password by entering it again";
-        return;
-    }
-    else if(password1.length>password2.length){
-        document.getElementById("div2").innerHTML = "";
-    }
-    else if (password1.length <= password2.length && password1!=password2){
-        document.getElementById("div2").innerHTML = "Invalid password. Please try again.";
-    }
+   
     xhttp.send();
 }
 
