@@ -19,7 +19,7 @@ function checkUsername() {
     }
     else{
         document.getElementById("div1").innerHTML = "";
-        //xhttp.open("GET", "newUser.php?q="+username, true);
+        xhttp.open("GET", "newUserCheck.php?q="+username, true);
     }
     xhttp.send();
 }
@@ -47,7 +47,7 @@ function checkEmail() {
     } 
     else{
         document.getElementById("div2").innerHTML = "";
-        // xhttp.open("GET", "newUser.php?r="+email, true);
+        xhttp.open("GET", "newUserCheck.php?r="+email, true);
     }
     xhttp.send();
 }
