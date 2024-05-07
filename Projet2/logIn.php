@@ -5,7 +5,7 @@
                 throw new Exception("Error: incorrect username");
             }
             if(!isset($_POST["password"]) || empty($_POST["password"])){
-                throw new Exception("Error: incorretc password");
+                throw new Exception("Error: incorrect password");
             }
         }
         catch(Exception $e){
@@ -22,8 +22,9 @@
         }
         reset($users);
         $i=0;
-        foreach ($users as $name=>$password){
-            if($_POST["username"]==$name && $_POST["username"]==$password){
+       
+        foreach ($users as $user){
+            if($_POST["username"]==$user[0] && password_verify($_POST["password"],$user[2])){
                 echo "Welcome back ".$name."!<br>";
                 header("Location:home.html");
                 $i=1;

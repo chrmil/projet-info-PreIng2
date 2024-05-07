@@ -12,17 +12,20 @@ function checkUsername() {
     username=formData.get("username");
     if (username.length == 0 ) {
         document.getElementById("div1").innerHTML = "Please enter an username.";
-        return;
+        
     }
-    else if (password1.length<3){
+    else if (username.length<3){
         document.getElementById("div1").innerHTML = "This username is too short. The minimum length is 3 characters.";
     }
-    xhttp.open("GET", "page4.php?q="+username, true);
+    else{
+        document.getElementById("div1").innerHTML = "";
+        //xhttp.open("GET", "newUser.php?q="+username, true);
+    }
     xhttp.send();
 }
 
 
-function checkEmail() {  //reportValidity()
+function checkEmail() { 
 
        
     var xhttp; 
@@ -34,15 +37,18 @@ function checkEmail() {  //reportValidity()
     };  
     var userInfo = document.forms.userInfo;
     var formData = new FormData(userInfo);
-    password1=formData.get("email");
-    if (email.length == 0 ) {
+    email=formData.get("email");
+    if (email.length < 4 ) {
         document.getElementById("div2").innerHTML = "Please enter an email adress.";
-        return;
+    
     }
-    else if (reportValidity()){
+    else if (!email.reportValidity()){
         document.getElementById("div2").innerHTML = "This email is invalid.";
+    } 
+    else{
+        document.getElementById("div2").innerHTML = "";
+        // xhttp.open("GET", "newUser.php?r="+email, true);
     }
-   
     xhttp.send();
 }
 
@@ -61,14 +67,14 @@ function checkPassword() {
         password2=formData.get("password2");
         if (password1.length == 0 ) {
             document.getElementById("div3").innerHTML = "Please enter a password.";
-            return;
+           
         }
         else if (password1.length<5){
             document.getElementById("div3").innerHTML = "This password is too short. The minimum length is 5 characters.";
         }
         else if (password2.length == 0 ) {
             document.getElementById("div3").innerHTML = "Please confirm your password by entering it again";
-            return;
+          
         }
         else if(password1.length>password2.length){
             document.getElementById("div3").innerHTML = "";
@@ -76,6 +82,6 @@ function checkPassword() {
         else if (password1.length <= password2.length && password1!=password2){
             document.getElementById("div3").innerHTML = "Invalid password. Please try again.";
         }
-        xhttp.open("GET", "newUser.php?q="+str, true);
+    
         xhttp.send();
 }
