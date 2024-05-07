@@ -6,7 +6,28 @@
 	</head>
 	<body>
 		<?php
-			function addpfp(){
+			/*
+			function collectdat1(){
+				$tab = array("email" => array("one@test.com", "two@test.com", "three@test.com", "four@test.com", "five@test.com", "six@test.com", "seven@test.com", "eight@test.com", "nine@test.com", "ten@test.com"), "password" => array("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
+				$a = $_POST["email"];
+				$b = (string)$_POST["password"];
+				$i = 0;
+				$c = 0;
+				for ($i = 0; $i < 10; $i++){
+					if ($a == $tab["email"][$i] && $b == $tab["password"][$i]){
+						echo "Bienvenue à toi ".$b.".";
+						$c = 1;
+						break;
+					}
+				}
+				if ($c == 0){
+					header("Location:index.php");
+				}
+				return $c;
+			}
+			collectdat1();
+			*/
+			function useredit(){
 				if (!empty($_FILES)){
 					$str = explode(".", $_FILES["photo"]["name"]);
 					echo $str[0];
@@ -23,12 +44,12 @@
 				}
 				return 0;
 			}
-			addpfp();
+			useredit();
 		?>
 		<a href=pfp.html target="_self">
 			<img src="pfp.png" id="pfp">
 		</a>
-		<a href=useredit.php target="_self">
+		<a href=useredit.php target="_self" <?php copy("./pfp.png", "./pfppreview.png"); ?>>
 			<img src="edit.png" id="edit">
 		</a>
 		<p id="username"></p>

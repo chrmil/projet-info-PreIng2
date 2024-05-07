@@ -6,8 +6,14 @@
 	border-radius:50px;
 }
 
+#edit{
+	margin-left:50vw;
+	width:25px;
+	height:25px;
+}
+
 #addpfp{
-	
+	margin-left:40vw;
 }
 
 #piclist{
