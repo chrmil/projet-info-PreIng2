@@ -8,7 +8,7 @@
 		<?php
 			/*
 			function collectdat1(){
-				$tab = array("email" => array("one@test.com", "two@test.com", "three@test.com", "four@test.com", "five@test.com", "six@test.com", "seven@test.com", "eight@test.com", "nine@test.com", "ten@test.com"), "password" => array("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
+				$tab;
 				$a = $_POST["email"];
 				$b = (string)$_POST["password"];
 				$i = 0;
