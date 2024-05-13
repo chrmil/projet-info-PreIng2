@@ -3,12 +3,13 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css"  href=style.css>
+		<script src="javascript.js"></script> 
 	</head>
 	<body>
 		<?php
 			/*
 			function collectdat1(){
-				$tab;
+				$tab = array("email" => array("one@test.com", "two@test.com", "three@test.com", "four@test.com", "five@test.com", "six@test.com", "seven@test.com", "eight@test.com", "nine@test.com", "ten@test.com"), "password" => array("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
 				$a = $_POST["email"];
 				$b = (string)$_POST["password"];
 				$i = 0;
@@ -27,44 +28,47 @@
 			}
 			collectdat1();
 			*/
-			function useredit(){
-				if (!empty($_FILES)){
-					$str = explode(".", $_FILES["photo"]["name"]);
-					echo $str[0];
-					if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
-						echo "<br>".$_FILES["photo"]["tmp_name"];
-						echo "<br>".$_FILES["photo"]["name"];
-						move_uploaded_file($_FILES["photo"]["tmp_name"], "./pfp.png");
-						echo "<br>".$str[sizeof($str) - 1];
-						
-					}
-					else{
-						echo "Incorrect file format";
-					}
-				}
-				return 0;
-			}
-			useredit();
 		?>
-		<a href=pfp.html target="_self">
+		<a href=image.html target="_self" <?php copy("./pfp.png", "./image.png"); ?>>
 			<img src="pfp.png" id="pfp">
 		</a>
-		<a href=useredit.php target="_self" <?php copy("./pfp.png", "./pfppreview.png"); ?>>
+		<a href=pfpedit.php target="_self" <?php copy("./pfp.png", "./pfppreview.png"); ?>>
 			<img src="edit.png" id="edit">
 		</a>
-		<p id="username"></p>
-		<p id="gender"></p>
-		<p id="birth date"></p>
-		<p id="profession"></p>
-		<p id="place"></p>
-		<p id="status"></p>
-		<p id="otherinfo"></p>
+		<p id="username">username</p>
+		<p id="gender">gender</p>
+		<p id="birthdate">birthdate</p>
+		<p id="profession">profession</p>
+		<p id="place">place</p>
+		<p id="status">status</p>
+		<p id="otherinfo">otherinfo</p>
+		<a href=useredit.php target="_self">
+			<button type='button'>Edit profile</button>
+		</a>
+		<br>
+			<script>
+				console.log("test");
+				piclist(<?php
+					function picnumber(){
+						$i = 1;
+						$a = 1;
+						$pic = "pic1.jpg";
+						while ($a != 0){
+							if (file_exists($pic)){
+								$i++;
+								$pic = "pic".$i.".jpg";
+							}
+							else{
+								$a = 0;
+								$i--;
+							}
+						}
+						return $i;
+					}
+					echo picnumber();
+				?>)
+			</script>
 		<div id="piclist">
-			<img src="pic1.jpg" id="pics">
-			<img src="pic2.jpg" id="pics">
-			<img src="pic3.jpg" id="pics">
-			<img src="pic4.jpg" id="pics">
-			<img src="pic5.jpg" id="pics">
 		</div>
 	</body>
 </html>
