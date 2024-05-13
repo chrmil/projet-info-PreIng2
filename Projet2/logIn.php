@@ -24,7 +24,7 @@
         $i=0;
        
         foreach ($users as $user){
-            if($_POST["username"]==$user[0] && password_verify($_POST["password"],$user[2])){
+            if( ($_POST["username"]==$user[0] || $_POST["username"]==$user[1]) && password_verify($_POST["password"],$user[2])){
                 echo "Welcome back ".$name."!<br>";
                 header("Location:home.html");
                 $i=1;

@@ -40,14 +40,11 @@ function checkEmail() {
     email=formData.get("email");
     if (email.length < 4 ) {
         document.getElementById("div2").innerHTML = "Please enter an email adress.";
-    
     }
-    else if (!email.reportValidity()){
-        document.getElementById("div2").innerHTML = "This email is invalid.";
-    } 
     else{
         document.getElementById("div2").innerHTML = "";
         xhttp.open("GET", "newUserCheck.php?r="+email, true);
+
     }
     xhttp.send();
 }

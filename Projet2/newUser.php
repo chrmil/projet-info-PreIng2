@@ -30,7 +30,9 @@
         $newUser[1]=$_POST["email"];
         $password=$_POST["password"];
         $newUser[2]=password_hash($password);
-        $newUser[3]=$_POST["sex"];
+        $newUser[3]="user";
+        $newUser[4]=$_POST["gender"];
+        $newUser[5]=date();
         array_push($users, $newUser); //? 
     
     }
