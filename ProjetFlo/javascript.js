@@ -57,6 +57,7 @@ function piclist(x){
 			for (i = 1; i <= x; i++) {
 				console.log(i);
 				txt = txt + "<a href=image.html target='_self' <?php copy('./pic" + i + ".jpg', './image.png'); ?><img src='pic" + i + ".jpg' id='pics'></a>"
+				console.log("<a href=image.html target='_self' <?php copy('./pic" + i + ".jpg', './image.png'); ?><img src='pic" + i + ".jpg' id='pics'></a>");
 			}
 			document.getElementById("piclist").innerHTML = txt;
 		}
