@@ -28,6 +28,32 @@
 			}
 			collectdat1();
 			*/
+			function deletepic($x){
+				if(isset($x)){
+					$tab = explode(".", $x);
+					$p = substr($tab[0], 0, 3);
+					if ($p == "pic"){
+						$n = substr($tab[0], 3);
+						unlink($x);
+						$n++;
+						$a = 1;
+						while ($a != 0){
+							$m = $n - 1;
+							if (file_exists("pic".$n.".png")){
+								echo $n;
+								copy('./pic'.$n.'.png', './pic'.$m.'.png');
+							}
+							else{
+								unlink('pic'.$m.'.png');
+								$a = 0;
+							}
+							$n++;
+						}
+					}
+				}
+			}
+			
+			deletepic($_GET["picdel"]);
 		?>
 		<a href=image.php?pic=pfp.png target='_self'>
 			<img src='pfp.png' id='pfp'>
@@ -47,35 +73,18 @@
 		</a>
 		<br>
 		<a href=picedit.php target='_self'>
-			<button type='button'>Edit pictures</button>
+			<button type='button'>Add picture</button>
 		</a>
 			<script>
-				function piclist(x){
-					var xhttp, xmlDoc, txt, i = 1;
-					xhttp = new XMLHttpRequest();
-					xhttp.onload = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							xmlDoc = this.responseXML;
-							txt = "";
-							for (i = 1; i <= x; i++) {
-								txt = txt + "<a href=image.php?pic=pic" + i + ".jpg target='_self'><img src='pic" + i + ".jpg' id='pics'></a>";
-							}
-							document.getElementById("piclist").innerHTML = txt;
-						}
-					};
-					xhttp.open("GET", "userprofile.php", true);
-					xhttp.send();
-				}
-				
 				piclist(<?php
 					function picnumber(){
 						$i = 1;
 						$a = 1;
-						$pic = "pic1.jpg";
+						$pic = "pic1.png";
 						while ($a != 0){
 							if (file_exists($pic)){
 								$i++;
-								$pic = "pic".$i.".jpg";
+								$pic = "pic".$i.".png";
 							}
 							else{
 								$a = 0;
@@ -84,6 +93,7 @@
 						}
 						return $i;
 					}
+					
 					echo picnumber();
 				?>)
 			</script>

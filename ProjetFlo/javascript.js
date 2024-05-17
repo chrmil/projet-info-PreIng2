@@ -47,6 +47,23 @@ function editprofile(){
 	xhttp.send();
 }
 
+function piclist(x){
+	var xhttp, xmlDoc, txt, i = 1;
+	xhttp = new XMLHttpRequest();
+	xhttp.onload = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			xmlDoc = this.responseXML;
+			txt = "";
+			for (i = 1; i <= x; i++) {
+				txt = txt + "<a href=image.php?pic=pic" + i + ".png target='_self'><img src='pic" + i + ".png' id='pics'></a>";
+			}
+			document.getElementById("piclist").innerHTML = txt;
+		}
+	};
+	xhttp.open("GET", "userprofile.php", true);
+	xhttp.send();
+}
+
 function confirmdel(){
 	if (confirm("Do you want to delete this picture ?")){
 		

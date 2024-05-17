@@ -16,7 +16,7 @@
 					if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
 						echo "<br>".$_FILES["photo"]["tmp_name"];
 						echo "<br>".$_FILES["photo"]["name"];
-						move_uploaded_file($_FILES["photo"]["tmp_name"], "./pfppreview.png");
+						move_uploaded_file($_FILES["photo"]["tmp_name"], "./picpreview.png");
 						echo "<br>".$str[sizeof($str) - 1];
 						
 					}
@@ -28,17 +28,32 @@
 			}
 			addpic();
 		?>
-		<img src="pfppreview.png" id="pfp">
-		<form action="pfpedit.php" method="post" enctype="multipart/form-data" id="editprofile">
+		<img src="picpreview.png" id="picpreview">
+		<form action="picedit.php" method="post" enctype="multipart/form-data" id="editprofile">
 			<input type='file' id='addpfp' name='photo'>
 			<br>
 			<button type='submit' class='submit' id='addpfp'>Submit profile picture</button>
 		</form>
 		<br>
-		<a href="userprofile.php" target="_self" <?php copy("./pfppreview.png", "./pfp.png"); ?>>
+		<a href="userprofile.php" target="_self" <?php
+						$i = 1;
+						$a = 1;
+						$pic = "pic1.png";
+						while ($a != 0){
+							if (file_exists($pic)){
+								$i++;
+								$pic = "pic".$i.".png";
+							}
+							else{
+								$a = 0;
+							}
+						}
+						
+						copy("./picpreview.png", "./".$pic); ?>>
 			<button type='button'>
 				Validate changes
 			</button>
 		</a>
 	</body>
 </html>
+
