@@ -1,22 +1,14 @@
 <?php
     /* 
-	$users=tableau multidimensionnel
-	foreach $users as $user
- 	$user[0] = username
-	$user[1] = email
-	$user[2] = password
-	$user[3] = access level : "user", "subscribed", "admin"
-	$user[4] = gender
-	$user[5] = userprofile creation date
+    $users=tableau multidimensionnel
+    foreach $users as $user
+    $user[0] = username
+    $user[1] = email
+    $user[2] = password
+    $user[3] = access level : "user", "subscribed", "admin"
+    $user[4] = gender
+    $user[5] = userprofile creation date
 	$user[6] = age (birthdate)
-	$user[7] = profession
-	$user[8] = address
-	$user[9] = status
-	$user[10] = favorite starter
-	$user[11] = favorite generations
-	$user[12] = favorite types
-	$user[13] = nature
-	$user[14] = otherinfo
 
     ...
     $limit=nb d'entrées du tab $user
@@ -91,13 +83,13 @@
 	    }
 		fwrite($userfile, implode(";",$newUser));
 		fwrite($userfile, "\n");
-	    
+	    /*$newUserlist=getUserlist();
 	    try{
-	    	$newUserlist=getUserlist();
+	    	
 	    	if(count($newUserlist)!=count($users)){
 	    		   throw new Exception("Error: newUser(), userlist not updated (wrong count)");
 	    	}
-	    	$try=0;
+	  		$try=0;
 	    	$i=0;
 	    	$error=0;
 	    	
@@ -109,31 +101,31 @@
 	    			break;
 	    		}
 	    		foreach ($user as $elmt){
-	    			
+	    	
 	    			if(strcmp($newUserlist[$i][$j], $elmt)	!= 0){
 	    				$try=1;
 	    				$error=strcmp($newUserlist[$i][$j], $elmt); //1 = str1 too long /  -1 = str1 too short 
-						throw new Exception("$newUserlist[$i][$j] $elmt)"); 
+						throw new Exception("$newUserlist[$i][$j] $elmt"); 
 	    				break;
 	    			}
 	    			$j++;
 	    		}
 	    		$i++;
 	    	}
-		if ($try){
-		 	throw new Exception("Error: newUser(), userlist not updated (wrong content) : $error"); 
+			if ($try){
+		 		throw new Exception("Error: newUser(), userlist not updated (wrong content) : $error"); 
 	    	}
 	    }
-	     catch(Exception $e){
+	    catch(Exception $e){
 		echo $e->getMessage();
-	    }
+	    }*/
 	    fclose($userfile);
- 
+ 		
     }
     
     function updateUser($username, $newUser){
         global $users;
-	$users=getUserlist();
+		$users=getUserlist();
         try {
             if(!isset($users) || empty($users)){
                 throw new Exception("Error:updateUser(), user list");
