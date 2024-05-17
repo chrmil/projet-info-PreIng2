@@ -1,4 +1,4 @@
-function checkUsername() {
+function checkUsername(q) {
        
     var xhttp; 
     xhttp = new XMLHttpRequest();
@@ -19,13 +19,13 @@ function checkUsername() {
     }
     else{
         document.getElementById("div1").innerHTML = "";
-        xhttp.open("GET", "newUserCheck.php?q="+username, true);
+        xhttp.open("GET", "newUserCheck.php?q="+q, true);
     }
     xhttp.send();
 }
 
 
-function checkEmail() { 
+function checkEmail(r) { 
 
        
     var xhttp; 
@@ -43,7 +43,7 @@ function checkEmail() {
     }
     else{
         document.getElementById("div2").innerHTML = "";
-        xhttp.open("GET", "newUserCheck.php?r="+email, true);
+        xhttp.open("GET", "newUserCheck.php?r="+r, true);
 
     }
     xhttp.send();

@@ -104,7 +104,8 @@
 	    			
 	    			if(strcmp($newUserlist[$i][$j], $elmt)	!= 0){
 	    				$try=1;
-	    				$error=strcmp($newUserlist[$i][$j], $elmt);
+	    				$error=strcmp($newUserlist[$i][$j], $elmt); //1 = str1 too long /  -1 = str1 too short 
+						throw new Exception("$newUserlist[$i][$j] $elmt)"); 
 	    				break;
 	    			}
 	    			$j++;
@@ -112,7 +113,7 @@
 	    		$i++;
 	    	}
 		if ($try){
-		 	throw new Exception("Error: newUser(), userlist not updated (wrong content) : $error");
+		 	throw new Exception("Error: newUser(), userlist not updated (wrong content) : $error"); 
 	    	}
 	    }
 	     catch(Exception $e){

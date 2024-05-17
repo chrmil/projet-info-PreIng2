@@ -1,8 +1,10 @@
 <?php 
     include("users.php");
+    global $users;
+    $users=getUserlist();
     try {
         if(!isset($users) || empty($users)){
-                throw new Exception("Error: user list");
+                throw new Exception("Error: newUsercheck :user list");
         }
     }
     catch(Exception $e){
@@ -18,6 +20,7 @@
             }
         }
     }
+    echo $res === "" ? "" : $res;
     reset($users);
     $r= $_REQUEST["r"];
     $res = "";
@@ -29,4 +32,6 @@
             }
         }
     }
+    echo $res === "" ? "" : $res;
+ 
 ?>

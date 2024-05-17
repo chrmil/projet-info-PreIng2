@@ -2,30 +2,33 @@
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         try {
             if(!isset($_POST["username"]) || empty($_POST["username"])){
-                throw new Exception("Error: incorrect username");
+                throw new Exception("Error: login: incorrect username");
             }
             if(!isset($_POST["password"]) || empty($_POST["password"])){
-                throw new Exception("Error: incorrect password");
+                throw new Exception("Error: login : incorrect password");
             }
         }
         catch(Exception $e){
             echo $e->getMessage();
         }
         include("users.php");
+        global $users;
+        $users=getUserlist();
         try {
             if(!isset($users) || empty($users)){
-                throw new Exception("Error: user list");
+                throw new Exception("Error: login : user list");
             }
         }
         catch(Exception $e){
             echo $e->getMessage();
         }
-        reset($users);
+        reset($users); 
         $i=0;
        
         foreach ($users as $user){
             if( ($_POST["username"]==$user[0] || $_POST["username"]==$user[1]) && password_verify($_POST["password"],$user[2])){
-                echo "Welcome back ".$name."!<br>";
+                echo "Welcome back ".$user[0]."!<br>";
+                //session start
                 header("Location:home.html");
                 $i=1;
             }

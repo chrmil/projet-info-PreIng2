@@ -15,7 +15,9 @@
         catch(Exception $e){
             echo $e->getMessage();
         } 
-        include("users.php");
+        include("users.php");   
+        global $users;
+        $users=getUserlist();
         try {
             if(!isset($users) || empty($users)){
                     throw new Exception("Error: user list");
@@ -24,7 +26,7 @@
         catch(Exception $e){
             echo $e->getMessage();
         }
-        global $users;
+     
         reset($users);
         $newUser=array();
         $newUser[0]=$_POST["username"];
