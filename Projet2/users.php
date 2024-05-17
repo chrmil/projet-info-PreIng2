@@ -14,8 +14,9 @@
 	$user[9] = status
 	$user[10] = favorite starter
 	$user[11] = favorite generations
-	$user[12] = nature
-	$user[13] = otherinfo
+	$user[12] = favorite types
+	$user[13] = nature
+	$user[14] = otherinfo
 
     ...
     $limit=nb d'entrées du tab $user
