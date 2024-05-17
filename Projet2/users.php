@@ -1,14 +1,21 @@
 <?php
     /* 
-    $users=tableau multidimensionnel
-    foreach $users as $user
-    $user[0] = username
-    $user[1] = email
-    $user[2] = password
-    $user[3] = access level : "user", "subscribed", "admin"
-    $user[4] = gender
-    $user[5] = userprofile creation date
+	$users=tableau multidimensionnel
+	foreach $users as $user
+ 	$user[0] = username
+	$user[1] = email
+	$user[2] = password
+	$user[3] = access level : "user", "subscribed", "admin"
+	$user[4] = gender
+	$user[5] = userprofile creation date
 	$user[6] = age (birthdate)
+	$user[7] = profession
+	$user[8] = address
+	$user[9] = status
+	$user[10] = favorite starter
+	$user[11] = favorite generations
+	$user[12] = nature
+	$user[13] = otherinfo
 
     ...
     $limit=nb d'entrées du tab $user
