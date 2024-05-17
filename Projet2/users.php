@@ -125,6 +125,7 @@
     
     function updateUser($username, $newUser){
         global $users;
+	$users=getUserlist();
         try {
             if(!isset($users) || empty($users)){
                 throw new Exception("Error:updateUser(), user list");
