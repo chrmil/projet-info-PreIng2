@@ -47,21 +47,23 @@ function editprofile(){
 	xhttp.send();
 }
 
-function piclist(x){
+function confirmdel(){
+	if (confirm("Do you want to delete this picture ?")){
+		
+	}
+}
+
+function picdel(x){
+	const n = JSON.parse(x);
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
-			txt = "";
-			for (i = 1; i <= x; i++) {
-				console.log(i);
-				txt = txt + "<a href=image.html target='_self' <?php copy('./pic" + i + ".jpg', './image.png'); ?><img src='pic" + i + ".jpg' id='pics'></a>"
-				console.log("<a href=image.html target='_self' <?php copy('./pic" + i + ".jpg', './image.png'); ?><img src='pic" + i + ".jpg' id='pics'></a>");
-			}
-			document.getElementById("piclist").innerHTML = txt;
+			txt = "Confirm delete ?<br><a href=userprofile.php?picdel=" + n + " target='_self' color='red'> Yes </a><a href=image.php?pic=" + n + " target='_self'> No </a>";
+			document.getElementById("delbutton").innerHTML = txt;
 		}
 	};
-	xhttp.open("GET", "userprofile.php", true);
+	xhttp.open("GET", "image.php", true);
 	xhttp.send();
 }

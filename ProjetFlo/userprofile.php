@@ -46,8 +46,10 @@
 			<button type='button'>Edit profile</button>
 		</a>
 		<br>
+		<a href=picedit.php target='_self'>
+			<button type='button'>Edit pictures</button>
+		</a>
 			<script>
-				console.log("test");
 				function piclist(x){
 					var xhttp, xmlDoc, txt, i = 1;
 					xhttp = new XMLHttpRequest();
@@ -56,9 +58,7 @@
 							xmlDoc = this.responseXML;
 							txt = "";
 							for (i = 1; i <= x; i++) {
-								console.log(i);
-								txt = txt + "<a href=image.php?pic=pic" + i + ".jpg target='_self'><img src='pic" + i + ".jpg' id='pics'></a>"
-								console.log("<a href=image.php?pic=pic" + i + ".jpg target='_self'><img src='pic" + i + ".jpg' id='pics'></a>");
+								txt = txt + "<a href=image.php?pic=pic" + i + ".jpg target='_self'><img src='pic" + i + ".jpg' id='pics'></a>";
 							}
 							document.getElementById("piclist").innerHTML = txt;
 						}
