@@ -8,11 +8,15 @@
     $user[3] = access level : "user", "subscribed", "admin"
     $user[4] = gender
     $user[5] = userprofile creation date
+	$user[6] = age (birthdate)
+
     ...
     $limit=nb d'entrées du tab $user
     */
 
+
 	function getUserlist(){
+		$limit=10;
 	    try {
 		$userfile=fopen("users.txt", "r");
 		if(!isset($userfile) || empty($userfile)){
@@ -31,7 +35,7 @@
 		    $users[$i]=explode(";", $user, $limit);
 		    $i++;
 	    }
-	    fclose($userlist);
+	    fclose($userfile);
 	    return $users;
 	}
 
@@ -65,9 +69,56 @@
         		throw new Exception("Error: newUser(), new profile not registered");
         	}
         }
-	 catch(Exception $e){
+	 	catch(Exception $e){
             echo $e->getMessage();
         }
+		try {
+			$userfile=fopen("users.txt", "a+");
+			if(!isset($userfile)){
+					throw new Exception("Error:newUser(), user file not found");
+			}
+		}
+	    catch(Exception $e){
+			echo $e->getMessage();
+	    }
+		fwrite($userfile, implode(";",$newUser));
+		fwrite($userfile, "\n");
+	    
+	    try{
+	    	$newUserlist=getUserlist();
+	    	if(count($newUserlist)!=count($users)){
+	    		   throw new Exception("Error: newUser(), userlist not updated (wrong count)");
+	    	}
+	    	$try=0;
+	    	$i=0;
+	    	$error=0;
+	    	
+	    	foreach($users as $user){
+	    		$j=0;
+	    		if(count($newUserlist[$i])!=count($user)){
+	    			$try=1;
+	    			$error=2;
+	    			break;
+	    		}
+	    		foreach ($user as $elmt){
+	    			
+	    			if(strcmp($newUserlist[$i][$j], $elmt)	!= 0){
+	    				$try=1;
+	    				$error=strcmp($newUserlist[$i][$j], $elmt);
+	    				break;
+	    			}
+	    			$j++;
+	    		}
+	    		$i++;
+	    	}
+		if ($try){
+		 	throw new Exception("Error: newUser(), userlist not updated (wrong content) : $error");
+	    	}
+	    }
+	     catch(Exception $e){
+		echo $e->getMessage();
+	    }
+	    fclose($userfile);
  
     }
     
@@ -93,27 +144,27 @@
             echo $e->getMessage();
         }
      
-	$p=0;
-	foreach($users as $user) {
-		if ($user[0]==$username) {
-		        $user=$newUser;
-		        $p=1;
+		$p=0;
+		foreach($users as $user) {
+			if ($user[0]==$username) {
+					$user=$newUser;
+					$p=1;
+			}
 		}
-	}
-	try {
-		if ($p==0){
-			throw new Exception("Error: updateUser(), no profile found");
+		try {
+			if ($p==0){
+				throw new Exception("Error: updateUser(), no profile found");
+			}
 		}
-	}
-	catch(Exception $e){
-		echo $e->getMessage();
-	}
-	   try {
-		$userfile=fopen("users.txt", "w+");
-		if(!isset($userfile)){
-		        throw new Exception("Error:updateUser(), user file not found");
+		catch(Exception $e){
+			echo $e->getMessage();
 		}
-	}
+		try {
+			$userfile=fopen("users.txt", "w+");
+			if(!isset($userfile)){
+					throw new Exception("Error:updateUser(), user file not found");
+			}
+		}
 	    catch(Exception $e){
 		echo $e->getMessage();
 	    }
@@ -134,7 +185,7 @@
 	    	
 	    	foreach($users as $user){
 	    		$j=0;
-	    		if(count($newUserlist[$i])!=count($user){
+	    		if(count($newUserlist[$i])!=count($user)){
 	    			$try=1;
 	    			$error=2;
 	    			break;
@@ -157,7 +208,7 @@
 	     catch(Exception $e){
 		echo $e->getMessage();
 	    }
-	    fclose($userlist);
+	    fclose($userfile);
    
 
     }
