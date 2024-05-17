@@ -28,6 +28,10 @@
 			}
 			collectdat1();
 			*/
+			include("users.php");
+			
+			updateUser("Testrererrrrrrr", "Newusername");
+			
 			function deletepic($x){
 				if(isset($x)){
 					$tab = explode(".", $x);
