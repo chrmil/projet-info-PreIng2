@@ -36,7 +36,7 @@
 			}
 			
 			function sendmessage($ownuser, $message, $othuser){
-				$owninfo = fopen('./1.txt', 'r');
+				$owninfo = fopen('./'.$ownuser.'.txt', 'r');
 				$tab = explode(";", fgets($owninfo));
 				if(isset($message) && ($tab[3] == "subscribed" || $tab[3] == "admin")){
 					$trimmed = trim($message, "\n\x0B \t\r");
@@ -50,12 +50,12 @@
 					}
 				}
 			}
-			
+			$ownuser = '1';
 			$othuser = '2';
 			
-			sendmessage("1", $_POST["message"], $othuser);
+			sendmessage($ownuser, $_POST["message"], $othuser);
 			
-			displaymessage("1", $othuser);
+			displaymessage($ownuser, $othuser);
 		?>
 		<form action="chat1.php" method="post" enctype="multipart/form-data" id="editprofile">
 			<textarea id=message name=message>
