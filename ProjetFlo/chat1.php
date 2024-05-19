@@ -10,8 +10,8 @@
 			function displaymessage($user){
 				$file = fopen('./chat.txt', 'r');
 				while (!feof($file)){
-					echo fgets($file);
-					echo "<br>";
+					echo "<div id='ownmessage'>".fgets($file);
+					echo "<br></div>";
 				}
 				fclose($file);
 			}
@@ -19,7 +19,7 @@
 			function sendmessage($user, $message){
 				if(isset($message)){
 					$file = fopen('./chat.txt', 'a');
-					fwrite($file, $user.";".$message);
+					fwrite($file, $user.";".trim($message, "\n\x0B \t\r"));
 					fclose($file);
 				}
 			}
