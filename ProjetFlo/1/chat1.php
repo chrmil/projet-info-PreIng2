@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css"  href=../style.css>
-		<script src="../javascript.js"></script> 
+		<script src="javascript.js"></script> 
 	</head>
 	<body>
 		<div id='test'>
