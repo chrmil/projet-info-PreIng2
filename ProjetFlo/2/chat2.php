@@ -38,6 +38,7 @@
 			function sendmessage($ownuser, $message, $othuser){
 				$owninfo = fopen('./profile.txt', 'r');
 				$tab = explode(";", fgets($owninfo));
+				fclose($owninfo);
 				if(isset($message) && ($tab[3] == "subscribed" || $tab[3] == "admin")){
 					$trimmed = trim($message, "\n\x0B \t\r");
 					if (!empty($trimmed)){
@@ -50,7 +51,10 @@
 					}
 				}
 			}
-			$ownuser = '1';
+			$ownprof = fopen('./profile.txt', 'r');
+			$owntab = explode(";", fgets($ownprof));
+			$ownuser = $owntab[0];
+			fclose($ownprof);
 			$othuser = '2';
 			
 			sendmessage($ownuser, $_POST["message"], $othuser);
