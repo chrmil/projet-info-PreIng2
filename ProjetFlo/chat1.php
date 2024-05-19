@@ -2,8 +2,8 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css"  href=style.css>
-		<script src="javascript.js"></script> 
+		<link rel="stylesheet" type="text/css"  href=../style.css>
+		<script src="../javascript.js"></script> 
 	</head>
 	<body>
 		<?php
