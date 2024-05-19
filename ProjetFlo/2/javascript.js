@@ -84,3 +84,7 @@ function picdel(x){
 	xhttp.open("GET", "image.php", true);
 	xhttp.send();
 }
+
+function scrollDown(){
+	window.scrollTo(0, document.body.scrollHeight);
+}
