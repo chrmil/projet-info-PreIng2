@@ -36,7 +36,7 @@
 			}
 			
 			function sendmessage($ownuser, $message, $othuser){
-				$owninfo = fopen('./'.$ownuser.'.txt', 'r');
+				$owninfo = fopen('./profile.txt', 'r');
 				$tab = explode(";", fgets($owninfo));
 				if(isset($message) && ($tab[3] == "subscribed" || $tab[3] == "admin")){
 					$trimmed = trim($message, "\n\x0B \t\r");
