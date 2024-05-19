@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css"  href=../style.css>
 		<script src="javascript.js"></script> 
 	</head>
-	<body>
+	<body onload=scrollDown()>
 		<div id='test'>
 			<?php
 				function displaymessage($ownuser, $othuser){
