@@ -24,6 +24,15 @@
 	   					Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
 	 					Sprigatito (Poussacha)		Fuecoco (Chochodile)	Quaxly (Coiffeton)
 	$user[12] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
+ 						Gen 1	Red / Blue / Yellow
+       						Gen 2	Gold / Silver / Crystal
+	     					Gen 3	Ruby / Sapphire / Emerald
+	   					Gen 4	Diamond / Pearl / Platinum
+	 					Gen 5	Black / White
+       						Gen 6	X / Y
+	     					Gen 7	Sun / Moon
+	   					Gen 8	Sword / Shield
+	 					Gen 9	Scarlet / Violet
 	$user[13] = favorite types		Optionnel, liste
 	$user[14] = nature			Optionnel, prendre les natures de Pokémon
 					 	Adamant		Bashful		Bold		Brave		Calm
