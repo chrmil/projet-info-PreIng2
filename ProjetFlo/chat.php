@@ -9,18 +9,18 @@
 	<body onload=scrollDown()>
 		<div id='test'>
 			<?php
-				function picnumber2($ownuser){
+				function picnumber2($ownuser, $othuser){
 					$i = 1;
 					$a = 1;
-					$pic = "./".$ownuser."/1.png";
+					$pic = "1.png";
+					echo $pic;
 					while ($a != 0){
-						if (file_exists($pic)){
+						if (file_exists("./".$ownuser."/own_".$othuser."_".$pic) || file_exists("./".$ownuser."/oth_".$othuser."_".$pic)){
 							$i++;
 							$pic = $i.".png";
 						}
 						else{
 							$a = 0;
-							$i--;
 						}
 					}
 					return $i;
@@ -102,7 +102,7 @@
 							}
 						}
 						if (!empty($_FILES)){
-							$picnum = picnumber2($ownuser);
+							$picnum = picnumber2($ownuser, $othuser);
 							$str = explode(".", $_FILES["file"]["name"]);
 							if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
 								move_uploaded_file($_FILES["file"]["tmp_name"], './'.$ownuser.'/own_'.$othuser.'_'.$picnum.'.png');
