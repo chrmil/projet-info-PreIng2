@@ -2,21 +2,22 @@
 	/* 
 	$users=tableau multidimensionnel
 	foreach $users as $user
-	$user[0] = username
-	$user[1] = email
-	$user[2] = password
-	$user[3] = access level : "user", "subscribed", "admin"
-	$user[4] = gender
-	$user[5] = userprofile creation date
-	$user[6] = age (birthdate)
-	$user[7] = profession
-	$user[8] = address
-	$user[9] = status
-	$user[10] = favorite starter
-	$user[11] = favorite generations
-	$user[12] = favorite types
-	$user[13] = nature
-	$user[14] = otherinfo
+ 	$user[0] = userID
+	$user[1] = username
+	$user[2] = email
+	$user[3] = password
+	$user[4] = access level : "user", "subscribed", "admin"
+	$user[5] = gender
+	$user[6] = userprofile creation date
+	$user[7] = age (birthdate)
+	$user[8] = profession
+	$user[9] = address
+	$user[10] = status
+	$user[11] = favorite starter
+	$user[12] = favorite generations
+	$user[13] = favorite types
+	$user[14] = nature
+	$user[15] = otherinfo
 
     ...
     $limit=nb d'entrées du tab $user
