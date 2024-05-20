@@ -87,7 +87,8 @@ function picdel(x){
 
 function refreshmessage(){
 	var auto_refresh = setInterval(function (){
-		$('#test').load('chat.php #test');
+		var url = window.location.href;
+		$('#test').load(url + ' #test');
 	}, 1000); // refresh every 1000 milliseconds
 }
 
