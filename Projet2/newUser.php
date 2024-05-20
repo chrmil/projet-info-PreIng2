@@ -17,7 +17,7 @@
         } 
         include("users.php");   
         global $users;
-        $users=getUserlist();
+        $users=getUserlist(); //gets userlist
         try {
             if(!isset($users) || empty($users)){
                     throw new Exception("Error: user list");
@@ -28,15 +28,21 @@
         }
      
         reset($users);
-        $newUser=array();
-        $newUser[0]=$_POST["username"];
-        $newUser[1]=$_POST["email"];
+        $newUser=array(); //creates new profile
+        $newUser[0]=rand(10,999); //generate user ID (int betwenn 10 and 999)
+        foreach($users as $user) {
+            while ($user[0]==$newUser[0]) { //checks ID is available , generates a new one if necessary
+              $newUser[0]=rand(10,9999);
+            }
+        }
+        $newUser[1]=$_POST["username"];
+        $newUser[2]=$_POST["email"];
         $password=$_POST["password1"];
-        $newUser[2]=password_hash($password,PASSWORD_BCRYPT);
-        $newUser[3]="user";
-        $newUser[4]=$_POST["gender"];
-        $newUser[5]=date("d/m/Y");
-        newUser($newUser);
+        $newUser[3]=password_hash($password,PASSWORD_BCRYPT); 
+        $newUser[4]="user";
+        $newUser[5]=$_POST["gender"];
+        $newUser[6]=date("d/m/Y");
+        newUser($newUser); //adds in the new user's profile
     
     }
    

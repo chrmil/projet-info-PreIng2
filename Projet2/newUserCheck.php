@@ -14,8 +14,8 @@
     $q = $_REQUEST["q"];
     $res = "";
     if ($q !== "") {
-        foreach($users as $user) {
-            if ($user[0]==$q) {
+        foreach($users as $user) { //checks if username is available
+            if ($user[1]==$q) {
               $res="Username taken.";
             }
         }
@@ -26,8 +26,8 @@
     $res = "";
     if ($r !== "") {
 
-        foreach($users as $user) {
-            if ($user[1]==$r) {
+        foreach($users as $user) {//checks if email is available
+            if ($user[2]==$r) {
               $res="Email taken.";
             }
         }

@@ -26,9 +26,9 @@
         $i=0;
        
         foreach ($users as $user){
-            if( ($_POST["username"]==$user[0] || $_POST["username"]==$user[1]) && password_verify($_POST["password"],$user[2])){
-                echo "Welcome back ".$user[0]."!<br>";
-                //session start
+            if( ($_POST["username"]==$user[1] || $_POST["username"]==$user[2]) && password_verify($_POST["password"],$user[3])){
+                echo "Welcome back ".$user[1]."!<br>";
+                //session start ?
                 header("Location:home.html");
                 $i=1;
             }
@@ -36,7 +36,6 @@
         }
         if($i==0){
             header("Location:logIn.html");
-            echo "Not an user";
           
         }
     }
