@@ -35,6 +35,23 @@
 						fclose($chat);          
 					}
 				}
+
+				function sendpic(){
+					if (!empty($_FILES)){
+						$str = explode(".", $_FILES["file"]["name"]);
+						echo $str[0];
+						if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
+							echo "<br>".$_FILES["file"]["tmp_name"];
+							echo "<br>".$_FILES["file"]["name"];
+							move_uploaded_file($_FILES["file"]["tmp_name"], "./pfppreview.png");
+							echo "<br>".$str[sizeof($str) - 1];
+						}
+						else{
+							echo "Incorrect file format";
+						}
+					}
+					return 0;
+				}
 				
 				function sendmessage($ownuser, $message, $othuser){
 					$owninfo = fopen('./profile.txt', 'r');
@@ -65,15 +82,17 @@
 			?>
 		</div>
 		<script>
-			var auto_refresh = setInterval(function (){
-				$('#test').load('chat1.php #test');
-			}, 1000); // refresh every 1000 milliseconds
+			refreshmessage();
 		</script>
 		
 		<form action="chat1.php" method="post" enctype="multipart/form-data" id="editprofile">
 			<textarea id=message name=message>
 			</textarea>
-			<button type=submit> Send </button>
+			<input type=file name=file accept="image/png, image/jpg, image/jpeg">
+			<button type=submit id=send> Send </button>
 		</form>
+		<script>
+			entersend();
+		</script>
 	</body>
 </html>
