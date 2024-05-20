@@ -85,14 +85,16 @@
 						$i = 1;
 						$a = 1;
 						$pic = "pic1.png";
-						while ($a != 0){
-							if (file_exists($pic)){
-								$i++;
-								$pic = "pic".$i.".png";
-							}
-							else{
-								$a = 0;
-								$i--;
+						if (file_exists($pic)){
+							while ($a != 0){
+								if (file_exists($pic)){
+									$i++;
+									$pic = "pic".$i.".png";
+								}
+								else{
+									$a = 0;
+									$i--;
+								}
 							}
 						}
 						return $i;
