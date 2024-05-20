@@ -11,9 +11,9 @@
 	$user[6] = userprofile creation date	Généré automatiquement
 	$user[7] = age (birthdate)
 	$user[8] = profession			Optionnel
-	$user[9] = address
+	$user[9] = address			Pays obligatoire (liste de pays), reste optionnel
 	$user[10] = status			Married / Divorced / Couple / Single
- 	$user[11] = children			Number of children
+ 	$user[11] = children			Nombre d'enfants
 	$user[12] = favorite starter		Optionnel, liste des 27 starters 
  						Bulbasaur (Bulbizarre)		Charmander (Salamèche)	Squirtle (Carapuce)
        						Chikorita (Germignon)		Cyndaquil (Héricendre)	Totodile (Kaiminus)
@@ -24,7 +24,7 @@
 	     					Rowlet (Brindibou)		Litten (Flamiaou)	Popplio (Otaquin)
 	   					Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
 	 					Sprigatito (Poussacha)		Fuecoco (Chochodile)	Quaxly (Coiffeton)
-       
+
 	$user[13] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
  						Gen 1	Red / Blue / Yellow
        						Gen 2	Gold / Silver / Crystal
@@ -35,18 +35,19 @@
 	     					Gen 7	Sun / Moon
 	   					Gen 8	Sword / Shield
 	 					Gen 9	Scarlet / Violet
-       
+
 	$user[14] = favorite types		Optionnel, liste des types
  						Bug	Dark	Dragon	Electric	Fairy	Fighting	Fire	Flying	Ghost
        						Grass	Ground	Ice	Normal		Poison	Psychic		Rock	Steel	Water
- 						
+ 
 	$user[15] = nature			Optionnel, prendre les natures de Pokémon
 					 	Adamant		Bashful		Bold		Brave		Calm
 					  	Careful		Docile		Gentle		Hardy		Hasty
 					   	Impish		Jolly		Lax		Lonely		Mild
 					    	Modest		Naive		Naughty		Quiet		Quirky
 					     	Rash		Relax		Sassy		Serious		Timid
-	$user[16] = otherinfo
+
+	$user[16] = otherinfo			Optionnel, paragraphe libre
 
     ...
     $limit=nb d'entrées du tab $user
