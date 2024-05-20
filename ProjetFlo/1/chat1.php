@@ -40,7 +40,7 @@
 					$owninfo = fopen('./profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
-					if(isset($message) && ($tab[3] == "subscribed" || $tab[3] == "admin")){
+					if(isset($message) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
 						$trimmed = trim($message, "\n\x0B \t\r");
 						if (!empty($trimmed)){
 							$ownchat = fopen('./chat'.$othuser.'.txt', 'a');
