@@ -85,6 +85,25 @@ function picdel(x){
 	xhttp.send();
 }
 
+function refreshmessage(){
+	var auto_refresh = setInterval(function (){
+		$('#test').load('chat1.php #test');
+	}, 1000); // refresh every 1000 milliseconds
+}
+
 function scrollDown(){
 	window.scrollTo(0, document.body.scrollHeight);
+}
+
+function entersend(){
+	// Execute a function when the user presses a key on the keyboard
+	document.body.addEventListener("keypress", function(event) {
+		// If the user presses the "Enter" key on the keyboard
+		if (event.key === "Enter") {
+			// Cancel the default action, if needed
+			event.preventDefault();
+			// Trigger the button element with a click
+			document.getElementById("send").click();
+		}
+	});
 }
