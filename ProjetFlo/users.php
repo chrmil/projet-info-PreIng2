@@ -14,23 +14,23 @@
 	$user[9] = address
 	$user[10] = status
 	$user[11] = favorite starter		Optionnel, liste des 27 starters 
- 						(Bulbizarre, Salamèche, Carapuce,
-       						Germignon, Héricendre, Kaiminus,
-	     					Arcko, Poussifeu, Gobou,
-	   					Tortipouss, Ouisticram, Tiplouf,
-	 					Vipélierre, Gruikui, Moustillon,
-       						Marisson, Feunnec, Grenousse,
-	     					Brindibou, Flamiaou, Otaquin,
-	   					Ouistempo, Flambino, Larméléon,
-	 					Poussacha, Chochodile, Coiffeton)
+ 						Bulbasaur (Bulbizarre)		Charmander (Salamèche)	Squirtle (Carapuce)
+       						Chikorita (Germignon)		Cyndaquil (Héricendre)	Totodile (Kaiminus)
+	     					Treecko (Arcko)			Torchic (Poussifeu)	Mudkip (Gobou)
+	   					Turtwig (Tortipouss)		Chimchar (Ouisticram)	Piplup (Tiplouf)
+	 					Snivy (Vipélierre)		Tepig (Gruikui)		Oshawott (Moustillon)
+       						Chespin (Marisson)		Fennekin (Feunnec)	Froakie (Grenousse)
+	     					Rowlet (Brindibou)		Litten (Flamiaou)	Popplio (Otaquin)
+	   					Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
+	 					Sprigatito (Poussacha)		Fuecoco (Chochodile)	Quaxly (Coiffeton)
 	$user[12] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
 	$user[13] = favorite types		Optionnel, liste
 	$user[14] = nature			Optionnel, prendre les natures de Pokémon
-					 	(Adamant, Bashful, Bold, Brave, Calm,
-					  	Careful, Docile, Gentle, Hardy, Hasty,
-					   	Impish, Jolly, Lax, Lonely, Mild,
-					    	Modest, Naive, Naughty, Quiet, Quirky,
-					     	Rash, Relax, Sassy, Serious, Timid)
+					 	Adamant		Bashful		Bold		Brave		Calm
+					  	Careful		Docile		Gentle		Hardy		Hasty
+					   	Impish		Jolly		Lax		Lonely		Mild
+					    	Modest		Naive		Naughty		Quiet		Quirky
+					     	Rash		Relax		Sassy		Serious		Timid
 	$user[15] = otherinfo
 
     ...
