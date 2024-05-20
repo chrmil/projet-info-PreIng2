@@ -2,21 +2,35 @@
 	/* 
 	$users=tableau multidimensionnel
 	foreach $users as $user
- 	$user[0] = userID
-	$user[1] = username
-	$user[2] = email
+ 	$user[0] = userID		Généré aléatoirement, unique, inchangeable, permet de vérifier qui est la personne même après changement de pseudo/email
+	$user[1] = username		Unique
+	$user[2] = email		Unique
 	$user[3] = password
-	$user[4] = access level : "user", "subscribed", "admin"
+	$user[4] = access level : "user", "subscribed", "admin"		User par défaut, peut changer si l'abonnement est pris, admin peut se donner les permissions via le fichier txt
 	$user[5] = gender
-	$user[6] = userprofile creation date
+	$user[6] = userprofile creation date	Généré automatiquement
 	$user[7] = age (birthdate)
-	$user[8] = profession
+	$user[8] = profession			Optionnel
 	$user[9] = address
 	$user[10] = status
-	$user[11] = favorite starter
-	$user[12] = favorite generations
-	$user[13] = favorite types
-	$user[14] = nature
+	$user[11] = favorite starter		Optionnel, liste des 27 starters 
+ 						(Bulbizarre, Salamèche, Carapuce,
+       						Germignon, Héricendre, Kaiminus,
+	     					Arcko, Poussifeu, Gobou,
+	   					Tortipouss, Ouisticram, Tiplouf,
+	 					Vipélierre, Gruikui, Moustillon,
+       						Marisson, Feunnec, Grenousse,
+	     					Brindibou, Flamiaou, Otaquin,
+	   					Ouistempo, Flambino, Larméléon,
+	 					Poussacha, Chochodile, Coiffeton)
+	$user[12] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
+	$user[13] = favorite types		Optionnel, liste
+	$user[14] = nature			Optionnel, prendre les natures de Pokémon
+					 	(Adamant, Bashful, Bold, Brave, Calm,
+					  	Careful, Docile, Gentle, Hardy, Hasty,
+					   	Impish, Jolly, Lax, Lonely, Mild,
+					    	Modest, Naive, Naughty, Quiet, Quirky,
+					     	Rash, Relax, Sassy, Serious, Timid)
 	$user[15] = otherinfo
 
     ...
