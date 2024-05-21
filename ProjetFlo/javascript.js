@@ -58,7 +58,7 @@ function piclist(x, user){
 			xmlDoc = this.responseXML;
 			txt = "";
 			for (i = 1; i <= x; i++) {
-				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png target='_self'><img src='pic" + i + ".png' id='pics'></a>";
+				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png target='_self'><img src='./" + user + "/pic" + i + ".png' id='pics'></a>";
 			}
 			document.getElementById("piclist").innerHTML = txt;
 		}

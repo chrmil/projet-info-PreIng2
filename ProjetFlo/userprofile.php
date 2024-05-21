@@ -18,16 +18,16 @@
 					$p = substr($tab[0], 0, 3);
 					if ($p == "pic"){
 						$n = substr($tab[0], 3);
-						unlink($x);
+						unlink("./".$_GET["user"]."/".$x);
 						$n++;
 						$a = 1;
 						while ($a != 0){
 							$m = $n - 1;
 							if (file_exists("pic".$n.".png")){
-								copy('./pic'.$n.'.png', './pic'.$m.'.png');
+								copy('./'.$_GET["user"].'/pic'.$n.'.png', './'.$_GET["user"].'/pic'.$m.'.png');
 							}
 							else{
-								unlink('pic'.$m.'.png');
+								unlink('./'.$_GET["user"].'/pic'.$m.'.png');
 								$a = 0;
 							}
 							$n++;
@@ -37,17 +37,17 @@
 				}
 			}
 			
-			if (file_exists("./picpreview.png")){
-				unlink("./picpreview.png");
+			if (file_exists("./".$_GET["user"]."/picpreview.png")){
+				unlink("./".$_GET["user"]."/picpreview.png");
 			}
 			
 			deletepic($_GET["picdel"]);
 		?>
 		<a href=image.php<?php echo "?user=".$_GET["user"] ?>&pic=pfp.png target='_self'>
-			<img src='pfp.png' id='pfp'>
+			<img src=<?php echo "./".$_GET["user"] ?>/pfp.png id='pfp'>
 		</a>
-		<a href=pfpedit.php<?php echo "?user=".$_GET["user"] ?> target='_self' <?php copy('./pfp.png', './pfppreview.png'); ?>>
-			<img src='edit.png' id='edit'>
+		<a href=pfpedit.php<?php echo "?user=".$_GET["user"] ?> target='_self' <?php copy('./'.$_GET["user"].'/pfp.png', './'.$_GET["user"].'/pfppreview.png'); ?>>
+			<img src=edit.png id='edit'>
 		</a>
 		<?php
 			function displayinfo($user){
@@ -81,7 +81,7 @@
 						$a = 1;
 						$pic = "pic1.png";
 						while ($a != 0){
-							if (file_exists($pic)){
+							if (file_exists("./".$_GET["user"]."/".$pic)){
 								$i++;
 								$pic = "pic".$i.".png";
 							}

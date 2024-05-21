@@ -21,7 +21,7 @@
 			
 			editinfo($_GET["user"]);
 		?>
-		<img src="pfp.png" id="pfp">
+		<img src=<?php echo "./".$_GET["user"] ?>/pfp.png id="pfp">
 		<form method="post" enctype="multipart/form-data" id="editprofile">
 		</form>
 	</body>
