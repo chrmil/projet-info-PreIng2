@@ -1,2 +1,3 @@
-admin;admin@admin.fr;password;admin
-test;test@mail.fr;$2y$10$tYmsUGUWI8n0jGDqGkwEeuGsIXi/r7ulHmqWpTHKPbntoIsfLlp9m;user;woman;17/05/2024
+0;admin;admin@admin.fr
+134;test;email@test
+579;test2;email@test2

@@ -58,9 +58,9 @@
 	function getUserlist(){ //gets all users' profiles in an array  (see above)
 		
 	    try {
-			$userlist=scandir("/Projet2/users"); //gets the content of the directory ; pathway name to be changed
+			$userlist=scandir("users"); //gets the content of the directory ; pathway name to be changed
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
-				throw new Exception("Error: updateUser(): users dir");
+				throw new Exception("Error: getUserlist(): users dir");
 			}
 			else{
 				$userlist=array_diff($userlist, array("..", ".")); //removes the . and .. entries of the array
@@ -74,16 +74,15 @@
 	    reset($users);
 		$i=0;
 		foreach ($userlist as $userdir){
-			try {
-				$userfile=fopen("$userdir/profile.txt","r");
-				if(!isset($userfile) ){
-					throw new Exception("Error: getUserlist(): user file : $userdir");
+			$profile=file("users/$userdir/profile.txt"); //gets each line of the file as an entry of the profile array
+			try{
+				if(!isset($profile) || empty($profile)){
+					throw new Exception ("Error: getUserlist(): user profile");
 				}
 			}
 			catch(Exception $e){
 				echo $e->getMessage();
 			}
-			$profile=file($userfile); //gets each line of the file as an entry of the profile array
 			$users[$i]=$profile; 
 			$i++;			
 		}
@@ -91,6 +90,7 @@
 	}
 
     function newUser($newUser){ //adds a new user to the directory, registry and list 
+	
         global $users;
 		$users=getUserlist(); //gets userlist
         try {
@@ -138,17 +138,26 @@
 		fwrite($userfile, "\n");
 	    fclose($userfile);
 		try {
-			if(file_exists("/Projet2/users/$newUser[0]")){
+			if(file_exists("users/$newUser[0]")){
 					throw new Exception("Error:newUser(), user dir already exists");
 			}
 		}
 	    catch(Exception $e){
 			echo $e->getMessage();
 	    }
-		mkdir("/Projet2/users/$newUser[0]"); //creates new user's directory 
-		$userdir=opendir("/Projet2/users/$newUser[0]");
+		mkdir("users/$newUser[0]"); //creates new user's directory 
 		try {
-			$userfile=fopen("$userdir/profile.txt", "w+"); //creates profile file
+
+			if(!file_exists("users/$newUser[0]") || !is_dir("users/$newUser[0]")){
+					throw new Exception("Error:newUser(), user file not found");
+			}
+		}
+		catch(Exception $e){
+			echo $e->getMessage();
+	    }
+		$userdir=opendir("users/$newUser[0]");
+		try {
+			$userfile=fopen("users/$newUser[0]/profile.txt", "w"); //creates profile file
 			if(!isset($userfile)){
 					throw new Exception("Error:newUser(), user file not found");
 			}
@@ -163,8 +172,8 @@
 		fclose($userfile);
 		closedir($userdir);
 		try {
-			copy("/Projet2/javascript.js", "/Projet2/users/$newUser[0]/javascript.js"); //copy js file to the new user's directory 
-			if(!file_exists("/Projet2/users/$newUser[0]/javascript.js")){
+			copy("javascript.js", "users/$newUser[0]/javascript.js"); //copy js file to the new user's directory 
+			if(!file_exists("users/$newUser[0]/javascript.js")){
 					throw new Exception("Error:newUser(), copy failed");
 			}
 		}
@@ -234,7 +243,7 @@
 	    }
 		fclose($userfile);
 		try {
-			$userlist=scandir("/Projet2/users"); //gets list of user directories 
+			$userlist=scandir("users"); //gets list of user directories 
 			
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
 					throw new Exception("Error: updateUser(): users dir");
