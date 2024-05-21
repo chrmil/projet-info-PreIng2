@@ -25,7 +25,7 @@
 					}
 					return $i;
 				}
-				
+			
 				function displaymessage($ownuser, $othuser){
 					if(file_exists('./'.$ownuser.'/chat'.$othuser.'.txt')){
 						$chat = fopen('./'.$ownuser.'/chat'.$othuser.'.txt', 'r');
@@ -39,7 +39,7 @@
 									echo "<div id='ownimg'><img src=./".$ownuser."/own_".$othuser."_".$tab[2]."<br></div>";
 								}
 								else if ($tab[1] == $othuser){
-									echo "<div id='othimg'><img src=./".$ownuser."/oth_".$othuser."_".$tab[2]."<br></div>";
+										echo "<div id='othimg'><img src=./".$ownuser."/oth_".$othuser."_".$tab[2]."<br></div>";
 								}
 								else{
 									echo "Problem displaymessage";
@@ -52,10 +52,10 @@
 								echo "<br></div>";
 							}
 							else if ($tab[0] == $othuser){
-								$tab2 = array_slice($tab, 1);
-								$message = implode($tab2);
-								echo "<div id='othmessage'>".$message;
-								echo "<br></div>";
+									$tab2 = array_slice($tab, 1);
+									$message = implode($tab2);
+									echo "<div id='othmessage'>".$message;
+									echo "<br></div>";
 							}
 							else{
 								echo "Problem displaymessage";
@@ -64,7 +64,7 @@
 						fclose($chat);          
 					}
 				}
-				
+
 				function checkperms($ownuser){
 					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
@@ -84,7 +84,7 @@
 						echo "You need to subscribe to send a message.";
 					}
 				}
-				
+	
 				function sendmessage($ownuser, $message, $file, $othuser){
 					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
@@ -120,17 +120,19 @@
 						}
 					}
 				}
-				
+	
 				sendmessage($_GET["ownuser"], $_POST["message"], $_POST["file"], $_GET["othuser"]);
+	
 				displaymessage($_GET["ownuser"], $_GET["othuser"]);
-
 			?>
 		</div>
 		<script>
 			refreshmessage();
 		</script>
-		<?php
-			checkperms($_GET["ownuser"]);
-		?>
+		
+		
+			<?php
+				checkperms($_GET["ownuser"]);
+			?>
 	</body>
 </html>
