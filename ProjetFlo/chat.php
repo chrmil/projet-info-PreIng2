@@ -69,7 +69,7 @@
 					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
-					if($tab[3] == "subscribed" || $tab[3] == "admin"){
+					if($tab[4] == "subscribed" || $tab[4] == "admin"){
 						echo "<form method='post' enctype='multipart/form-data'>
 							<textarea id=message name=message>
 							</textarea>
@@ -89,7 +89,7 @@
 					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
-					if((isset($message) || !empty($_FILES)) && ($tab[3] == "subscribed" || $tab[3] == "admin")){
+					if((isset($message) || isset($file)) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
 						if (isset($message)){
 							$trimmed = trim($message, "\n\x0B \t\r");
 							if (!empty($trimmed)){
@@ -101,7 +101,7 @@
 								fclose($othchat);
 							}
 						}
-						if (!empty($_FILES)){
+						if (isset($file)){
 							$picnum = picnumber2($ownuser, $othuser);
 							$str = explode(".", $_FILES["file"]["name"]);
 							if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
