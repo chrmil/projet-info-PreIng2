@@ -92,6 +92,7 @@
 							}
 							else{
 								$a = 0;
+								$i--;
 							}
 						}
 						return $i;
