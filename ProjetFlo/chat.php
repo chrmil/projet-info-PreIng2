@@ -13,7 +13,6 @@
 					$i = 1;
 					$a = 1;
 					$pic = "1.png";
-					echo $pic;
 					while ($a != 0){
 						if (file_exists("./".$ownuser."/own_".$othuser."_".$pic) || file_exists("./".$ownuser."/oth_".$othuser."_".$pic)){
 							$i++;
@@ -71,8 +70,7 @@
 					fclose($owninfo);
 					if($tab[4] == "subscribed" || $tab[4] == "admin"){
 						echo "<form method='post' enctype='multipart/form-data'>
-							<textarea id=message name=message>
-							</textarea>
+							<textarea id=message name=message></textarea>
 							<input type=file name=file accept='image/png, image/jpg, image/jpeg'>
 							<button type=submit id=send> Send </button>
 						</form>
@@ -85,11 +83,11 @@
 					}
 				}
 				
-				function sendmessage($ownuser, $message, $file, $othuser){
+				function sendmessage($ownuser, $message, $othuser){
 					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
-					if((isset($message) || isset($file)) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
+					if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
 						if (isset($message)){
 							$trimmed = trim($message, "\n\x0B \t\r");
 							if (!empty($trimmed)){
@@ -101,7 +99,7 @@
 								fclose($othchat);
 							}
 						}
-						if (isset($file)){
+						if (is_uploaded_file($_FILES["file"]["tmp_name"])){
 							$picnum = picnumber2($ownuser, $othuser);
 							$str = explode(".", $_FILES["file"]["name"]);
 							if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
@@ -121,7 +119,7 @@
 					}
 				}
 				
-				sendmessage($_GET["ownuser"], $_POST["message"], $_POST["file"], $_GET["othuser"]);
+				sendmessage($_GET["ownuser"], $_POST["message"], $_GET["othuser"]);
 				displaymessage($_GET["ownuser"], $_GET["othuser"]);
 
 			?>
