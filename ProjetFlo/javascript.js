@@ -28,26 +28,29 @@ function checkusernameedit(){
 	xhttp.send();
 }
 
-function editprofile(){
+function editprofile(info){
+	const n = JSON.parse(info);
 	var xhttp, xmlDoc, txt, x, i;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
 			txt = "";
-			x = ["username", "gender", "birthdate", "profession", "place", "status", "otherinfo"];
-			for (i = 0; i < 7; i++) {
-				txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + displayinfo(x[i]) + "' onkeyup='check" + x[i] + "edit()'><div id='" + x[i] + "div'></div>";
+			x = ["username", "email", "password", "subscription", "gender", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature"];
+			for (i = 1; i < 16; i++) {
+				if (i != 3 && i != 6){
+					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i]/* + "' onkeyup='check" + x[i] + "edit()'><div id='" + x[i] + "div'></div>"*/ + "'><br>";
+				}
 			}
-			txt = txt + "<button type='submit' class='submit'>Submit</button>";
+			txt = txt + "<textarea id='description' name='description'>" + n[16] + "</textarea><br><button type='submit' class='submit'>Submit</button>";
 			document.getElementById("editprofile").innerHTML = txt;
 		}
 	};
-	xhttp.open("GET", "useredit.php", true);
+	xhttp.open("GET", "useredit.php?user=" + n[0], true);
 	xhttp.send();
 }
 
-function piclist(x){
+function piclist(x, user){
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
@@ -55,7 +58,7 @@ function piclist(x){
 			xmlDoc = this.responseXML;
 			txt = "";
 			for (i = 1; i <= x; i++) {
-				txt = txt + "<a href=image.php?pic=pic" + i + ".png target='_self'><img src='pic" + i + ".png' id='pics'></a>";
+				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png target='_self'><img src='pic" + i + ".png' id='pics'></a>";
 			}
 			document.getElementById("piclist").innerHTML = txt;
 		}
@@ -70,14 +73,14 @@ function confirmdel(){
 	}
 }
 
-function picdel(x){
+function picdel(x, user){
 	const n = JSON.parse(x);
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
-			txt = "Confirm delete ?<br><a href=userprofile.php?picdel=" + n + " target='_self' color='red'> Yes </a><a href=image.php?pic=" + n + " target='_self'> No </a>";
+			txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + " target='_self' color='red'> Yes </a><a href=image.php?user=" + user + "&pic=" + n + " target='_self'> No </a>";
 			document.getElementById("delbutton").innerHTML = txt;
 		}
 	};

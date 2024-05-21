@@ -71,7 +71,7 @@
 					if($tab[4] == "subscribed" || $tab[4] == "admin"){
 						echo "<form method='post' enctype='multipart/form-data'>
 							<textarea id=message name=message></textarea>
-							<input type=file name=file accept='image/png, image/jpg, image/jpeg'>
+							<input type=file name=file accept='image/png,image/jpg,image/jpeg'>
 							<button type=submit id=send> Send </button>
 						</form>
 						<script>
