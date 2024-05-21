@@ -1,4 +1,4 @@
-<?php 
+<?php  //doesn't work now 
     include("users.php");
     global $users;
     $users=getUserlist();
@@ -17,12 +17,13 @@
         foreach($users as $user) { //checks if username is available
             if ($user[1]==$q) {
               $res="Username taken.";
+            
             }
         }
     }
     echo $res === "" ? "" : $res;
     reset($users);
-    $r= $_REQUEST["r"];
+    $r = $_REQUEST["r"];
     $res = "";
     if ($r !== "") {
 

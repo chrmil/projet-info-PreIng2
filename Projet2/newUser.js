@@ -12,25 +12,27 @@ function checkUsername(q) {
     username=formData.get("username");
     if (username.length == 0 ) {
         document.getElementById("div1").innerHTML = "Please enter an username.";
-        username.setCustomValidity("Please enter an username.");
+       
         
     }
     else if (username.length<3){
         document.getElementById("div1").innerHTML = "This username is too short. The minimum length is 3 characters.";
-        username.setCustomValidity("This username is too short. The minimum length is 3 characters.");
     }
     else{
         document.getElementById("div1").innerHTML = "";
         xhttp.open("GET", "newUserCheck.php?q="+q, true);
     }
-    if(document.getElementById("div1").innerHTML == "Username taken."){
-        username.setCustomValidity("This username is already taken. Please select another one."); // fonctionne pas
-    }
-    username.reportValidity();
+   
     xhttp.send();
 }
-
-
+/*
+form.addEventListener("submit", function(event) {
+    if(Username taken){
+        document.getElementById("div1").innerHTML = "Username taken";
+        event.preventDefault();
+    }
+  })
+*/
 function checkEmail(r) { 
 
        
@@ -53,9 +55,8 @@ function checkEmail(r) {
 
     }
     if (document.getElementById("div2").innerHTML == "Email taken."){
-        email.setCustomValidity("This username is already taken. Please select another one.");
+      
     }
-    email.reportValidity();
     xhttp.send();
 }
 

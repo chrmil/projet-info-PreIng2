@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         try {
             if(!isset($_POST["username"]) || empty($_POST["username"])){
@@ -28,7 +29,7 @@
         foreach ($users as $user){
             if( ($_POST["username"]==$user[1] || $_POST["username"]==$user[2]) && password_verify($_POST["password"],$user[3])){
                 echo "Welcome back ".$user[1]."!<br>";
-                //session start ?
+                $_SESSION["userID"]=$user[0];
                 header("Location:home.html");
                 $i=1;
             }
