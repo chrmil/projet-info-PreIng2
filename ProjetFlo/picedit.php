@@ -17,7 +17,7 @@
 						echo "<br>".$_FILES["photo"]["tmp_name"];
 						echo "<br>".$_FILES["photo"]["name"];
 						move_uploaded_file($_FILES["photo"]["tmp_name"], "./picpreview.png");
-						echo "<br>".$str[sizeof($str) - 1];
+						echo "<br><img src='picpreview.png' id='picpreview'>".$str[sizeof($str) - 1];
 						
 					}
 					else{
@@ -28,7 +28,6 @@
 			}
 			addpic();
 		?>
-		<img src="picpreview.png" id="picpreview">
 		<form action="picedit.php" method="post" enctype="multipart/form-data" id="editprofile">
 			<input type='file' id='addpfp' name='photo'>
 			<br>
@@ -46,14 +45,14 @@
 							}
 							else{
 								$a = 0;
+								$i--;
 							}
 						}
-						
-						copy("./picpreview.png", "./".$pic); ?>>
+						copy("./picpreview.png", "./".$pic);
+						?>>
 			<button type='button'>
 				Validate changes
 			</button>
 		</a>
 	</body>
 </html>
-
