@@ -7,27 +7,7 @@
 	</head>
 	<body>
 		<?php
-			/*
-			function collectdat1(){
-				$tab = array("email" => array("one@test.com", "two@test.com", "three@test.com", "four@test.com", "five@test.com", "six@test.com", "seven@test.com", "eight@test.com", "nine@test.com", "ten@test.com"), "password" => array("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
-				$a = $_POST["email"];
-				$b = (string)$_POST["password"];
-				$i = 0;
-				$c = 0;
-				for ($i = 0; $i < 10; $i++){
-					if ($a == $tab["email"][$i] && $b == $tab["password"][$i]){
-						echo "Bienvenue à toi ".$b.".";
-						$c = 1;
-						break;
-					}
-				}
-				if ($c == 0){
-					header("Location:index.php");
-				}
-				return $c;
-			}
-			collectdat1();
-			*/
+			
 			include("users.php");
 			
 			updateUser("Testrererrrrrrr", "Newusername");
@@ -55,6 +35,10 @@
 						}
 					}
 				}
+			}
+			
+			if (file_exists("./picpreview.png")){
+				unlink("./picpreview.png");
 			}
 			
 			deletepic($_GET["picdel"]);
