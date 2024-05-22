@@ -23,9 +23,9 @@
                     throw new Exception("Error: newUser.php : user list");
             }
             foreach ($users as $user){
-                if($_POST["username"]==$user[1] ||$_POST["email"]==$user[2]){ //doesn't work now 
-                    
-                    exit("Error: Username or email unavailable");
+                if($_POST["username"]==$user[1] ||$_POST["email"]==$user[2]){ 
+                    header("Location:newUser.html");
+                    //add an error message?
                 }   
             }
         }  
@@ -45,8 +45,9 @@
         $password=$_POST["password1"];
         $newUser[3]=password_hash($password,PASSWORD_BCRYPT); 
         $newUser[4]="user";
-        $newUser[5]=$_POST["gender"];
-        $newUser[6]=date("d/m/Y");
+        $newUser[5]=0;
+        $newUser[6]=$_POST["gender"];
+        $newUser[7]=date("d/m/Y");
         newUser($newUser); //adds in the new user's profile 
         $_SESSION["userID"]=$user[0];
         header("Location:user.html");

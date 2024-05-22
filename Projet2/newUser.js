@@ -20,19 +20,12 @@ function checkUsername(q) {
     }
     else{
         document.getElementById("div1").innerHTML = "";
-        xhttp.open("GET", "newUserCheck.php?q="+q, true);
+        xhttp.open("GET", "checkName.php?q="+q, true);
     }
    
     xhttp.send();
 }
-/*
-form.addEventListener("submit", function(event) {
-    if(Username taken){
-        document.getElementById("div1").innerHTML = "Username taken";
-        event.preventDefault();
-    }
-  })
-*/
+
 function checkEmail(r) { 
 
        
@@ -51,7 +44,7 @@ function checkEmail(r) {
     }
     else{
         document.getElementById("div2").innerHTML = "";
-        xhttp.open("GET", "newUserCheck.php?r="+r, true);
+        xhttp.open("GET", "checkMail.php?r="+r, true);
 
     }
     if (document.getElementById("div2").innerHTML == "Email taken."){

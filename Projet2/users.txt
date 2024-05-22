@@ -1,4 +1,2 @@
 0;admin;admin@admin.fr
-134;test;email@test
-579;test2;email@test2
-
+50;test;mail@mail
