@@ -8,10 +8,6 @@
 	<body>
 		<?php
 			
-			include("users.php");
-			
-			//updateUser("Testrererrrrrrr", "Newusername");
-			
 			function deletepic($x){
 				if(isset($x)){
 					$tab = explode(".", $x);
@@ -23,7 +19,8 @@
 						$a = 1;
 						while ($a != 0){
 							$m = $n - 1;
-							if (file_exists("pic".$n.".png")){
+							echo $n.$m."<br>";
+							if (file_exists('./'.$_GET["user"].'/pic'.$n.'.png')){
 								copy('./'.$_GET["user"].'/pic'.$n.'.png', './'.$_GET["user"].'/pic'.$m.'.png');
 							}
 							else{
@@ -33,7 +30,7 @@
 							$n++;
 						}
 					}
-					header("Location:userprofile.php?user=".$_GET['user']);
+					header("Location:userprofile.php?user=".$_GET['user']."&own=".$_GET['own']);
 				}
 			}
 			
@@ -43,13 +40,18 @@
 			
 			deletepic($_GET["picdel"]);
 		?>
-		<a href=image.php<?php echo "?user=".$_GET["user"] ?>&pic=pfp.png target='_self'>
+		<a href=image.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?>&pic=pfp.png target='_self'>
 			<img src=<?php echo "./".$_GET["user"] ?>/pfp.png id='pfp'>
 		</a>
-		<a href=pfpedit.php<?php echo "?user=".$_GET["user"] ?> target='_self' <?php copy('./'.$_GET["user"].'/pfp.png', './'.$_GET["user"].'/pfppreview.png'); ?>>
-			<img src=edit.png id='edit'>
-		</a>
 		<?php
+			if ($_GET['own']){
+				echo "<a href=pfpedit.php?user=".$_GET['user']."&own=".$_GET['own']." target='_self' ";
+				echo copy('./'.$_GET['user'].'/pfp.png', './'.$_GET['user'].'/pfppreview.png');
+				echo ">
+					<img src=edit.png id='edit'>
+				</a>";
+			}
+			
 			function displayinfo($user){
 				if (file_exists('./'.$user.'/profile.txt')){
 					$i = 1;
@@ -67,12 +69,20 @@
 			displayinfo($_GET["user"]);
 		?>
 		<br>
-		<a href=useredit.php<?php echo "?user=".$_GET["user"] ?> target='_self'>
-			<button type='button'>Edit profile</button>
+		<a href=useredit.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target='_self'>
+			<?php
+				if ($_GET['own']){
+					echo "<button type='button'>Edit profile</button>";
+				}
+			?>
 		</a>
 		<br>
-		<a href=picedit.php<?php echo "?user=".$_GET["user"] ?> target='_self'>
-			<button type='button'>Add picture</button>
+		<a href=picedit.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target='_self'>
+			<?php
+				if ($_GET['own']){
+					echo "<button type='button'>Add picture</button>";
+				}
+			?>
 		</a>
 			<script>
 				piclist(<?php
@@ -93,7 +103,7 @@
 						return $i;
 					}
 					
-					echo picnumber().",".$_GET["user"];
+					echo picnumber().",".$_GET["user"].",".$_GET['own'];
 				?>)
 			</script>
 		<div id='piclist'>

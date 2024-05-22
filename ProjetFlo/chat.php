@@ -35,10 +35,18 @@
 							}
 							if ($tab[0] == "FILE"){
 								if ($tab[1] == $ownuser){
-									echo "<div id='ownimg'><img src=./".$ownuser."/own_".$othuser."_".$tab[2]."<br></div>";
+									echo "<div id='ownimg'>
+										<a href=image.php?user=".$_GET["ownuser"]."&own=0&pic=own_".$othuser."_".$tab[2]." target='_self'>
+											<img src=./".$ownuser."/own_".$othuser."_".$tab[2]."><br>
+										</a>
+									</div>";
 								}
 								else if ($tab[1] == $othuser){
-									echo "<div id='othimg'><img src=./".$ownuser."/oth_".$othuser."_".$tab[2]."<br></div>";
+									echo "<div id='othimg'>
+										<a href=image.php?user=".$_GET["ownuser"]."&own=0&pic=oth_".$othuser."_".$tab[2]." target='_self'>
+											<img src=./".$ownuser."/oth_".$othuser."_".$tab[2]."><br>
+										</a>
+									</div>";
 								}
 								else{
 									echo "Problem displaymessage";
@@ -47,13 +55,15 @@
 							else if ($tab[0] == $ownuser){
 								$tab2 = array_slice($tab, 1);
 								$message = implode($tab2);
-								echo "<div id='ownmessage'>".$message;
+								echo "<div id='ownmessage'>";
+								echo $message;
 								echo "<br></div>";
 							}
 							else if ($tab[0] == $othuser){
 								$tab2 = array_slice($tab, 1);
 								$message = implode($tab2);
-								echo "<div id='othmessage'>".$message;
+								echo "<div id='othmessage'>";
+								echo $message;
 								echo "<br></div>";
 							}
 							else{
@@ -69,7 +79,9 @@
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
 					if($tab[4] == "subscribed" || $tab[4] == "admin"){
-						echo "<form method='post' enctype='multipart/form-data'>
+						echo "
+						<form method='post' enctype='multipart/form-data'>
+							<a href=userprofile.php?user=".$_GET['ownuser']."&own=".$_GET['own']." target='_self'> <- Back </a>
 							<textarea id=message name=message></textarea>
 							<input type=file name=file accept='image/png,image/jpg,image/jpeg'>
 							<button type=submit id=send> Send </button>
@@ -89,7 +101,9 @@
 					fclose($owninfo);
 					if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
 						if (isset($message)){
-							$trimmed = trim($message, "\n\x0B \t\r");
+							$tbreplaced = array("\n", "\x0B", "\r", "\t", "<", ">");
+							$replaced = str_replace($tbreplaced, ' ', $message);
+							$trimmed = trim($replaced, " ");
 							if (!empty($trimmed)){
 								$ownchat = fopen('./'.$ownuser.'/chat'.$othuser.'.txt', 'a');
 								fwrite($ownchat, $ownuser.";".$trimmed."\n");

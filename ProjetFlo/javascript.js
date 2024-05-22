@@ -1,9 +1,3 @@
-function displayinfo(info){
-	if (info == "username" || info == "gender" || info == "birthdate" || info == "profession" || info == "place" || info == "status" || info == "otherinfo"){
-		return info;
-	}
-}
-
 function checkusernameedit(){
 	var xhttp; 
 	xhttp = new XMLHttpRequest();
@@ -36,21 +30,24 @@ function editprofile(info){
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
 			txt = "";
-			x = ["username", "email", "password", "subscription", "gender", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature"];
-			for (i = 1; i < 16; i++) {
-				if (i != 3 && i != 6){
-					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i]/* + "' onkeyup='check" + x[i] + "edit()'><div id='" + x[i] + "div'></div>"*/ + "'><br>";
+			x = ["username", "email", "password", "subscription", "gender", "subtime", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature"];
+			for (i = 0; i < 18; i++){
+				if (i != 3 && i != 6 && i < 17){
+					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i] + "'><br>";
+				}
+				else if (i == 17){
+					txt = txt + "<textarea id='description' name='description'>" + n[i] + "</textarea><br>";
 				}
 			}
-			txt = txt + "<textarea id='description' name='description'>" + n[16] + "</textarea><br><button type='submit' class='submit'>Submit</button>";
+			txt = txt + "<button type='submit' id='submit'>Submit</button>";
 			document.getElementById("editprofile").innerHTML = txt;
 		}
 	};
-	xhttp.open("GET", "useredit.php?user=" + n[0], true);
+	xhttp.open("GET", "useredit.php", true);
 	xhttp.send();
 }
 
-function piclist(x, user){
+function piclist(x, user, own){
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
@@ -58,7 +55,7 @@ function piclist(x, user){
 			xmlDoc = this.responseXML;
 			txt = "";
 			for (i = 1; i <= x; i++) {
-				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png target='_self'><img src='./" + user + "/pic" + i + ".png' id='pics'></a>";
+				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png&own=" + own + " target='_self'><img src='./" + user + "/pic" + i + ".png' id='pics'></a>";
 			}
 			document.getElementById("piclist").innerHTML = txt;
 		}
@@ -73,15 +70,17 @@ function confirmdel(){
 	}
 }
 
-function picdel(x, user){
+function picdel(x, user, own){
 	const n = JSON.parse(x);
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
-			txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + " target='_self' color='red'> Yes </a><a href=image.php?user=" + user + "&pic=" + n + " target='_self'> No </a>";
-			document.getElementById("delbutton").innerHTML = txt;
+			if (own){
+				txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + "&own=" + own + " target='_self' color='red'> Yes </a><a href=image.php?user=" + user + "&pic=" + n + "&own=" + own + " target='_self'> No </a>";
+				document.getElementById("delbutton").innerHTML = txt;
+			}
 		}
 	};
 	xhttp.open("GET", "image.php", true);

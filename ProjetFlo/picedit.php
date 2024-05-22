@@ -6,7 +6,7 @@
 		<script src="javascript.js"></script> 
 	</head>
 	<body>
-		<a href=userprofile.php<?php echo "?user=".$_GET["user"] ?> target="_self"> <- Back to profile </a>
+		<a href=userprofile.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target="_self"> <- Back to profile </a>
 		<br>
 		<?php
 			function addpic(){
@@ -25,13 +25,13 @@
 			}
 			addpic();
 		?>
-		<form action=picedit.php<?php echo "?user=".$_GET["user"] ?> method="post" enctype="multipart/form-data" id="editprofile">
+		<form method="post" enctype="multipart/form-data" id="editprofile">
 			<input type='file' id='addpic' name='photo' accept='image/png,image/jpg,image/jpeg'>
 			<br>
 			<button type='submit' class='submit' id='addpic'>Submit picture</button>
 		</form>
 		<br>
-		<a href=userprofile.php<?php echo "?user=".$_GET["user"] ?> target="_self" <?php
+		<a href=userprofile.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target="_self" <?php
 						$i = 1;
 						$a = 1;
 						$pic = "pic1.png";

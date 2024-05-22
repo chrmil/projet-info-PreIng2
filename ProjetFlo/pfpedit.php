@@ -6,7 +6,7 @@
 		<script src="javascript.js"></script> 
 	</head>
 	<body>
-		<a href=userprofile.php<?php echo "?user=".$_GET["user"] ?> target="_self"> <- Back to profile </a>
+		<a href=userprofile.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target="_self"> <- Back to profile </a>
 		<br>
 		<?php
 			function addpfp(){
@@ -31,7 +31,7 @@
 			<button type='submit' class='submit' id='addpic'>Submit profile picture</button>
 		</form>
 		<br>
-		<a href=userprofile.php<?php echo "?user=".$_GET["user"] ?> target="_self" <?php copy("./".$_GET["user"]."/pfppreview.png", "./".$_GET["user"]."/pfp.png"); ?>>
+		<a href=userprofile.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target="_self" <?php copy("./".$_GET["user"]."/pfppreview.png", "./".$_GET["user"]."/pfp.png"); ?>>
 			<button type='button'>
 				Validate change
 			</button>
