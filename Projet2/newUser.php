@@ -45,7 +45,7 @@
         $password=$_POST["password1"];
         $newUser[3]=password_hash($password,PASSWORD_BCRYPT); 
         $newUser[4]="user";
-        $newUser[5]=0;
+        $newUser[5]="0";
         $newUser[6]=$_POST["gender"];
         $newUser[7]=date("d/m/Y");
         newUser($newUser); //adds in the new user's profile 

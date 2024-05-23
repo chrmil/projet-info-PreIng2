@@ -22,6 +22,20 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
+function loadUsers(){
+    var xhttp; 
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("profiles").innerHTML =this.responseText ;
+        }
+    };  
+    document.getElementById("profiles").innerHTML = "";
+    xhttp.open("GET", "home.php", true);
+    
+   
+    xhttp.send();
+}
 
 
 

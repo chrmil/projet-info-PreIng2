@@ -8,7 +8,7 @@
    $user[2] = email		Unique
    $user[3] = password
    $user[4] = access level : "user", "subscribed", "admin"		User par défaut, peut changer si l'abonnement est pris, admin peut se donner les permissions via le fichier txt
-   $user[5] = array (subscription length, subscription date) ; length : -1 => admin , 0 => user, length>0 =>  subscribed.
+   $user[5] = subscription expiration date : '-1' => admin , '0' => user, subscribed = previous expiration date/first subscription date + subscritpion length. string date : format ('d/m/Y')
    $user[6] = gender
    $user[7] = userprofile creation date	, automatically generated upon account creation
    $user[8] = age (birthdate)

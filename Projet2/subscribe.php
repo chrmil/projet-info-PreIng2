@@ -26,17 +26,19 @@
         }   
         reset($users);
         foreach($users as $user){
-            if($user[0]==$_SESSION["userID"]){
-                if($user[4]="user"){
-                    $user[4]="subscribed";
-                    $user[5]=array($_POST["length"], date("d/m/Y"));
-                }
-                elseif ($user[4]="subscribed"){ //to modify 
-                    $user[5][0]+=$_POST["length"];
-                    $user[5][1]=date("d/m/Y");
+            if($user[0]==$_SESSION["userID"]){ // checks user
+                if($user[4]="user"){ //if no current subscription
+                    $user[4]="subscribed"; 
+                    $user[5]=date_format(date_add( DateInterval::createFromDateString("$_POST['length'] month"), date_create_from_format("d/m/Y" , date("d/m/Y"))), "d/m/Y");
+                    echo "Thanks for subscribing $user[1] !  Your current subscription will last until the $user[5]. <br>";
+                } //creates a datetime object from current date(), adds to it an interval from the chosen subscription length and convert it back to string format
+                elseif ($user[4]="subscribed"){  //if currently subscribed
+                    $user[5]=date_format(date_add( DateInterval::createFromDateString("$_POST['length'] month"), date_create_from_format("d/m/Y" , $user[5])), "d/m/Y");
+                    //calculates from the previous expiration subscription date instead of current date 
+                    echo "Thanks for prolonging your subscription $user[1] !  Your current subscription will last until the $user[5]. <br>";
                 }
                 else{
-                    echo "Admins already have the highest access level !.<br>";
+                    echo "Admins already have the highest access level !<br>";
                 }
             }
         } 
