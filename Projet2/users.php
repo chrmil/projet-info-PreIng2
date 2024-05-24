@@ -268,10 +268,7 @@
 		catch(Exception $e){
 			echo $e->getMessage();
 		}
-		foreach ($newUser as $line){
-			fwrite($userfile, $line);
-			fwrite($userfile, "\n");
-		}
+		fputcsv($userfile, $newUser, ";");
 		fclose($userfile);
 	  
 	    
