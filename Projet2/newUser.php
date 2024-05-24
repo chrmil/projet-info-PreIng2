@@ -44,7 +44,7 @@
         $newUser[2]=$_POST["email"];
         $password=$_POST["password1"];
         $newUser[3]=password_hash($password,PASSWORD_BCRYPT); 
-        $newUser[4]="user";
+        $newUser[4]=2;
         $newUser[5]="0";
         $newUser[6]=$_POST["gender"];
         $newUser[7]=date("d/m/Y");

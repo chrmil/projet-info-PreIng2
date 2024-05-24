@@ -56,17 +56,23 @@
 
     <header>
         <p class="title">Pokemon ! </p> 
-        <p>Subscribe to our site for x$ per month and gain access to the chat !</p>
+        <p>Subscribe to our site for x$ per month or y$ per year and gain access to the chat !</p>
     </header>
     
-    <form class="subscriptions" method="post"  action="subscribe.php">
-        <button  type="submit" id="subscribe"> Subscribe  </button>   
+    <form class="subscription1" method="post"  action="subscribe1.php">
+        <button  type="submit" id="subscribe1"> Subscribe to our monthly subcription !</button>   
         <div id="subscription-length" class="subscription-length">
             <label for="length">Subscription length :</label>
-            <input type="number" id="length" name="length" min="1" max="12" required>
+            <input type="number" id="length" name="mlength" min="1" max="12" required>
         </div>
     </form>
-    
+    <form class="subscription2" method="post"  action="subscribe2.php">
+        <button  type="submit" id="subscribe2"> ubscribe to our yearly subcription ! </button>   
+        <div id="subscription-length" class="subscription-length">
+            <label for="length">Subscription length :</label>
+            <input type="number" id="length" name="ylength" min="1" max="12" required>
+        </div>
+    </form>
 
 </body>
 
