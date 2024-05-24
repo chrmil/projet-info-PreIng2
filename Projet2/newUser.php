@@ -49,7 +49,7 @@
         $newUser[6]=$_POST["gender"];
         $newUser[7]=date("d/m/Y");
         newUser($newUser); //adds in the new user's profile 
-        $_SESSION["userID"]=$user[0];
+        $_SESSION["userID"]=$newUser[0];
         header("Location:user.html");
        
     

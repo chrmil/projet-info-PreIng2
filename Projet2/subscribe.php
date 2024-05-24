@@ -25,23 +25,46 @@
             echo $e->getMessage();
         }   
         reset($users);
-        foreach($users as $user){
-            if($user[0]==$_SESSION["userID"]){ // checks user
-                if($user[4]="user"){ //if no current subscription
-                    $user[4]="subscribed"; 
-                    $user[5]=date_format(date_add( DateInterval::createFromDateString("$_POST['length'] month"), date_create_from_format("d/m/Y" , date("d/m/Y"))), "d/m/Y");
-                    echo "Thanks for subscribing $user[1] !  Your current subscription will last until the $user[5]. <br>";
-                } //creates a datetime object from current date(), adds to it an interval from the chosen subscription length and convert it back to string format
-                elseif ($user[4]="subscribed"){  //if currently subscribed
-                    $user[5]=date_format(date_add( DateInterval::createFromDateString("$_POST['length'] month"), date_create_from_format("d/m/Y" , $user[5])), "d/m/Y");
-                    //calculates from the previous expiration subscription date instead of current date 
-                    echo "Thanks for prolonging your subscription $user[1] !  Your current subscription will last until the $user[5]. <br>";
+        try{
+            $try=1;
+            foreach($users as $user){
+                if($user[0]==$_SESSION["userID"]){ // checks user
+                    $try=0;
+                    if($user[4]="user"){ //if no current subscription
+                        $user[4]="subscribed"; 
+                        $format="d/m/Y";
+                        $date=date($format); //creates a datetime object from current date
+                        $datetime=date_create_from_format($format, $date );
+                        $interval=new DateInterval('P'.$_POST["length"].'M');
+                        $subdate=date_add( $datetime,$interval );// adds to it an interval from the chosen subscription length 
+                        $user[5]=date_format($subdate, $format);// convert it back to string format
+                        updateUser($_SESSION["userID"], $user);
+                        echo "Thanks for subscribing $user[1] !  Your current subscription will last until the ".$user[5].".";
+                    } 
+                    elseif ($user[4]="subscribed"){  //if currently subscribed
+                        $format="d/m/Y";
+                        $date=$user[5];  //calculates from the previous subscription expiration  date instead of current date
+                        $datetime=date_create_from_format($format, $date );
+                        $interval=new DateInterval('P'.$_POST["length"].'M');
+                        $subdate=date_add( $interval,$datetime );
+                        $user[5]=date_format($subdate, $format);
+                        updateUser($_SESSION["userID"], $user);
+                        echo "Thanks for prolonging your subscription $user[1] !  Your current subscription will last until the ".$user[5].".";
+                    }
+                    else{
+                        echo "Admins already have the highest access level !";
+                    }
                 }
-                else{
-                    echo "Admins already have the highest access level !<br>";
-                }
+                
             }
-        } 
+            if ($try){
+                throw new Exception("Error: subscribe.php : user id");
+            } 
+
+        }
+        catch(Exception $e){
+            echo $e->getMessage();
+        }   
         
         
        

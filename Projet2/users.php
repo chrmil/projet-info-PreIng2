@@ -60,7 +60,7 @@
 	function getUserlist(){ //gets all users' profiles in an array  (see above)
 		
 	    try {
-			$userlist=scandir("users"); //gets the content of the directory ; pathway name to be changed
+			$userlist=scandir("users"); //gets the content of the directory 
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
 				throw new Exception("Error: getUserlist(): users dir");
 			}
@@ -249,7 +249,6 @@
 		fclose($userfile);
 		try {
 			$userlist=scandir("users"); //gets list of user directories 
-			
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
 					throw new Exception("Error: updateUser(): users dir");
 			}
@@ -260,62 +259,22 @@
 	    catch(Exception $e){
 			echo $e->getMessage();
 	    }
-		foreach ($userlist as $userdir){
-			if($userdir==$userID){ //update specified user directory
-				try {
-					$userfile=fopen("$userdir/profile.txt", "w+");
-					if(!isset($userfile)){
-							throw new Exception("Error:updateUser(), user file not found");
-					}
-				}
-				catch(Exception $e){
-					echo $e->getMessage();
-				}
-				foreach ($newUser as $line){
-					fwrite($userfile, $line);
-					fwrite($userfile, "\n");
-				}
-				fclose($userfile);
-			
-			}		
+		try {		
+			$userfile=fopen("users/$userID/profile.txt", "w+"); //update specified user directory
+			if(!isset($userfile)){
+				throw new Exception("Error:updateUser(), user file not found");
+			}
 		}
-	    try{
-	    	$newUserlist=getUserlist(); //checks everything was updated correctly (may not work yet)
-	    	if(count($newUserlist)!=count($users)){
-	    		   throw new Exception("Error: updateUser(), userlist not updated (wrong count)");
-	    	}
-	    	$try=0;
-	    	$i=0;
-	    	$error=0;
-	    	
-	    	foreach($users as $user){
-	    		$j=0;
-	    		if(count($newUserlist[$i])!=count($user)){
-	    			$try=1;
-	    			$error=2;
-	    			break;
-	    		}
-	    		foreach ($user as $elmt){
-	    			
-	    			if(strcmp($newUserlist[$i][$j], $elmt)	!= 0){
-	    				$try=1;
-	    				$error=strcmp($newUserlist[$i][$j], $elmt);
-	    				break;
-	    			}
-	    			$j++;
-	    		}
-	    		$i++;
-	    	}
-		if ($try){
-		 	throw new Exception("Error: updateUser(), userlist not updated (wrong content) : $error");
-	    	}
-	    }
-	    catch(Exception $e){
+		catch(Exception $e){
 			echo $e->getMessage();
-	    }
+		}
+		foreach ($newUser as $line){
+			fwrite($userfile, $line);
+			fwrite($userfile, "\n");
+		}
+		fclose($userfile);
+	  
 	    
-   
-
     }
 
 
