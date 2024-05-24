@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <script src="home.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body> 
+    
+
+
+<!-- Navigation bar -->
+<nav class="navbar">
+    <ul class="navbar-menu">
+       
+        
+        <li class="navbar-item">  
+            <a href="home.html" class="navbar-link"> 
+            <span class="material-symbols-outlined">home</span>
+            </a> 
+        </li>
+        
+        <li class="navbar-item">  
+            <a href="user.html" class="navbar-link"> 
+            <span class="material-symbols-outlined">person</span>
+            </a> 
+        </li>
+        
+        
+        <li class="navbar-item">
+            <a href="chat.html" class="navbar-link">
+      	      <span class="material-symbols-outlined">chat</span>
+            </a>
+        </li>
+        
+        <li class="navbar-item">
+            <a href="subscriptions.html" class="navbar-link">
+              <span class="material-symbols-outlined">shopping_cart</span>
+            </a>
+        </li>
+        
+        
+        <li class="navbar-item">
+            <a href="logIn.html" class="navbar-link">
+              <span class="material-symbols-outlined">login</span>
+            </a>
+        </li>
+        
+
+    </ul>
+ </nav>
+
+
+
+
+    <header>
+        <p class="title">Pokemon !</p>  <!-- The name of the site and description should replace this eventually -->  
+    
+    </header>
+    <div class="search-container">
+        <button id="search-btn">Search for another trainer :</button>
+      
+        <div id="search-options" class="search-options">
+            <!-- Search options: -->  
+            <label for="username">The name of the trainer:</label>
+            <input type="username" id="username" name="username" maxlength="25" minlength="3"  ></td>
+            <label for="age-slider">Mininmum age:</label>
+            <input type="range" id="age-slider" name="age" min="18" max="50">
+            <output for="age-slider" id="age-value">18</output><br> </br>
+            <label for="age-slider">Maximum age:</label>
+            <input type="range" id="age-slider" name="age" min="18" max="50">
+            <output for="age-slider" id="age-value">18</output><br> </br>
+            <p>Select the trainer's type:</p>
+            <select id="search-options">        
+            <option value="unspecified" checked="checked">Unspecified</option>
+            <option value="fire" >Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="fly">Fly</option>
+            <option value="electric">Electric</option>
+            <option value="dark">Dark</option>
+            <option value="fairy">Fairy</option>
+            <option value="psychic">Psychic</option>
+            <option value="ground">Ground</option>
+            <option value="bug">Bug</option>
+            <option value="ice">Ice</option>
+            <option value="dragon">Dragon</option>
+            <option value="psychic">Psychic</option>
+            <option value="normal">Normal</option>
+            <option value="poison">Poison</option>
+            <option value="fighting">Fighting</option>
+            <option value="rock">Rock</option>
+            <option value="steel">Steel</option>
+            </select><br> </br>
+            <p>Select the trainer's gender:</p>
+            <select id="search-options">        
+                <option value="unspecified" checked="checked">Unspecified</option>
+                <option value="man" >Man</option>
+                <option value="woman">Woman</option>
+            </select><br> </br> 
+        </div>
+   </div>  
+   
+    <button id="profiles" onclick="loadUsers()"><h1>See who the latest trainers to join us are !</h1></button>
+   
+    <div id="divprofiles" > <!-- Adds the latest 10 users with js  -->  
+      
+    </div>
+
+    
+
+</body>
+
+
+
+
+
+
+</html>
