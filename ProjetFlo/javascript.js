@@ -30,7 +30,7 @@ function editprofile(info){
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
 			txt = "";
-			$x = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
+			x = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
 			for (i = 1; i < x.length; i++){
 				if (i != 3 && i != 5 && i != 7 && i < x.length-1){
 					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i] + "'><br>";
