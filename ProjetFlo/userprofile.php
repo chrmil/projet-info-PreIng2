@@ -44,7 +44,10 @@
 			<img src=<?php echo "./users/".$_GET["user"] ?>/pfp.png id='pfp'>
 		</a>
 		<?php
-			if ($_GET['own']){
+			$file = fopen('./users/'.$_GET['user'].'/profile.txt', 'r');
+			$tab = explode(";", fgets($file));
+			fclose($file);
+			if ($_GET['own'] || $tab[4] == "admin"){
 				echo "<a href=pfpedit.php?user=".$_GET['user']."&own=".$_GET['own']." target='_self' ";
 				echo copy('./users/'.$_GET['user'].'/pfp.png', './users/'.$_GET['user'].'/pfppreview.png');
 				echo ">
@@ -74,7 +77,10 @@
 		<br>
 		<a href=useredit.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target='_self'>
 			<?php
-				if ($_GET['own']){
+				$file = fopen('./users/'.$_GET['user'].'/profile.txt', 'r');
+				$tab = explode(";", fgets($file));
+				fclose($file);
+				if ($_GET['own'] || $tab[4] == "admin"){
 					echo "<button type='button'>Edit profile</button>";
 				}
 			?>
@@ -82,7 +88,10 @@
 		<br>
 		<a href=picedit.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target='_self'>
 			<?php
-				if ($_GET['own']){
+				$file = fopen('./users/'.$_GET['user'].'/profile.txt', 'r');
+				$tab = explode(";", fgets($file));
+				fclose($file);
+				if ($_GET['own'] || $tab[4] == "admin"){
 					echo "<button type='button'>Add picture</button>";
 				}
 			?>
