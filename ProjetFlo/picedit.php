@@ -13,8 +13,8 @@
 				if (!empty($_FILES)){
 					$str = explode(".", $_FILES["photo"]["name"]);
 					if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
-						move_uploaded_file($_FILES["photo"]["tmp_name"], "./".$_GET["user"]."/picpreview.png");
-						echo "<br><img src='./".$_GET["user"]."/picpreview.png' id='picpreview'><br>";
+						move_uploaded_file($_FILES["photo"]["tmp_name"], "./users/".$_GET["user"]."/picpreview.png");
+						echo "<br><img src='./users/".$_GET["user"]."/picpreview.png' id='picpreview'><br>";
 						
 					}
 					else{
@@ -45,7 +45,7 @@
 								$i--;
 							}
 						}
-						copy("./".$_GET["user"]."/picpreview.png", "./".$_GET["user"]."/".$pic);
+						copy("./users/".$_GET["user"]."/picpreview.png", "./users/".$_GET["user"]."/".$pic);
 						?>>
 			<button type='button'>
 				Validate change

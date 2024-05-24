@@ -8,47 +8,49 @@
    $user[2] = email		Unique
    $user[3] = password
    $user[4] = access level : "user", "subscribed", "admin"		User par défaut, peut changer si l'abonnement est pris, admin peut se donner les permissions via le fichier txt
-   $user[5] = gender
-   $user[6] = userprofile creation date	, automatically generated upon account creation
-   $user[7] = age (birthdate)
-   $user[8] = profession			Optionnel
-   $user[9] = address			Pays obligatoire (liste de pays), reste optionnel
-   $user[10] = status			Married / Divorced / Couple / Single
-	$user[11] = children			Nombre d'enfants
-   $user[12] = favorite starter		Optionnel, liste des 27 starters 
-						Bulbasaur (Bulbizarre)		Charmander (Salamèche)	Squirtle (Carapuce)
-							  Chikorita (Germignon)		Cyndaquil (Héricendre)	Totodile (Kaiminus)
-							Treecko (Arcko)			Torchic (Poussifeu)	Mudkip (Gobou)
-						  Turtwig (Tortipouss)		Chimchar (Ouisticram)	Piplup (Tiplouf)
-						Snivy (Vipélierre)		Tepig (Gruikui)		Oshawott (Moustillon)
-							  Chespin (Marisson)		Fennekin (Feunnec)	Froakie (Grenousse)
-							Rowlet (Brindibou)		Litten (Flamiaou)	Popplio (Otaquin)
-						  Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
-						Sprigatito (Poussacha)		Fuecoco (Chochodile)	Quaxly (Coiffeton)
+   $user[5] = subscription expiration date : '-1' => admin , '0' => user, subscribed = previous expiration date/first subscription date + subscritpion length. string date : format ('d/m/Y')
+   $user[6] = gender
+   $user[7] = userprofile creation date	, automatically generated upon account creation
+   $user[8] = age (birthdate)
+   $user[9] = profession			Optionnel
+   $user[10] = address			Pays obligatoire (liste de pays), reste optionnel
+   $user[11] = status			Married / Divorced / Couple / Single
+   $user[12] = children			Nombre d'enfants
+   $user[13] = favorite starter		Optionnel, liste des 27 starters 
+						Bulbasaur (Bulbizarre)	Charmander (Salamèche)	Squirtle (Carapuce)
+						Chikorita (Germignon)	Cyndaquil (Héricendre)	Totodile (Kaiminus)
+						Treecko (Arcko)			Torchic (Poussifeu)		Mudkip (Gobou)
+						Turtwig (Tortipouss)	Chimchar (Ouisticram)	Piplup (Tiplouf)
+						Snivy (Vipélierre)		Tepig (Gruikui)			Oshawott (Moustillon)
+						Chespin (Marisson)		Fennekin (Feunnec)		Froakie (Grenousse)
+						Rowlet (Brindibou)		Litten (Flamiaou)		Popplio (Otaquin)
+						Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
+						Sprigatito (Poussacha)	Fuecoco (Chochodile)	Quaxly (Coiffeton)
 
-   $user[13] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
+   $user[14] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
 						Gen 1	Red / Blue / Yellow
-							  Gen 2	Gold / Silver / Crystal
-							Gen 3	Ruby / Sapphire / Emerald
-						  Gen 4	Diamond / Pearl / Platinum
+						Gen 2	Gold / Silver / Crystal
+						Gen 3	Ruby / Sapphire / Emerald
+						Gen 4	Diamond / Pearl / Platinum
 						Gen 5	Black / White
-							  Gen 6	X / Y
-							Gen 7	Sun / Moon
-						  Gen 8	Sword / Shield
+						Gen 6	X / Y
+						Gen 7	Sun / Moon
+						Gen 8	Sword / Shield
 						Gen 9	Scarlet / Violet
 
-   $user[14] = favorite types		Optionnel, liste des types
-						Bug	Dark	Dragon	Electric	Fairy	Fighting	Fire	Flying	Ghost
-							  Grass	Ground	Ice	Normal		Poison	Psychic		Rock	Steel	Water
+   $user[15] = favorite types		Optionnel, liste des types
+							Bug		Dark	Dragon	Electric	Fairy	Fighting	Fire	Flying	Ghost
+							Grass	Ground	Ice		Normal		Poison	Psychic		Rock	Steel	Water
 
-   $user[15] = nature			Optionnel, prendre les natures de Pokémon
-						Adamant		Bashful		Bold		Brave		Calm
-						 Careful		Docile		Gentle		Hardy		Hasty
-						  Impish		Jolly		Lax		Lonely		Mild
-						   Modest		Naive		Naughty		Quiet		Quirky
+   $user[16] = nature			Optionnel, prendre les natures de Pokémon
+							Adamant		Bashful		Bold		Brave		Calm
+							Careful		Docile		Gentle		Hardy		Hasty
+							Impish		Jolly		Lax			Lonely		Mild
+						   	Modest		Naive		Naughty		Quiet		Quirky
 							Rash		Relax		Sassy		Serious		Timid
 
-   $user[16] = otherinfo			Optionnel, paragraphe libre
+   $user[17] = otherinfo			Optionnel, paragraphe libre
+   
 
    ...
 
@@ -58,7 +60,7 @@
 	function getUserlist(){ //gets all users' profiles in an array  (see above)
 		
 	    try {
-			$userlist=scandir("users"); //gets the content of the directory ; pathway name to be changed
+			$userlist=scandir("users"); //gets the content of the directory 
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
 				throw new Exception("Error: getUserlist(): users dir");
 			}
@@ -74,7 +76,7 @@
 	    reset($users);
 		$i=0;
 		foreach ($userlist as $userdir){
-			$profile=file("users/$userdir/profile.txt"); //gets each line of the file as an entry of the profile array
+			$profile=fopen("users/$userdir/profile.txt", "r"); //gets each line of the file as an entry of the profile array
 			try{
 				if(!isset($profile) || empty($profile)){
 					throw new Exception ("Error: getUserlist(): user profile");
@@ -83,9 +85,15 @@
 			catch(Exception $e){
 				echo $e->getMessage();
 			}
-			$users[$i]=$profile; 
+			$users[$i]=fgetcsv($profile,0, ";");
 			$i++;			
 		}
+		$test=fopen("test.txt", "w+");
+		foreach ($users as $user){
+			fputcsv($test, $user, ";");
+			fwrite($test, "\n");
+		}
+		fclose($test);
 	    return $users;
 	}
 
@@ -165,10 +173,7 @@
 		catch(Exception $e){
 			echo $e->getMessage();
 	    }
-		foreach ($newUser as $line){ //writes profile file (one entry per line)
-			fwrite($userfile, $line);
-			fwrite($userfile, "\n");
-		}
+		fputcsv($userfile, $newUser, ";");
 		fclose($userfile);
 		closedir($userdir);
 		try {
@@ -244,7 +249,6 @@
 		fclose($userfile);
 		try {
 			$userlist=scandir("users"); //gets list of user directories 
-			
 			if(!isset($userlist) || empty($userlist) ||  !is_array($userlist)){
 					throw new Exception("Error: updateUser(): users dir");
 			}
@@ -255,62 +259,19 @@
 	    catch(Exception $e){
 			echo $e->getMessage();
 	    }
-		foreach ($userlist as $userdir){
-			if($userdir==$userID){ //update specified user directory
-				try {
-					$userfile=fopen("$userdir/profile.txt", "w+");
-					if(!isset($userfile)){
-							throw new Exception("Error:updateUser(), user file not found");
-					}
-				}
-				catch(Exception $e){
-					echo $e->getMessage();
-				}
-				foreach ($newUser as $line){
-					fwrite($userfile, $line);
-					fwrite($userfile, "\n");
-				}
-				fclose($userfile);
-			
-			}		
+		try {		
+			$userfile=fopen("users/$userID/profile.txt", "w+"); //update specified user directory
+			if(!isset($userfile)){
+				throw new Exception("Error:updateUser(), user file not found");
+			}
 		}
-	    try{
-	    	$newUserlist=getUserlist(); //checks everything was updated correctly (may not work yet)
-	    	if(count($newUserlist)!=count($users)){
-	    		   throw new Exception("Error: updateUser(), userlist not updated (wrong count)");
-	    	}
-	    	$try=0;
-	    	$i=0;
-	    	$error=0;
-	    	
-	    	foreach($users as $user){
-	    		$j=0;
-	    		if(count($newUserlist[$i])!=count($user)){
-	    			$try=1;
-	    			$error=2;
-	    			break;
-	    		}
-	    		foreach ($user as $elmt){
-	    			
-	    			if(strcmp($newUserlist[$i][$j], $elmt)	!= 0){
-	    				$try=1;
-	    				$error=strcmp($newUserlist[$i][$j], $elmt);
-	    				break;
-	    			}
-	    			$j++;
-	    		}
-	    		$i++;
-	    	}
-		if ($try){
-		 	throw new Exception("Error: updateUser(), userlist not updated (wrong content) : $error");
-	    	}
-	    }
-	    catch(Exception $e){
+		catch(Exception $e){
 			echo $e->getMessage();
-	    }
+		}
+		fputcsv($userfile, $newUser, ";");
+		fclose($userfile);
+	  
 	    
-   
-
     }
 
 

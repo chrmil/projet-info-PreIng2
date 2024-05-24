@@ -14,7 +14,7 @@
 					$a = 1;
 					$pic = "1.png";
 					while ($a != 0){
-						if (file_exists("./".$ownuser."/own_".$othuser."_".$pic) || file_exists("./".$ownuser."/oth_".$othuser."_".$pic)){
+						if (file_exists("./users/".$ownuser."/own_".$othuser."_".$pic) || file_exists("./users/".$ownuser."/oth_".$othuser."_".$pic)){
 							$i++;
 							$pic = $i.".png";
 						}
@@ -37,14 +37,14 @@
 								if ($tab[1] == $ownuser){
 									echo "<div id='ownimg'>
 										<a href=image.php?user=".$_GET["ownuser"]."&own=0&pic=own_".$othuser."_".$tab[2]." target='_self'>
-											<img src=./".$ownuser."/own_".$othuser."_".$tab[2]."><br>
+											<img src=./users/".$ownuser."/own_".$othuser."_".$tab[2]."><br>
 										</a>
 									</div>";
 								}
 								else if ($tab[1] == $othuser){
 									echo "<div id='othimg'>
 										<a href=image.php?user=".$_GET["ownuser"]."&own=0&pic=oth_".$othuser."_".$tab[2]." target='_self'>
-											<img src=./".$ownuser."/oth_".$othuser."_".$tab[2]."><br>
+											<img src=./users/".$ownuser."/oth_".$othuser."_".$tab[2]."><br>
 										</a>
 									</div>";
 								}
@@ -75,7 +75,7 @@
 				}
 				
 				function checkperms($ownuser){
-					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
+					$owninfo = fopen('./users/'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
 					if($tab[4] == "subscribed" || $tab[4] == "admin"){
@@ -96,7 +96,7 @@
 				}
 				
 				function sendmessage($ownuser, $message, $othuser){
-					$owninfo = fopen('./'.$ownuser.'/profile.txt', 'r');
+					$owninfo = fopen('./users/'.$ownuser.'/profile.txt', 'r');
 					$tab = explode(";", fgets($owninfo));
 					fclose($owninfo);
 					if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && ($tab[4] == "subscribed" || $tab[4] == "admin")){
@@ -105,10 +105,10 @@
 							$replaced = str_replace($tbreplaced, ' ', $message);
 							$trimmed = trim($replaced, " ");
 							if (!empty($trimmed)){
-								$ownchat = fopen('./'.$ownuser.'/chat'.$othuser.'.txt', 'a');
+								$ownchat = fopen('./users/'.$ownuser.'/chat'.$othuser.'.txt', 'a');
 								fwrite($ownchat, $ownuser.";".$trimmed."\n");
 								fclose($ownchat);
-								$othchat = fopen('./'.$othuser.'/chat'.$ownuser.'.txt', 'a');
+								$othchat = fopen('./users/'.$othuser.'/chat'.$ownuser.'.txt', 'a');
 								fwrite($othchat, $ownuser.";".$trimmed."\n");
 								fclose($othchat);
 							}
@@ -117,12 +117,12 @@
 							$picnum = picnumber2($ownuser, $othuser);
 							$str = explode(".", $_FILES["file"]["name"]);
 							if ($str[sizeof($str) - 1] == "jpg" || $str[sizeof($str) - 1] == "jpeg" || $str[sizeof($str) - 1] == "png"){
-								move_uploaded_file($_FILES["file"]["tmp_name"], './'.$ownuser.'/own_'.$othuser.'_'.$picnum.'.png');
-								copy('./'.$ownuser.'/own_'.$othuser.'_'.$picnum.'.png', './'.$othuser.'/oth_'.$ownuser.'_'.$picnum.'.png');
-								$ownchat = fopen('./'.$ownuser.'/chat'.$othuser.'.txt', 'a');
+								move_uploaded_file($_FILES["file"]["tmp_name"], './users/'.$ownuser.'/own_'.$othuser.'_'.$picnum.'.png');
+								copy('./users/'.$ownuser.'/own_'.$othuser.'_'.$picnum.'.png', './users/'.$othuser.'/oth_'.$ownuser.'_'.$picnum.'.png');
+								$ownchat = fopen('./users/'.$ownuser.'/chat'.$othuser.'.txt', 'a');
 								fwrite($ownchat, "FILE;".$ownuser.";".$picnum.".png"."\n");
 								fclose($ownchat);
-								$othchat = fopen('./'.$othuser.'/chat'.$ownuser.'.txt', 'a');
+								$othchat = fopen('./users/'.$othuser.'/chat'.$ownuser.'.txt', 'a');
 								fwrite($othchat, "FILE;".$ownuser.";".$picnum.".png"."\n");
 								fclose($othchat);
 							}

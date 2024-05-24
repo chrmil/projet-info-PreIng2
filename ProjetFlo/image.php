@@ -10,7 +10,7 @@
 		<div id=delbutton>
 			<?php
 				function piczoom($x){
-					copy('./'.$_GET["user"].'/'.$x, './'.$_GET["user"].'/image.png');
+					copy('./users/'.$_GET["user"].'/'.$x, './users/'.$_GET["user"].'/image.png');
 					$p = substr($x, 0, 3);
 					if ($p == "pic" && $_GET['own']){
 						$m = json_encode($x);
@@ -24,6 +24,6 @@
 			?>
 		</div>
 		<br>
-		<img src=<?php echo "./".$_GET["user"] ?>/image.png>
+		<img src=<?php echo "./users/".$_GET["user"] ?>/image.png>
 	</body>
 </html>
