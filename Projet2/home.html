@@ -21,13 +21,13 @@
         <li class="navbar-item">  
             <a href="home.html" class="navbar-link"> 
             <span class="material-symbols-outlined">home</span>
-            </a> 
+            </a>
         </li>
         
         <li class="navbar-item">  
-            <a href="user.html" class="navbar-link"> 
+            <a href="user.html" class="navbar-link">  
             <span class="material-symbols-outlined">person</span>
-            </a> 
+            </a>
         </li>
         
         
@@ -68,12 +68,15 @@
             <!-- Search options: -->  
             <label for="username">The name of the trainer:</label>
             <input type="username" id="username" name="username" maxlength="25" minlength="3"  ></td>
-            <label for="age-slider">Mininmum age:</label>
-            <input type="range" id="age-slider" name="age" min="18" max="50">
-            <output for="age-slider" id="age-value">18</output><br> </br>
-            <label for="age-slider">Maximum age:</label>
-            <input type="range" id="age-slider" name="age" min="18" max="50">
-            <output for="age-slider" id="age-value">18</output><br> </br>
+            
+            <label for="min-age-slider">Minimum age:</label>
+            <input type="range" id="min-age-slider" name="min-age" min="18" max="50" value="18">
+            <output id="min-age-value" for="min-age-slider">18</output><br><br>
+
+            <label for="max-age-slider">Maximum age:</label>
+            <input type="range" id="max-age-slider" name="max-age" min="18" max="50" value="18">
+            <output id="max-age-value" for="max-age-slider">18</output><br><br>
+
             <p>Select the trainer's type:</p>
             <select id="search-options">        
             <option value="unspecified" checked="checked">Unspecified</option>
@@ -105,17 +108,174 @@
         </div>
    </div>
    
-   <button id="profiles" onclick="loadUsers()"><h1>See who the latest trainers to join us are !</h1></button>
-   
-   <div id="divprofiles" > <!-- Adds the latest 10 users with js  -->  
+    <h1>These are the latest trainers to join us!</h1>
+    <div id="profiles" onload="loadUsers()">
+       <!-- Adds the latest 10 users with js  -->  
+    </div>
+
+
+
+<!-- ORGANIZES ALL CARDS ON THE PAGE -->
+<div class="grid-card-container">
+    <!-- CARD BACKGROUND -->
+    <div class="grid-individual-card card-background-yellow">
      
-   </div>
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name">Pikachu</div>
+      <div class="header-hp">40 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_pikachu.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image"><span class="description-below-image-background">Mouse Pokémon. Length: 1'4", Weight: 13 lbs.</span></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center"><span class="attack-name">Gnaw</a></div>
+      <div class="attack-damage">10</div>
+     <div class="attack-description"><span class="attack-name">Thundershock</span> Flip a coin. If tails, Pikachu does 10 damage to itself.</div>
+      
+    
+   
+
+    </div>
+
+    <div class="grid-individual-card card-background-green">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name">Bulbasaur</div>
+      <div class="header-hp">40 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_bulbasaur.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image"><span class="description-below-image-background">Seed Pokémon. Length: 2'4", Weight: 15 lbs.</span></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description"><span class="attack-name">Leech Seed</span> Unless all damage from this attack is prevented, you may remove 1 damage counter from Bulbasaur.</div>
+      <div class="attack-damage">20</div>
+     
+      
+   
+    </div>
+    
+    <div class="grid-individual-card card-background-redorange">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name">Charmander</div>
+      <div class="header-hp">50 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_charmander.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image"><span class="description-below-image-background">Lizard Pokémon. Length: 2'0", Weight: 19 lbs.</span></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center"><span class="attack-name">Scratch</span></div>
+      <div class="attack-damage">10</div>
+      <div class="attack-description"><span class="attack-name">Ember</span> Discard 1 Energy card attached to Charmander in order to use this attack.</div>
+      <div class="attack-damage">30</div>
+     
+      
+  
+    </div>
+    
+    <div class="grid-individual-card card-background-blue">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name">Squirtle</div>
+      <div class="header-hp">50 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+      <div class="attack-damage">10</div>
+      <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+      <div class="attack-damage">10</div>
+     
+    </div>
+
+    <div class="grid-individual-card card-background-brown">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name">Squirtle</div>
+        <div class="header-hp">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+        <div class="attack-damage">10</div>
+       
+      </div>
+    
+
+
+
+    <div class="grid-individual-card card-background-white">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name">Squirtle</div>
+        <div class="header-hp">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+        <div class="attack-damage">10</div>
+       
+      </div>
+    
+
+
+    <div class="grid-individual-card card-background-pink">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name">Squirtle</div>
+        <div class="header-hp">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+        <div class="attack-damage">10</div>
+       
+      </div>
+    
+
+
+    <div class="grid-individual-card card-background-grey">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name">Squirtle</div>
+        <div class="header-hp">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+        <div class="attack-damage">10</div>
+       
+      </div>
+    
+      <div class="grid-individual-card card-background-black">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name">Squirtle</div>
+        <div class="header-hp">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image"><span class="description-below-image-background">Tiny Turtle Pokémon. Length: 1'8", Weight: 20 lbs.</span></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description"><span class="attack-name">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        <div class="attack-description"><span class="attack-name">Withdraw</span> Flip a coin. If heads, prevent all damage done to Squirtle during your opponent's next turn. <em>(Any other effects of attacks still happen.)</em></div>
+        <div class="attack-damage">10</div>
+       
+      </div>
+</div>
+
+
+
 
 
 
 </body>
 
-
+<div id="profiles">
+    <p>profiles</p>
+</div>
 
 
 
