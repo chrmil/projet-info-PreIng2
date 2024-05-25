@@ -34,7 +34,8 @@ function loadUserDetails() {
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
                 var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
                 var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
-                
+                var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
+
                 if (userNameElement) {
                     userNameElement.textContent = userDetails[i].nom || "Aucun nom disponible";
                 }
@@ -43,6 +44,9 @@ function loadUserDetails() {
                 }
                 if (userSexElement) {
                     userSexElement.textContent = userDetails[i].sex || "Aucun sex disponible";
+                }
+                if (userTypeElement) {
+                    userTypeElement.textContent = userDetails[i].type || "Aucun type disponible";
                 }
             }
         }
