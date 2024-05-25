@@ -1,8 +1,7 @@
 <?php 
     session_start();
     include("users.php");   
-    global $users;
-    $users=getUserlist(); //gets userlist
+    $users=getUserlist(); //gets userlist, not global
     
     try {
         if(!isset($users) || empty($users)){
@@ -21,11 +20,23 @@
     $lastUsers=array(); //array of the last 10 new users 
     $i=0;
     $j=0;
-    foreach ($users as $user){ //for each of the users in the list
-        foreach ($lastUsers as $last){
-        if(date_create_from_format("d/m/Y" , $user) > date_create_from_format("d/m/Y" ,$_SESSIONlastUser)){ //if the $j user's account creation date is more recent
-            
-                //to add
+    $c=count($users);
+    for($i=0; $i<10 ; $i++ ){
+        $add=1;
+        for ($j=0; $j<$c-1 ; $j++){
+            if(date_create_from_format("d/m/Y" , $users[$j+1][7]) > date_create_from_format("d/m/Y" ,$users[$j][1][7])){ 
+                $profile=$users[$j+1]; //select the most recent profile  
+            }   
+        }
+        foreach($lastUsers as $user){ //check it isn't already in the array
+            if($profile[0]==$user[0]){
+                $add=0;
+            }
+        }
+        if ($add){
+            $lastUser[$i]=$profile; //adds it to the array
+            $users=array_diff($users , array($profile)); //removes the profile from the list 
+            $c=count($users); //updates the count
         }
     } 
             
