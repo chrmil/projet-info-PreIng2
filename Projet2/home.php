@@ -41,7 +41,8 @@
             $userDetails[] = array(
                 "nom" => $user[1], // Ajoute le nom de l'utilisateur
                 "age" => $user[2], // Ajoute l'âge de l'utilisateur
-                "sex" => $user[6]
+                "sex" => $user[6],
+                "type" => $user[5]
             );
         }
     }
