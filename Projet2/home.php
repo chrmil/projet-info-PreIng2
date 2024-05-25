@@ -17,7 +17,7 @@
         echo $e->getMessage();
     }   
     reset($users);
-    $lastUsers=array_fill(0, 10 , array_fill(0, 18, 0) ); //array of the last 10 new users 
+    $lastUsers=array_fill(0, 10 , array_fill(0, 19, 0) ); //array of the last 10 new users 
     $i=0;
     $j=0;
     $c=count($users);

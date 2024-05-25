@@ -33,7 +33,7 @@
             echo $e->getMessage();
         }   
         reset($users);
-        $newUser=array_fill(0, 18, 'empty');//creates new profile
+        $newUser=array_fill(0, 19, 'empty');//creates new profile
         $newUser[0]=rand(10,999); //generate user ID (int betwenn 10 and 999)
         foreach($users as $user) {
             while ($user[0]==$newUser[0]) { //checks ID is available , generates a new one if necessary
