@@ -36,6 +36,7 @@
             $search="empty"; 
             header("Location:search.html"); 
         }
+        
         elseif($_POST["min_age"]==18 && $_POST["max_age"]==50 && $_POST["type"]=="unspecified" && $_POST["gender"]=="unspecified"){ //if no filter
             global $search; //list of users fitting the search filters
             $search=$users; //display full userlist
