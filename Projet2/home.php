@@ -46,9 +46,18 @@
         fputcsv($test, $user, ";");
         fwrite($test, "\n");
     }
-    fclose($test);        
+    fclose($test);       
+    $full=1; 
     foreach ($lastUsers as $user){ //display the results
-        echo "$user[1]\n"; //to modify in order to display the profiles more properly 
+        if($user[0]!=0){
+            echo "$user[1]\n"; //to modify in order to display the profiles more properly 
+        }
+        else{
+            $full=0;
+        }
+    }
+    if ($full==0){
+        echo "No other trainers have joined us yet.\n";
     }
     
       
