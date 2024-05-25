@@ -1,37 +1,52 @@
 <?php 
     session_start();
     include("users.php");   
-    global $users;
-    $users=getUserlist(); //gets userlist
+    $users=getUserlist(); //gets userlist, not global
+    
     try {
         if(!isset($users) || empty($users)){
                 throw new Exception("Error: home.php : user list");
         }
+        if(!isset($_SESSION["userID"]) || empty($_SESSION["userID"])){
+            throw new Exception("Please log in to see the 10 last new trainers");
+        }
+
+    
     }  
     catch(Exception $e){
         echo $e->getMessage();
     }   
     reset($users);
-    $count=count($users);
-    $lastUsers=array(); //array of the last 10 new users 
+    $lastUsers=array_fill(0,10 ,'empty' ); //array of the last 10 new users 
     $i=0;
-    
-    for($i=0; $i<10; $i++){ 
-        $j=0;
-        for($j=0;$j<$count-1;$j++){ //for each of the users in the list
-            if(date_create_from_format("d/m/Y" , $users[$j][7])>date_create_from_format("d/m/Y" , $users[$j+1][7])){ //if the $j user's account creation date is more recent
-              foreach ($lastUsers as $user){ //for each of the last 10 new users
-                if($user[0]!=$users[$j][0]){ //if the user isn't already in the array
-                        $lastUsers[$i]=$users[$j]; //is added to the array
-                    }
-                }  
+    $j=0;
+    $c=count($users);
+    $profile=array();
+    for($i=0; $i<10 ; $i++ ){
+        $add=1;
+        for ($j=0; $j<$c-1 ; $j++){
+            $profile=$users[$j];
+            if(date_create_from_format("d/m/Y" , $users[$j+1][7]) > date_create_from_format("d/m/Y" ,$users[$j][7])){ 
+                $profile=$users[$j+1]; //select the most recent profile  
+            }   
+        }
+        foreach($lastUsers as $user){ //check it isn't already in the array
+            if($profile[0]==$user[0]){
+                $add=0;
             }
-        }     
+        }
+        if ($add){
+            $lastUsers[$i]=$profile; //adds it to the array
+            $users=array_diff($users ,$lastUsers); //removes the profiles from the list 
+            $c=count($users); //updates the count
+        }
+    } 
+            
+      
+    echo "test\n";
+    foreach ($lastUsers as $user){ //display the results
+        echo "$user[1]\n";
     }
-  
-   foreach ($lastUsers as $user){ //display the results
-        echo "$user[1]<br>";
-   }
     
       
    
