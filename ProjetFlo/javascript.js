@@ -64,12 +64,6 @@ function piclist(x, user, own){
 	xhttp.send();
 }
 
-function confirmdel(){
-	if (confirm("Do you want to delete this picture ?")){
-		
-	}
-}
-
 function picdel(x, user, own){
 	const n = JSON.parse(x);
 	var xhttp, xmlDoc, txt, i = 1;
@@ -78,7 +72,7 @@ function picdel(x, user, own){
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
 			if (own){
-				txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + "&own=" + own + " target='_self' color='red'> Yes </a><a href=image.php?user=" + user + "&pic=" + n + "&own=" + own + " target='_self'> No </a>";
+				txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + "&own=" + own + " target='_self'> Yes </a> <a href=image.php?user=" + user + "&pic=" + n + "&own=" + own + " target='_self'> No </a>";
 				document.getElementById("delbutton").innerHTML = txt;
 			}
 		}
@@ -94,8 +88,10 @@ function refreshmessage(){
 	}, 1000); // refresh every 1000 milliseconds
 }
 
-function scrollDown(){
-	window.scrollTo(0, document.body.scrollHeight);
+function scrollDown(x){
+	if (!x){
+		window.scrollTo(0, document.body.scrollHeight);
+	}
 }
 
 function entersend(){

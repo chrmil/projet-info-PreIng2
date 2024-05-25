@@ -13,7 +13,7 @@
 			
 			$x = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
 			
-			if (isset($_POST["username"])){
+			if (isset($_POST["Username"])){
 				$y = array($_GET["user"]);
 				$file = fopen('./users/'.$_GET["user"].'/profile.txt', 'r');
 				$info = fgets($file);
