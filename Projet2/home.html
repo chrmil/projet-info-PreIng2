@@ -63,45 +63,48 @@
     </header>
     <div class="search-container">
         <button id="search-btn">Search for another trainer :</button>
-      
+        
         <div id="search-options" class="search-options">
-            <!-- Search options: -->  
-            <label for="username">The name of the trainer:</label>
-            <input type="username" id="username" name="username" maxlength="25" minlength="3"  ></td>
-            <label for="age-slider">Mininmum age:</label>
-            <input type="range" id="age-slider" name="age" min="18" max="50">
-            <output for="age-slider" id="age-value">18</output><br> </br>
-            <label for="age-slider">Maximum age:</label>
-            <input type="range" id="age-slider" name="age" min="18" max="50">
-            <output for="age-slider" id="age-value">18</output><br> </br>
-            <p>Select the trainer's type:</p>
-            <select id="search-options">        
-            <option value="unspecified" checked="checked">Unspecified</option>
-            <option value="fire" >Fire</option>
-            <option value="water">Water</option>
-            <option value="grass">Grass</option>
-            <option value="fly">Fly</option>
-            <option value="electric">Electric</option>
-            <option value="dark">Dark</option>
-            <option value="fairy">Fairy</option>
-            <option value="psychic">Psychic</option>
-            <option value="ground">Ground</option>
-            <option value="bug">Bug</option>
-            <option value="ice">Ice</option>
-            <option value="dragon">Dragon</option>
-            <option value="psychic">Psychic</option>
-            <option value="normal">Normal</option>
-            <option value="poison">Poison</option>
-            <option value="fighting">Fighting</option>
-            <option value="rock">Rock</option>
-            <option value="steel">Steel</option>
-            </select><br> </br>
-            <p>Select the trainer's gender:</p>
-            <select id="search-options">        
-                <option value="unspecified" checked="checked">Unspecified</option>
-                <option value="man" >Man</option>
-                <option value="woman">Woman</option>
-            </select><br> </br> 
+            <form  method="post"  action="search.php" >
+                <!-- Search options: -->  
+                <label for="username">The name of the trainer:</label>
+                <input type="username" id="username" name="username" maxlength="25" minlength="3"  ></td>
+                <label for="age-slider">Mininmum age:</label>
+                <input type="range" id="age-slider" name="min_age" min="18" max="50">
+                <output for="age-slider" id="age-value">18</output><br> </br>
+                <label for="max-age-slider">Maximum age:</label>
+                <input type="range" id="max-age-slider" name="max_age" min="18" max="50">
+                <output for="max-age-slider" id="max-age-value">50</output><br> </br>
+                <p>Select the trainer's type:</p>
+                <select id="search-options" name="type">        
+                <option value="unspecified" checked>Unspecified</option>
+                <option value="fire" >Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="fly">Fly</option>
+                <option value="electric">Electric</option>
+                <option value="dark">Dark</option>
+                <option value="fairy">Fairy</option>
+                <option value="psychic">Psychic</option>
+                <option value="ground">Ground</option>
+                <option value="bug">Bug</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
+                <option value="psychic">Psychic</option>
+                <option value="normal">Normal</option>
+                <option value="poison">Poison</option>
+                <option value="fighting">Fighting</option>
+                <option value="rock">Rock</option>
+                <option value="steel">Steel</option>
+                </select><br> </br>
+                <p>Select the trainer's gender:</p>
+                <select id="search-options" name="gender">        
+                    <option value="unspecified" checked>Unspecified</option>
+                    <option value="man" >Man</option>
+                    <option value="woman">Woman</option>
+                </select><br> </br> 
+                <button type="submit" >Search</button>
+            </form>
         </div>
    </div>
    
