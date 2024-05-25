@@ -17,35 +17,38 @@
         echo $e->getMessage();
     }   
     reset($users);
-    $lastUsers=array_fill(0,10 ,'empty' ); //array of the last 10 new users 
+    $lastUsers=array_fill(0, 10 , array_fill(0, 18, 0) ); //array of the last 10 new users 
     $i=0;
     $j=0;
     $c=count($users);
-    $profile=array();
     for($i=0; $i<10 ; $i++ ){
-        $add=1;
-        for ($j=0; $j<$c-1 ; $j++){
-            $profile=$users[$j];
-            if(date_create_from_format("d/m/Y" , $users[$j+1][7]) > date_create_from_format("d/m/Y" ,$users[$j][7])){ 
-                $profile=$users[$j+1]; //select the most recent profile  
-            }   
-        }
-        foreach($lastUsers as $user){ //check it isn't already in the array
-            if($profile[0]==$user[0]){
-                $add=0;
+        for ($j=0; $j<$c ; $j++){
+            $t1=1;
+            for($k=0; $k<10 ; $k++ ){
+                $array=$users[$j];
+                if($array[0]==$lastUsers[$k][0]){//check $j isn't already in the array
+                    $t1=0;
+                }
+            }
+            if($t1 && $lastUsers[$i][18]<$users[$j][18]){
+                $lastUsers[$i]=$users[$j];
             }
         }
-        if ($add){
-            $lastUsers[$i]=$profile; //adds it to the array
-            $users=array_diff($users ,$lastUsers); //removes the profiles from the list 
-            $c=count($users); //updates the count
-        }
     } 
-            
-      
-    echo "test\n";
+    $test=fopen("test1.txt", "w+");
+    foreach ($users as $user){
+        fputcsv($test, $user, ";");
+        fwrite($test, "\n");
+    }
+    fclose($test);  
+    $test=fopen("test2.txt", "w+");
+    foreach ($lastUsers as $user){
+        fputcsv($test, $user, ";");
+        fwrite($test, "\n");
+    }
+    fclose($test);        
     foreach ($lastUsers as $user){ //display the results
-        echo "$user[1]\n";
+        echo "$user[1]\n"; //to modify in order to display the profiles more properly 
     }
     
       

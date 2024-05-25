@@ -1,56 +1,57 @@
 <?php
   
    /* 
-   $users=multidimensionnal array
-   foreach $users as $user
+	$users=multidimensionnal array
+	foreach $users as $user
 	$user[0] = userID		randomly generated , unique, inchangeable, permet de vérifier qui est la personne même après changement de pseudo/email
-   $user[1] = username		Unique
-   $user[2] = email		Unique
-   $user[3] = password
-   $user[4] = access level : 2 ="user", 1 = "subscribed", 0 ="admin"		User par défaut, peut changer si l'abonnement est pris, admin peut se donner les permissions via le fichier txt
-   $user[5] = subscription expiration date : '-1' => admin , '0' => user, subscribed = previous expiration date/first subscription date + subscritpion length. string date : format ('d/m/Y')
-   $user[6] = gender
-   $user[7] = userprofile creation date	, automatically generated upon account creation
-   $user[8] = age (birthdate)
-   $user[9] = profession			Optionnel
-   $user[10] = address			Pays obligatoire (liste de pays), reste optionnel
-   $user[11] = status			Married / Divorced / Couple / Single
-   $user[12] = children			Nombre d'enfants
-   $user[13] = favorite starter		Optionnel, liste des 27 starters 
-						Bulbasaur (Bulbizarre)	Charmander (Salamèche)	Squirtle (Carapuce)
-						Chikorita (Germignon)	Cyndaquil (Héricendre)	Totodile (Kaiminus)
-						Treecko (Arcko)			Torchic (Poussifeu)		Mudkip (Gobou)
-						Turtwig (Tortipouss)	Chimchar (Ouisticram)	Piplup (Tiplouf)
-						Snivy (Vipélierre)		Tepig (Gruikui)			Oshawott (Moustillon)
-						Chespin (Marisson)		Fennekin (Feunnec)		Froakie (Grenousse)
-						Rowlet (Brindibou)		Litten (Flamiaou)		Popplio (Otaquin)
-						Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
-						Sprigatito (Poussacha)	Fuecoco (Chochodile)	Quaxly (Coiffeton)
+	$user[1] = username		Unique
+	$user[2] = email		Unique
+	$user[3] = password
+	$user[4] = access level : 2 ="user", 1 = "subscribed", 0 ="admin"		User par défaut, peut changer si l'abonnement est pris, admin peut se donner les permissions via le fichier txt
+	$user[5] = subscription expiration date : '-1' => admin , '0' => user, subscribed = previous expiration date/first subscription date + subscritpion length. string date : format ('d/m/Y')
+	$user[6] = gender
+	$user[7] = userprofile creation date	, automatically generated upon account creation  
+	$user[8] = age (birthdate)
+	$user[9] = profession			Optionnel
+	$user[10] = address			Pays obligatoire (liste de pays), reste optionnel
+	$user[11] = status			Married / Divorced / Couple / Single
+	$user[12] = children			Nombre d'enfants
+	$user[13] = favorite starter		Optionnel, liste des 27 starters 
+							Bulbasaur (Bulbizarre)	Charmander (Salamèche)	Squirtle (Carapuce)
+							Chikorita (Germignon)	Cyndaquil (Héricendre)	Totodile (Kaiminus)
+							Treecko (Arcko)			Torchic (Poussifeu)		Mudkip (Gobou)
+							Turtwig (Tortipouss)	Chimchar (Ouisticram)	Piplup (Tiplouf)
+							Snivy (Vipélierre)		Tepig (Gruikui)			Oshawott (Moustillon)
+							Chespin (Marisson)		Fennekin (Feunnec)		Froakie (Grenousse)
+							Rowlet (Brindibou)		Litten (Flamiaou)		Popplio (Otaquin)
+							Grookey (Ouistempo)		Scorbunny (Flambino)	Sobble (Larméléon)
+							Sprigatito (Poussacha)	Fuecoco (Chochodile)	Quaxly (Coiffeton)
 
-   $user[14] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
-						Gen 1	Red / Blue / Yellow
-						Gen 2	Gold / Silver / Crystal
-						Gen 3	Ruby / Sapphire / Emerald
-						Gen 4	Diamond / Pearl / Platinum
-						Gen 5	Black / White
-						Gen 6	X / Y
-						Gen 7	Sun / Moon
-						Gen 8	Sword / Shield
-						Gen 9	Scarlet / Violet
+	$user[14] = favorite generations	Optionnel, liste des 9 générations (préciser jeux principaux)
+							Gen 1	Red / Blue / Yellow
+							Gen 2	Gold / Silver / Crystal
+							Gen 3	Ruby / Sapphire / Emerald
+							Gen 4	Diamond / Pearl / Platinum
+							Gen 5	Black / White
+							Gen 6	X / Y
+							Gen 7	Sun / Moon
+							Gen 8	Sword / Shield
+							Gen 9	Scarlet / Violet
 
-   $user[15] = favorite types		Optionnel, liste des types
-							Bug		Dark	Dragon	Electric	Fairy	Fighting	Fire	Flying	Ghost
-							Grass	Ground	Ice		Normal		Poison	Psychic		Rock	Steel	Water
+	$user[15] = favorite types		Optionnel, liste des types
+								Bug		Dark	Dragon	Electric	Fairy	Fighting	Fire	Flying	Ghost
+								Grass	Ground	Ice		Normal		Poison	Psychic		Rock	Steel	Water
 
-   $user[16] = nature			Optionnel, prendre les natures de Pokémon
-							Adamant		Bashful		Bold		Brave		Calm
-							Careful		Docile		Gentle		Hardy		Hasty
-							Impish		Jolly		Lax			Lonely		Mild
-						   	Modest		Naive		Naughty		Quiet		Quirky
-							Rash		Relax		Sassy		Serious		Timid
+	$user[16] = nature			Optionnel, prendre les natures de Pokémon
+								Adamant		Bashful		Bold		Brave		Calm
+								Careful		Docile		Gentle		Hardy		Hasty
+								Impish		Jolly		Lax			Lonely		Mild
+								Modest		Naive		Naughty		Quiet		Quirky
+								Rash		Relax		Sassy		Serious		Timid
 
-   $user[17] = otherinfo			Optionnel, paragraphe libre
-   
+	$user[17] = otherinfo			Optionnel, paragraphe libre
+	$user[18] = account number (number of previous accounts +1 ) 
+	
 
    ...
 

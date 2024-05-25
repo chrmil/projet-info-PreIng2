@@ -33,7 +33,7 @@
             echo $e->getMessage();
         }   
         reset($users);
-        $newUser=array(); //creates new profile
+        $newUser=array_fill(0, 18, 'empty');//creates new profile
         $newUser[0]=rand(10,999); //generate user ID (int betwenn 10 and 999)
         foreach($users as $user) {
             while ($user[0]==$newUser[0]) { //checks ID is available , generates a new one if necessary
@@ -48,6 +48,13 @@
         $newUser[5]="0";
         $newUser[6]=$_POST["gender"];
         $newUser[7]=date("d/m/Y");
+        $n=1;
+        foreach($users as $user) {
+           if ($user[18]>$n) { //finds the highest account number
+                $n=$user[18];
+            }    
+        }
+        $newUser[18]=$n+1;
         newUser($newUser); //adds in the new user's profile 
         $_SESSION["userID"]=$newUser[0];
         header("Location:user.html");
