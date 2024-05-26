@@ -71,53 +71,58 @@ function next(p){
         if (this.readyState == 4 && this.status == 200) {
             var userDetails = JSON.parse(this.responseText); //  JSON data
             var j=p*30;
-            for (var i = 0; i < userDetails.length; i++) {
-                var card = document.getElementById("card-" + (i + 1));
-                var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
-                var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
-                var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
-                var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
-                var userImage = document.getElementById("image-" + (i + 1));
-                 if(userDetails[j].color!="empty"&& card){
-                    card.setAttribute("class", "grid-individual-card card-background-"+userDetails[j].color);
+            if(j<userDetails.length){
+                for (var i = 0; i < userDetails.length; i++) {
+                    var card = document.getElementById("card-" + (i + 1));
+                    var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
+                    var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
+                    var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
+                    var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
+                    var userImage = document.getElementById("image-" + (i + 1));
+                    if(userDetails[j].color!="empty"&& card){
+                        card.setAttribute("class", "grid-individual-card card-background-"+userDetails[j].color);
+                    }
+                    if(userDetails[j].starter!="empty"&& userImage){
+                        userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[j].starter+".png");
+                    }
+                    else if(userImage){
+                        userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/pikachu.png");
+                    }
+                    if (userNameElement) {
+                        userNameElement.textContent = userDetails[j].nom || "No name available";
+                    }
+                    if (userAgeElement) {
+                        userAgeElement.textContent = userDetails[j].age || "No age available";
+                    }
+                    if (userSexElement) {
+                        userSexElement.textContent = userDetails[j].sex || "No gender available";
+                    }
+                    if (userTypeElement) {
+                        userTypeElement.textContent = userDetails[j].type || "No type available";
+                    }
+                    j++;
                 }
-                if(userDetails[j].starter!="empty"&& userImage){
-                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[j].starter+".png");
-                }
-                else if(userImage){
-                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/pikachu.png");
-                }
-                if (userNameElement) {
-                    userNameElement.textContent = userDetails[j].nom || "No name available";
-                }
-                if (userAgeElement) {
-                    userAgeElement.textContent = userDetails[j].age || "No age available";
-                }
-                if (userSexElement) {
-                    userSexElement.textContent = userDetails[j].sex || "No gender available";
-                }
-                if (userTypeElement) {
-                    userTypeElement.textContent = userDetails[j].type || "No type available";
-                }
-                j++;
-            }
-            var n=0;
-            for (var i = 0; i <30; i++) {
-                
-                var card = document.getElementById("card-" + (i + 1));
-                var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
-                var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
-                var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
-                var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
+                var n=0;
+                for (var i = 0; i <30; i++) {
+                    
+                    var card = document.getElementById("card-" + (i + 1));
+                    var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
+                    var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
+                    var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
+                    var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
 
-                if ( userNameElement.textContent == "empty") {
-                    card.style.visibility = "hidden";
-                    n++;
-                
+                    if ( userNameElement.textContent == "empty") {
+                        card.style.visibility = "hidden";
+                        n++;
+                    
+                    }
+                }
+                if(n==9){  //if no user displayed
+                    document.getElementById("div1").innerHTML="There are no trainers fulfilling these parameters.<br>";
                 }
             }
-            if(n==9){  //if no user displayed
-                document.getElementById("div1").innerHTML="There are no trainers fulfilling these parameters.<br>";
+            else{
+                document.getElementById("div1").innerHTML="There are no more trainers fulfilling these parameters.<br>";
             }
         }
     };
@@ -132,11 +137,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var next_button =  document.getElementById("next");
     var reset_button =  document.getElementById("reset");
     var count = 0; 
-    function counter() {
-        count += 1;
-    }
     next_button.addEventListener("click", function(){
-        counter();
+        count += 1;
         next(count);
     } );
     reset_button.addEventListener("click",  function(){
