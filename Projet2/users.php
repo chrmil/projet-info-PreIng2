@@ -89,14 +89,17 @@
 			$users[$i]=fgetcsv($profile,0, ";");
 			$i++;			
 		}
+		/*
 		$test=fopen("test.txt", "w+");
 		foreach ($users as $user){
 			fputcsv($test, $user, ";");
 			fwrite($test, "\n");
 		}
 		fclose($test);
-	    return $users;
+	    */
+		return $users;
 	}
+		
 
     function newUser($newUser){ //adds a new user to the directory, registry and list 
 	

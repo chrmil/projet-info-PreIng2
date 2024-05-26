@@ -11,7 +11,7 @@
            
         }
         catch(Exception $e){
-            echo $e->getMessage();
+            $_SESSION["msg"]= $e->getMessage();
         } 
         include("users.php");   
         global $users;
@@ -22,7 +22,7 @@
             }
         }  
         catch(Exception $e){
-            echo $e->getMessage();
+            $_SESSION["msg"]= $e->getMessage();
         }   
         reset($users);
         try{
@@ -39,7 +39,7 @@
                         $subdate=date_add( $datetime,$interval );// adds to it an interval from the chosen subscription length 
                         $user[5]=date_format($subdate, $format);// convert it back to string format
                         updateUser($_SESSION["userID"], $user);
-                        echo "Thanks for subscribing $user[1] !  Your current subscription will last until the ".$user[5].".";
+                        $_SESSION["msg"]= "Thanks for subscribing $user[1] !  Your current subscription will last until the ".$user[5].".";
                     } 
                     elseif ($user[4]==1){  //if currently subscribed
                         $format="d/m/Y";
@@ -49,10 +49,10 @@
                         $subdate=date_add($datetime, $interval );
                         $user[5]=date_format($subdate, $format);
                         updateUser($_SESSION["userID"], $user);
-                        echo "Thanks for prolonging your subscription $user[1] !  Your current subscription will last until the ".$user[5].".";
+                        $_SESSION["msg"]= "Thanks for prolonging your subscription $user[1] !  Your current subscription will last until the ".$user[5].".";
                     }
                     else{
-                        echo "Admins already have the highest access level !";
+                        $_SESSION["msg"]= "Admins already have the highest access level !";
                     }
                 }
                 
@@ -63,10 +63,10 @@
 
         }
         catch(Exception $e){
-            echo $e->getMessage();
+            $_SESSION["msg"]= $e->getMessage();
         }   
         
-        
+        header("Location:subscriptions.html");
        
     
     }
