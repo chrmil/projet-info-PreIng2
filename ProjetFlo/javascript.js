@@ -1,28 +1,3 @@
-function editprofile(info){
-	const n = JSON.parse(info);
-	var xhttp, xmlDoc, txt, x, i;
-	xhttp = new XMLHttpRequest();
-	xhttp.onload = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			xmlDoc = this.responseXML;
-			txt = "";
-			x = ["userID", "username", "email", "password", "subscription", "subtime", "gender", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature", "description"];
-			for (i = 1; i < x.length; i++){
-				if (i != 3 && i != 5 && i != 7 && i < x.length-1){
-					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i] + "'><br>";
-				}
-				else if (i == x.length-1){
-					txt = txt + "<textarea id='description' name='description'>" + n[i] + "</textarea><br>";
-				}
-			}
-			txt = txt + "<button type='submit' id='submit'>Submit</button>";
-			document.getElementById("editprofile").innerHTML = txt;
-		}
-	};
-	xhttp.open("GET", "useredit.php", true);
-	xhttp.send();
-}
-
 function piclist(x, user){
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
