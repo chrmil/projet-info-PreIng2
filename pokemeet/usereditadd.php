@@ -55,7 +55,7 @@
 			$str = substr($info, 0, -1);
 			$tab = explode(';', $str);
 			$tabstatus = array('Married', 'Divorced', 'Couple', 'Single');
-			$tabstarter = array('Bulbasaur', 'Charmander', 'Squirtle', 'Chikorita', 'Cyndaquil', 'Totodile', 'Treecko', 'Torchic', 'Mudkip', 'Turtwig', 'Chimchar', 'Piplup', 'Snivy', 'Tepig', 'Oshawott', 'Chespin', 'Fennekin', 'Froakie', 'Rowlet', 'Litten', 'Popplio', 'Grookey', 'Scorbunny', 'Sobble', 'Sprigatito', 'Fuecoco', 'Quaxly');
+			$tabstarter = array('Bulbasaur', 'Charmander', 'Squirtle', 'Pikachu');
 			$tabgen = array('Gen1	(Red / Blue / Yellow)', 'Gen2	(Gold / Silver / Crystal)', 'Gen3	(Ruby / Sapphire / Emerald)', 'Gen4	(Diamond / Pearl / Platinum)', 'Gen5	(Black / White)',  'Gen6	(X / Y)', 'Gen7	(Sun / Moon)', 'Gen8	(Sword / Shield)', 'Gen9	(Scarlet / Violet)');
 			$tabtype = array('Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water');
 			$tabnature = array('Adamant', 'Bashful', 'Bold', 'Brave', 'Calm', 'Careful', 'Docile', 'Gentle', 'Hardy', 'Hasty', 'Impish', 'Jolly', 'Lax', 'Lonely', 'Mild', 'Modest', 'Naive', 'Naughty', 'Quiet', 'Quirky', 'Rash', 'Relax', 'Sassy', 'Serious', 'Timid');
