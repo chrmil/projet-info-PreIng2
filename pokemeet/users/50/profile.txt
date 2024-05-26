@@ -1,1 +1,1 @@
-50;test;mail@mail;$2y$10$yCFxpoKKVvvMQWKBlhnbeeL.pn9nhK4Fc0Qv22yMuTOtJw4GkkhGi;user;man;22/05/2024
+50;test;mail@mail;$2y$10$yCFxpoKKVvvMQWKBlhnbeeL.pn9nhK4Fc0Qv22yMuTOtJw4GkkhGi;user;man;22/05/2024;empty;empty;empty;empty;empty;charmander;empty;water;empty;empty;18
