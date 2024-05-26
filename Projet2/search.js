@@ -71,8 +71,10 @@ function next(p){
         if (this.readyState == 4 && this.status == 200) {
             var userDetails = JSON.parse(this.responseText); //  JSON data
             var j=p*30;
+            var i=0;
             if(j<userDetails.length){
-                for (var i = 0; i < userDetails.length; i++) {
+                for (var j = j; j < userDetails.length; j++) {
+                    
                     var card = document.getElementById("card-" + (i + 1));
                     var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
                     var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
@@ -100,7 +102,21 @@ function next(p){
                     if (userTypeElement) {
                         userTypeElement.textContent = userDetails[j].type || "No type available";
                     }
-                    j++;
+                    i++;
+                }
+                var k=i+1;
+                for (var i = k; i < 30; i++) {
+                    var card = document.getElementById("card-" + (i + 1));
+                    var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
+                    var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
+                    var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
+                    var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
+                    var userImage = document.getElementById("image-" + (i + 1));
+                   
+                    if (userNameElement) {
+                        userNameElement.textContent = "empty";
+                    }
+            
                 }
                 var n=0;
                 for (var i = 0; i <30; i++) {
@@ -138,10 +154,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var reset_button =  document.getElementById("reset");
     var count = 0; 
     next_button.addEventListener("click", function(){
+        document.getElementById("div1").innerHTML="";
         count += 1;
         next(count);
     } );
     reset_button.addEventListener("click",  function(){
+        document.getElementById("div1").innerHTML="";
         count=0;
         loadUserDetails();
     } );
