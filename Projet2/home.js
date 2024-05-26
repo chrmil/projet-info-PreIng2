@@ -54,6 +54,18 @@ function loadUserDetails() {
                     userTypeElement.textContent = userDetails[i].type || "No type available";
                 }
             }
+
+            for (var i = 0; i <10; i++) {
+                var card = document.getElementById("card-" + (i + 1));
+                var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
+                var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
+                var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
+                var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
+
+                if ( userNameElement.textContent == "empty") {
+                    card.style.visibility = "hidden";
+                }
+            }
         }
     };
     xhttp.open("GET", "home.php", true);

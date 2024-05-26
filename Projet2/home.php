@@ -45,6 +45,14 @@
                 "type" => $user[15]
             );
         }
+        else{ //if not enough users to fill the array
+            $userDetails[] = array(
+                "nom" => "empty", 
+                "age" => "empty", 
+                "sex" =>"empty",
+                "type" => "empty"
+            );
+        }
     }
 
     // Converts the array with user names and ages in JSON
