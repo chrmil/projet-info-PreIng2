@@ -29,7 +29,7 @@
 
 	function chatImg($own, $oth, $imgown, $picnum){
 		echo "<div id='".$imgown."img'>
-			<a href=image.php?user=".$own."&pic=".$imgown."_".$oth."_".$picnum." target='_self'>
+			<a href=image.php?&own=".$own."&oth=".$oth."&pic=".$imgown."_".$oth."_".$picnum." target='_self'>
 				<img src=./users/".$own."/".$imgown."_".$oth."_".$picnum."><br>
 			</a>
 		</div>";
@@ -157,7 +157,7 @@
 		$curinfo = fopen('./users/'.$cur.'/profile.txt', 'r');
 		$tab = explode(";", fgets($curinfo));
 		fclose($curinfo);
-		if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && (($cur == $own && $tab[4] == "subscribed") || $tab[4] == "admin")){
+		if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && (($cur == $own && $tab[4] == "subscribed") || $tab[4] == "admin"))){
 			if (isset($message)){
 				$i = 0;
 				$chat = fopen('./users/'.$own.'/chat'.$oth.'.txt', 'r');
