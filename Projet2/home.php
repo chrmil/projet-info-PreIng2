@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include("users.php");   
-    $users = getUserlist(); // Obtient la liste des utilisateurs, pas global
+    $users = getUserlist(); //gets user list
     
     try {
         if(!isset($users) || empty($users)){
@@ -15,7 +15,7 @@
         #echo $e->getMessage();
     }   
 
-    $lastUsers = array_fill(0, 10, array_fill(0, 19, 0)); // Tableau des 10 derniers nouveaux utilisateurs 
+    $lastUsers = array_fill(0, 10, array_fill(0, 19, 0)); //tab of the latest 10 new users
     $i = 0;
     $j = 0;
     $c = count($users);
@@ -24,7 +24,7 @@
             $t1 = 1;
             for($k = 0; $k < 10; $k++) {
                 $array = $users[$j];
-                if($array[0] == $lastUsers[$k][0]) { // Vérifie que $j n'est pas déjà dans le tableau
+                if($array[0] == $lastUsers[$k][0]) { // checks if $j isn't already in the array
                     $t1 = 0;
                 }
             }
@@ -34,22 +34,22 @@
         }
     } 
 
-    // Tableau pour stocker les noms et les âges des utilisateurs
+    // array to stock user's details such as name and age
     $userDetails = array();
     foreach ($lastUsers as $user) {
         if($user[0] != 0) {
             $userDetails[] = array(
-                "nom" => $user[1], // Ajoute le nom de l'utilisateur
-                "age" => $user[2], // Ajoute l'âge de l'utilisateur
+                "nom" => $user[1], // adds username
+                "age" => $user[2], // adds user age
                 "sex" => $user[6],
-                "type" => $user[5]
+                "type" => $user[15]
             );
         }
     }
 
-    // Convertit le tableau des noms et âges d'utilisateurs en JSON
+    // Converts the array with user names and ages in JSON
     $userDetailsJSON = json_encode($userDetails);
 
-    // Envoie le JSON à la page HTML
+    // send the JSON to the HTML page
     echo $userDetailsJSON;
 ?>

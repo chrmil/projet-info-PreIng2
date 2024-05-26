@@ -31,7 +31,7 @@ function loadUserDetails() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var userDetails = JSON.parse(this.responseText); // données JSON
+            var userDetails = JSON.parse(this.responseText); //  JSON data
 
             
             for (var i = 0; i < userDetails.length; i++) {
@@ -42,16 +42,16 @@ function loadUserDetails() {
                 var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
 
                 if (userNameElement) {
-                    userNameElement.textContent = userDetails[i].nom || "Aucun nom disponible";
+                    userNameElement.textContent = userDetails[i].nom || "No name available";
                 }
                 if (userAgeElement) {
-                    userAgeElement.textContent = userDetails[i].age || "Aucun âge disponible";
+                    userAgeElement.textContent = userDetails[i].age || "No age available";
                 }
                 if (userSexElement) {
-                    userSexElement.textContent = userDetails[i].sex || "Aucun sex disponible";
+                    userSexElement.textContent = userDetails[i].sex || "No gender available";
                 }
                 if (userTypeElement) {
-                    userTypeElement.textContent = userDetails[i].type || "Aucun type disponible";
+                    userTypeElement.textContent = userDetails[i].type || "No type available";
                 }
             }
         }
