@@ -21,13 +21,13 @@
         <li class="navbar-item">  
             <a href="home.html" class="navbar-link"> 
             <span class="material-symbols-outlined">home</span>
-            </a> 
+            </a>
         </li>
         
         <li class="navbar-item">  
-            <a href="user.html" class="navbar-link"> 
+            <a href="user.html" class="navbar-link">  
             <span class="material-symbols-outlined">person</span>
-            </a> 
+            </a>
         </li>
         
         
@@ -65,6 +65,7 @@
         <button id="search-btn">Search for another trainer :</button>
         
         <div id="search-options" class="search-options">
+
             <form  method="post"  action="search.php" >
                 <!-- Search options: -->  
                 <label for="username">The name of the trainer:</label>
@@ -105,19 +106,169 @@
                 </select><br> </br> 
                 <button type="submit" >Search</button>
             </form>
+
         </div>
    </div>
    
-   <button id="profiles" onclick="loadUsers()"><h1>See who the latest trainers to join us are !</h1></button>
-   
-   <div id="divprofiles" > <!-- Adds the latest 10 users with js  -->  
+    <h1>These are the latest trainers to join us!</h1>
+    <div id="profiles" onload="loadUsers()">
+       <!-- Adds the latest 10 users with js  -->  
+    </div>
+
+
+
+<!-- ORGANIZES ALL CARDS ON THE PAGE -->
+<div class="grid-card-container">
+    <!-- CARD BACKGROUND -->
+    <div class="grid-individual-card card-background-yellow">
      
-   </div>
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name" id="user-1-nom">Pikachu</div>
+      <div class="header-hp" id="user-1-age">40 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_pikachu.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-1-sex"></a></div>
+      <div class="attack-damage">10</div>
+     <div class="attack-description">Type:<span class="attack-name"id="user-1-type">Thundershock</span> Flip a coin. If tails, Pikachu does 10 damage to itself.</div>
+      
+    
+   
+
+    </div>
+
+    <div class="grid-individual-card card-background-green">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name"id="user-2-nom">Bulbasaur</div>
+      <div class="header-hp" id="user-2-age">40 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_bulbasaur.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-2-sex"></a></div>
+      <div class="attack-description">Type:<span class="attack-name"id="user-2-type">Leech Seed</span> Unless all damage from this attack is prevented, you may remove 1 damage counter from Bulbasaur.</div>
+      <div class="attack-damage">20</div>
+     
+      
+   
+    </div>
+    
+    <div class="grid-individual-card card-background-redorange">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name"id="user-3-nom">Charmander</div>
+      <div class="header-hp" id="user-3-age">50 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_charmander.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-3-sex"></a></div>
+      <div class="attack-damage">10</div>
+      <div class="attack-description">Type:<span class="attack-name" id="user-3-type">Ember</span> Discard 1 Energy card attached to Charmander in order to use this attack.</div>
+      <div class="attack-damage">30</div>
+     
+      
+  
+    </div>
+    
+    <div class="grid-individual-card card-background-blue">
+      <div class="header-basic-pokemon">Basic Pokémon</div>
+      <div class="header-pokemon-name" id="user-4">Squirtle</div>
+      <div class="header-hp"id="user-4-age">50 HP</div>
+      <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+      <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-4-sex"></a></div>
+      <div class="attack-description">Type:<span class="attack-name"id="user-4-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+      <div class="attack-damage">10</div>
+   
+     
+    </div>
+
+    <div class="grid-individual-card card-background-brown">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name" id="user-5">Squirtle</div>
+        <div class="header-hp"id="user-5-age">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+       
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-5 -sex"></a></div>
+        <div class="attack-description">Type:<span class="attack-name"id="user-5-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+      
+       
+      </div>
+    
+
+
+
+    <div class="grid-individual-card card-background-white">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name" id="user-6-nom">Squirtle</div>
+        <div class="header-hp"id="user-6-age">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-6-sex"></a></div>
+        <div class="attack-description">Type:<span class="attack-name"id="user-6-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        
+       
+      </div>
+    
+
+
+    <div class="grid-individual-card card-background-pink">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name" id="user-7-nom">Squirtle</div>
+        <div class="header-hp"id="user-7-age">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-7-sex"></a></div>
+        <div class="attack-description">Type:<span class="attack-name"id="user-7-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+
+       
+      </div>
+    
+
+
+    <div class="grid-individual-card card-background-grey">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name"id="user-8">Squirtle</div>
+        <div class="header-hp"id="user-8-age">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-8-sex"></a></div>
+        <div class="attack-description">Type:<span class="attack-name"id="user-8-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+       
+       
+      </div>
+    
+      <div class="grid-individual-card card-background-black">
+        <div class="header-basic-pokemon">Basic Pokémon</div>
+        <div class="header-pokemon-name" id="user-9">Squirtle</div>
+        <div class="header-hp"id="user-9-age">50 HP</div>
+        <div class="image-holder"><img src = "https://heatherketten.files.wordpress.com/2018/03/my_squirtle.gif" alt = "Pikachu"></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="description-below-image-empty"><!-- empty cell to position description correctly --></div>
+        <div class="attack-description attack-center" >Sex:<span class="attack-name" id="user-9-sex"></a></div>
+        <div class="attack-description">Type:<span class="attack-name"id="user-9-type">Bubble</span> Flip a coin. If heads, the Defending Pokémon is now Paralyzed.</div>
+        <div class="attack-damage">10</div>
+        
+       
+      </div>
+</div>
+ 
+
 
 
 
 </body>
 
+
+    
 
 
 
