@@ -4,18 +4,25 @@
 	<head>
 		<link rel="stylesheet" type="text/css"  href=style.css>
 		<script src="javascript.js"></script> 
+		<?php
+			session_start(); 
+			$user = $_GET["user"];
+			$cur = $_SESSION["userID"];
+		?>
 	</head>
 	<body>
-		<a href=userprofile.php<?php echo "?user=".$_GET["user"]."&own=".$_GET['own'] ?> target="_self"> <- Back to profile </a>
-		<img src=<?php echo "./users/".$_GET["user"] ?>/pfp.png id="pfp">
+		<a href=userprofile.php<?php echo "?user=".$user ?> target="_self"> <- Back to profile </a>
+		<img src=<?php echo "./users/".$user ?>/pfp.png id="pfp">
 		<?php
+			
+			
 			include("users.php");
 			
-			$x = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
+			$x = ["userID", "username", "email", "password", "subscription", "subtime", "gender", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature", "description"];
 			
-			if (isset($_POST["Username"])){
-				$y = array($_GET["user"]);
-				$file = fopen('./users/'.$_GET["user"].'/profile.txt', 'r');
+			if (isset($_POST["username"])){
+				$y = array($user);
+				$file = fopen('./users/'.$user.'/profile.txt', 'r');
 				$info = fgets($file);
 				$str = substr($info, 0, -1);
 				$tab = explode(';', $str);
@@ -35,11 +42,11 @@
 						$y[$i] = $replaced;
 					}
 				}
-				updateUser($_GET["user"], $y);
+				updateUser($user, $y);
 			}
 			
 			function editinfo($user){
-				if (file_exists('./users/'.$user.'/profile.txt') && $_GET['own']){
+				if (file_exists('./users/'.$user.'/profile.txt')){
 					$i = 1;
 					$file = fopen('./users/'.$user.'/profile.txt', 'r');
 					$info = fgets($file);
@@ -50,7 +57,15 @@
 				}
 			}
 			
-			editinfo($_GET["user"]);
+			$curinfo = fopen('./users/'.$cur.'/profile.txt', 'r');
+			$curtab = explode(";", fgets($curinfo));
+			fclose($curinfo);
+			if($cur == $user || $curtab[4] == "admin"){
+				editinfo($user);
+			}
+			else{
+				echo "This is not your page";
+			}
 		?>
 		<form method="post" enctype="multipart/form-data" id="editprofile">
 		</form>
