@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include("users.php");  
+    include("type.php");
     global $search;
     $search=$_SESSION["search"];
     $search_fail=$_SESSION["search_fail"];
