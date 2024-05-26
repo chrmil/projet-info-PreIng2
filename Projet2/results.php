@@ -22,7 +22,7 @@
     }   
     if($search_fail=="no user found"){ //if no  user found with specified username
         $userDetails = array();
-        for($i=0;$i<9;$i++) {
+        for($i=0;$i<30;$i++) {
                $userDetails[] = array(
                     "nom" => "empty", // adds username
                     "age" => "empty", // adds user age
@@ -34,7 +34,7 @@
         }
          
     }
-    elseif(count($search)>=9){
+    elseif(count($search)>=30){
             // array to stock user's details 
         $userDetails = array();
         foreach ($search as $user) {
@@ -51,7 +51,7 @@
     }
     else{
         $userDetails = array();
-        for($i=0;$i<9;$i++) {
+        for($i=0;$i<30;$i++) {
             if(empty($search[$i]) || !isset($search[$i])){
                 $userDetails[] = array(
                         "nom" => "empty", // adds username
@@ -69,7 +69,7 @@
                     "sex" => $search[$i][6], // adds user gender
                     "type" => $search[$i][15],  // adds user type
                     "starter" => $search[$i][13] , // adds user starter
-                    "color" => $type_color[$search[$i][13]] // adds user type color
+                    "color" => $type_color[$search[$i][15]] // adds user type color
                 );
             }
         }

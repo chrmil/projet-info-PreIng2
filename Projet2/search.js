@@ -19,6 +19,9 @@ function loadUserDetails() {
                 if(userDetails[i].starter!="empty" && userImage){
                     userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[i].starter+".png");
                 }
+                else if(userImage){
+                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/pikachu.png");
+                }
              
                 if (userNameElement) {
                     userNameElement.textContent = userDetails[i].nom || "No name available";
@@ -34,7 +37,7 @@ function loadUserDetails() {
                 }
             }
             var n=0;
-            for (var i = 0; i <9; i++) {
+            for (var i = 0; i <30; i++) {
                 
                 var card = document.getElementById("card-" + (i + 1));
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
@@ -49,7 +52,7 @@ function loadUserDetails() {
                 }
             }
             
-            if(n==9){  //if no user found
+            if(n==30){  //if no user found
                 document.getElementById("div1").innerHTML="There are no trainers fulfilling these parameters.<br>";
             }
             if(n==0){
@@ -67,7 +70,7 @@ function next(p){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var userDetails = JSON.parse(this.responseText); //  JSON data
-            var j=p*9;
+            var j=p*30;
             for (var i = 0; i < userDetails.length; i++) {
                 var card = document.getElementById("card-" + (i + 1));
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
@@ -80,6 +83,9 @@ function next(p){
                 }
                 if(userDetails[j].starter!="empty"&& userImage){
                     userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[j].starter+".png");
+                }
+                else if(userImage){
+                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/pikachu.png");
                 }
                 if (userNameElement) {
                     userNameElement.textContent = userDetails[j].nom || "No name available";
@@ -96,7 +102,7 @@ function next(p){
                 j++;
             }
             var n=0;
-            for (var i = 0; i <9; i++) {
+            for (var i = 0; i <30; i++) {
                 
                 var card = document.getElementById("card-" + (i + 1));
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");

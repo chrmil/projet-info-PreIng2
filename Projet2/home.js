@@ -48,6 +48,9 @@ function loadUserDetails() {
                 if(userDetails[i].starter!="empty" && userImage){
                     userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[i].starter+".png");
                 }
+                else if(userImage){
+                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/pikachu.png");
+                }
                 if (userNameElement) {
                     userNameElement.textContent = userDetails[i].nom || "No name available";
                 }
