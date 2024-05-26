@@ -21,7 +21,7 @@
 			
 			if(checkUser($user, $cur)){
 				echo "<form method='post' enctype='multipart/form-data' id='editprofile'>";
-				editinfo($user, $infolist);
+				editInfo($user, $infolist);
 				echo "</form>";
 			}
 			else{
