@@ -1,1 +1,1 @@
-30;poke5;m5@mail;$2y$10$CXCcz5RZmtVft5kpTYIfBueMlFn.pJbSNonGNtmbGxa.dWlqcxY8.;2;0;woman;26/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;18
+30;poke5;m5@mail;$2y$10$CXCcz5RZmtVft5kpTYIfBueMlFn.pJbSNonGNtmbGxa.dWlqcxY8.;2;0;woman;26/05/2024;empty;empty;empty;empty;empty;charmander;empty;water;empty;empty;18

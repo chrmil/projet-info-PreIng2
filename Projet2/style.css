@@ -32,6 +32,21 @@ header p.title{
     
                                               
 }
+header p.subtitle{
+  font-family: var(--font-pokemon);
+  font-size: x-large;
+ 
+  text-align: center; 
+  
+                                            
+}
+header p#div_sub{
+  font-family: var(--font-pokemon);
+  font-size: x-large;
+  text-align: center; 
+  
+                                            
+}
 /*sets the police for all text */
 * *{
   font-family: var(--font-pokemon);
