@@ -2,6 +2,7 @@
 
 <?php
 	include("global.php");
+	include("date.php");
 	include("users.php");
 
 	function replaceText($text){
