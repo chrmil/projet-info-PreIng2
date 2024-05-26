@@ -15,12 +15,7 @@
 	<body>
 		<div id=chat>
 			<?php
-				if (checkUser($user, $cur)){
-					loadChats($user);
-				}
-				else{
-					echo "This is not your page";
-				}
+				loadChats($user);
 			?>
 		</div>
 	</body>
