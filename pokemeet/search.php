@@ -61,7 +61,7 @@
             foreach ($users as $user){
                 $filter=1; //1 = the profile fits the filters
                 if($_POST["min_age"]!=18 || $_POST["max_age"]!=50){ //if age specified
-                    if($user[8]!='empty'){ //if the user's age is set 
+                    if($user[8]!='empty' && !empty($user[8])){ //if the user's age is set 
                         $birthdate=date_create_from_format($format, $user[8] );
                         $age=date_diff($date, $birthdate)->y;
                         if($age>$max || $age <$min  ){ //if the user doesn't fit the age filter
@@ -75,7 +75,7 @@
                     } 
                 }
                 if($type!="unspecified"){
-                    if($user[15]!='empty'){ //if the user's favorite type is set 
+                    if($user[15]!='empty'!empty($user[15])){ //if the user's favorite type is set 
                         if($user[15]!=$type){//if the type doesn't fit the filter
                             $filter=0;
                         }
