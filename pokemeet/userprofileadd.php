@@ -39,7 +39,7 @@
 		}
 	}
 	
-	function displayinfo($user){
+	function displayInfo($user, $cur){
 		if (file_exists('./users/'.$user.'/profile.txt')){
 			$infolist = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
 			$i = 1;
@@ -49,8 +49,13 @@
 			$tab[sizeof($infolist) - 1] = str_replace('_', ' ', $tab[sizeof($infolist) - 1]);
 			for ($i = 1; $i < sizeof($infolist); $i++){
 				echo "<div id=displayinfo>";
-				if ($i != 3){
+				if ($i != 2 && $i != 3 && $i != 5){
 					echo "<br>".$infolist[$i].":".$tab[$i];
+				}
+				else if ($i == 2 || $i == 5){
+					if (checkUser($user, $cur)){
+						echo "<br>".$infolist[$i].":".$tab[$i];
+					}
 				}
 				echo "</div>";
 			}

@@ -17,7 +17,7 @@
 		<?php
 			$infolist = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
 			
-			useredit($user, $infolist, $_POST);
+			userEdit($user, $infolist, $_POST);
 			
 			if(checkUser($user, $cur)){
 				echo "<form method='post' enctype='multipart/form-data' id='editprofile'>";
