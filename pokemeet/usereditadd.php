@@ -34,7 +34,20 @@
 		}
 	}
 
-	function editinfo($user, $infolist){
+	function selectInfo($infolist, $i, $tab){
+		echo $infolist[$i].": <select id='".$infolist[$i]."' name='".$infolist[$i].">";
+			for ($j = 0; $j < sizeof($tab); $j++){
+				if ($tab[$j] == $tab[$i]){
+					echo "<option value =".$tab[$j]."selected>".$tab[$j]."</option>";
+				}
+				else{
+					echo "<option value =".$tab[$j].">".$tab[$j]."</option>";
+				}
+			}
+		echo "</select><br>";
+	}
+
+	function editInfo($user, $infolist){
 		if (file_exists('./users/'.$user.'/profile.txt')){
 			$i = 1;
 			$file = fopen('./users/'.$user.'/profile.txt', 'r');
@@ -68,52 +81,16 @@
 							echo "</select><br>";
 							break;
 						case 13:
-						echo $infolist[$i].": <select id='".$infolist[$i]."' name='".$infolist[$i].">";
-							for ($j = 0; $j < sizeof($tabstarter); $j++){
-								if ($tabstarter[$j] == $tab[$i]){
-									echo "<option value =".$tabstarter[$j]."selected>".$tabstarter[$j]."</option>";
-								}
-								else{
-									echo "<option value =".$tabstarter[$j].">".$tabstarter[$j]."</option>";
-								}
-							}
-						echo "</select><br>";
+							selectInfo($infolist, $i, $tabstarter);
 							break;
 						case 14:
-						echo $infolist[$i].": <select id='".$infolist[$i]."' name='".$infolist[$i].">";
-							for ($j = 0; $j < sizeof($tabgen); $j++){
-								if ($tabgen[$j] == $tab[$i]){
-									echo "<option value =".$tabgen[$j]."selected>".$tabgen[$j]."</option>";
-								}
-								else{
-									echo "<option value =".$tabgen[$j].">".$tabgen[$j]."</option>";
-								}
-							}
-						echo "</select><br>";
+							selectInfo($infolist, $i, $tabgen);
 							break;
 						case 15:
-						echo $infolist[$i].": <select id='".$infolist[$i]."' name='".$infolist[$i].">";
-							for ($j = 0; $j < sizeof($tabtype); $j++){
-								if ($tabtype[$j] == $tab[$i]){
-									echo "<option value =".$tabtype[$j]."selected>".$tabtype[$j]."</option>";
-								}
-								else{
-									echo "<option value =".$tabtype[$j].">".$tabtype[$j]."</option>";
-								}
-							}
-						echo "</select><br>";
+							selectInfo($infolist, $i, $tabtype);
 							break;
 						case 16:
-						echo $infolist[$i].": <select id='".$infolist[$i]."' name='".$infolist[$i].">";
-							for ($j = 0; $j < sizeof($tabnature); $j++){
-								if ($tabnature[$j] == $tab[$i]){
-									echo "<option value =".$tabnature[$j]."selected>".$tabnature[$j]."</option>";
-								}
-								else{
-									echo "<option value =".$tabnature[$j].">".$tabnature[$j]."</option>";
-								}
-							}
-						echo "</select><br>";
+							selectInfo($infolist, $i, $tabnature);
 							break;
 					}
 				}
@@ -122,7 +99,7 @@
 				<button type='submit' id='submit'>Submit</button>";
 				}
 				else{
-					echo "Problem editinfo"; 
+					echo "Problem editInfo"; 
 				}
 			}
 		}
