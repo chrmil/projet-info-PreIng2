@@ -53,11 +53,11 @@
             $search = array();
             $i = 0;
             $format = "d/m/Y";
-            $date = new DateTime();
+            $date = new DateTime();//current date
             $min_date = new DateTime();
             $max_date = new DateTime();
             $birthdate = new DateTime();
-            $date = date($format); //current date
+            $date =date_create_from_format($format, date($format)); 
             foreach ($users as $user){
                 $filter=1; //1 = the profile fits the filters
                 if($_POST["min_age"]!=18 || $_POST["max_age"]!=50){ //if age specified
@@ -65,9 +65,13 @@
                         $birthdate=date_create_from_format($format, $user[8] );
                         $min_date = date_add($birthdate, $min );
                         $max_date = date_add($birthdate, $max );
-                        if($date < $min_date || $date > $max_date){ //if the user doesn't fit the age filter
+                        $min_diff = date_diff($min_date, $date)->y;
+                        $max_diff = date_diff($max_date, $date)->y;
+                        if(is_int($min_diff))
+                        if($min_diff<0 || $max_diff >0  ){ //if the user doesn't fit the age filter
                             $filter=0;
                         }
+                     
                     }
                     else{ //if the age isn't set
                         $filter=0;
