@@ -75,7 +75,7 @@
                     } 
                 }
                 if($type!="unspecified"){
-                    if($user[15]!='empty'!empty($user[15])){ //if the user's favorite type is set 
+                    if($user[15]!='empty' && !empty($user[15])){ //if the user's favorite type is set 
                         if($user[15]!=$type){//if the type doesn't fit the filter
                             $filter=0;
                         }
