@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const searchButton = document.getElementById("search-btn");
     const searchOptions = document.getElementById("search-options");
-    const ageSlider = document.getElementById("age-slider");
     const ageValue = document.getElementById("age-value");
     const max_ageSlider = document.getElementById("max-age-slider");
     const max_ageValue = document.getElementById("max-age-value");
@@ -15,14 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Updates the age slider's value accordingly
-    ageSlider.addEventListener("input", function() {
-        ageValue.textContent = ageSlider.value;
-    });
-    max_ageSlider.addEventListener("input", function() {
-        max_ageValue.textContent = max_ageSlider.value;
-    });
-    
+
     
     
 });

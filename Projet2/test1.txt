@@ -1,66 +1,60 @@
-poke2;m2@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u01;u@mail;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-test3;test3@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke4;m4@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user9;user@user9;man;grass;bulbasaur;green
+empty;empty;empty;empty;empty;empty
 
-poke5;m5@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u05;u@mail5;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-test10;mail10@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-test2;mail2@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke12;m12@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user7;user@user7;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u02;u@mail2;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-pok9;m9@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-pok8;m8@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user8;user@user8;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-pok10;m10@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke7;m7@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user6;user@user6;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user2;mail@adress;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke6;m6@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u07;u@mail7;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user4;user@user4;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u06;u@mail6;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u08;u@mail8;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-user5;user@user5;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-test4;mail4@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-pok11;m11@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke1;m@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-poke3;m3@mail;woman;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
-u03;u@mail3;man;empty;empty;white
-
-user3;user@user;man;empty;empty;white
-
-test;mail@mail;woman;empty;empty;white
-
-u04;u@mail4;man;empty;empty;white
+empty;empty;empty;empty;empty;empty
 
