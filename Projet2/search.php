@@ -115,7 +115,7 @@
             fclose($test);
         }
         
-		
+        $_SESSION["search_fail"]=$search_fail;
         $_SESSION["search"]=$search;
         header("Location:search.html"); 
     }

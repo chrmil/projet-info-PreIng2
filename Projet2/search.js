@@ -41,7 +41,7 @@ function loadUserDetails() {
                 }
             }
             if(n==9){  //if no user found
-                document.getElementById("div1")="There are no trainers fulfilling these parameters.<br>";
+                document.getElementById("div1").innerHTML="There are no trainers fulfilling these parameters.<br>";
             }
         }
     };
