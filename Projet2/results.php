@@ -75,14 +75,14 @@
         }
      }
    
-    
+    /*
      $test=fopen("test1.txt", "w+");
      foreach ($userDetails as $user){
          fputcsv($test, $user, ";");
          fwrite($test, "\n");
      }
      fclose($test);
-
+     */
      // Converts the array with user names and ages in JSON
      $userDetailsJSON = json_encode($userDetails);
  
