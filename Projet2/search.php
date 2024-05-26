@@ -25,9 +25,8 @@
             echo $e->getMessage();
         }   
         reset($users);
+        $search_fail="no user found"; 
         if(!empty($_POST["username"])){ //if username precised
-            $search_fail="no user found"; 
-            $search=array(0,"Please try again");
             foreach($users as $user){
                 if($user[1]==$_POST["username"]){ //if user found
                     $search_fail="user found";
@@ -94,6 +93,9 @@
         if(empty($search)){
             $search_fail="no user found";
             $search=array(0,"Please try again");
+        }
+        else{
+            $search_fail="user found";
         }
         $_SESSION["search_fail"]=$search_fail;
         $_SESSION["search"]=$search;

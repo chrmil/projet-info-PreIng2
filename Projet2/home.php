@@ -41,8 +41,9 @@
             $userDetails[] = array(
                 "nom" => $user[1], // adds username
                 "age" => $user[2], // adds user age
-                "sex" => $user[6],
-                "type" => $user[15]
+                "sex" => $user[6],// adds user gender
+                "starter" => $user[13],  // adds user starter
+                "type" => $user[15] // adds user type
             );
         }
         else{ //if not enough users to fill the array
@@ -50,7 +51,9 @@
                 "nom" => "empty", 
                 "age" => "empty", 
                 "sex" =>"empty",
+                "starter" =>"empty",
                 "type" => "empty"
+
             );
         }
     }
