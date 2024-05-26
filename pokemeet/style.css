@@ -1,0 +1,373 @@
+:root {
+    --navbar-background-color: #f2f2f2;
+    --navbar-item-hovered-color:white;
+    --navbar-separator-color:#ececec;
+    --navbar-icon-color:#646c79;
+    --navbar-text-color:black;
+    --navbar-transition-speed: .5s;
+    --primary-color:#7C4DFF;
+    --navbar-logo-background-color:#e2dfe4;
+    --font-pokemon:'Pokemon Solid', sans-serif;
+  }
+
+
+
+/*header text*/
+header{ 
+  
+  text-align: center; 
+  background-color: #4A90E2; /* Blue*/
+  border: 4px solid #FFCC00; /* Yellow */
+  padding: 10px;
+  border-radius: 10px;
+  
+ 
+}
+header p.title{
+    font-family: var(--font-pokemon);
+    font-size: xxx-large;
+    color: #FFD700;
+    text-shadow: -6px -6px 0 #0044cc, 6px -6px 0 #0044cc, -6px 6px 0 #0044cc, 6px 6px 0 #0044cc; /* Dark blue outline*/
+    text-align: center; 
+    
+                                              
+}
+header p.subtitle{
+  font-family: var(--font-pokemon);
+  font-size: x-large;
+ 
+  text-align: center; 
+  
+                                            
+}
+header p#div_sub{
+  font-family: var(--font-pokemon);
+  font-size: x-large;
+  text-align: center; 
+  
+                                            
+}
+/*sets the police for all text */
+* *{
+  font-family: var(--font-pokemon);
+}
+
+/*Navbar*/
+
+nav.navbar {
+    background: var(--navbar-background-color);
+    
+    box-shadow: rgba(12, 43, 30, 0.2) 0 4px 14px;
+  
+  }
+  
+  .navbar-menu {
+    display: flex;
+  /*  justify-content: flex-end;*/
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 4rem;
+  }
+  
+  .navbar-menu li {
+    margin-right: 2rem;
+    margin-left: 1rem;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .navbar-item {
+  
+    display: flex; /* flexbox */
+  }
+  
+  .navbar-item:hover {
+    background-color: var(--navbar-item-hovered-color);
+  }
+  
+  .navbar-link {
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    display: flex;
+  }
+  
+  .navbar-icon {
+    margin-right: 1rem;
+  }
+ 
+
+  #div1{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
+  #div2{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
+  #div3{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
+
+
+
+/* search bar*/
+
+.search-container {
+    background-color: red;
+    border :4px solid black;
+    text-align: center;
+    margin-top: 30px; /* Position of the search bar from the top of the page */
+}
+
+.search-container label,
+
+.search-container button {
+    font-family: var(--font-pokemon);
+    display: block;
+    margin: 10px auto; /* auto-centric horizontally */
+}
+.search-options {
+    display: none; /*Hides the search options at the start */
+    margin-top: 10px;
+    font-family: var(--font-pokemon);
+}
+
+body{
+ 	background-image: url("");
+ 	background-size: cover;
+ 	background-position: center; 
+ 	background-repeat: no-repeat;
+ }
+
+fieldset *{
+  display:block
+}
+/* login page*/
+form {
+  background-color: red;
+  border :4px solid black;
+  margin-left:35%;
+  margin-top: 5%; /* Position of the search bar from the top of the page */
+  width: 30%;
+  
+  
+  
+}
+
+#pfp{
+	margin-left:45vw;
+	margin-right:45vw;
+	width:100px;
+	height:100px;
+	border-radius:50px;
+}
+
+#edit{
+	margin-left:50vw;
+	width:25px;
+	height:25px;
+}
+
+#addpic{
+	margin-left:40vw;
+}
+
+#piclist{
+	width:95vw;
+	background-color:#FF6666;
+}
+
+#pics{
+	margin:0px;
+	width:20%;
+}
+
+
+form button {
+  font-family: var(--font-pokemon);
+  display: block;
+  margin: 10px auto; /* auto-centric horizontally */
+}
+input {
+    /* Pour centrer horizontalement */
+    margin: 0 auto;
+    /* Si vous souhaitez également centrer verticalement */
+    
+    /* Pour ajuster la largeur des inputs */
+    width: 32%;
+    /* Pour améliorer l'apparence sur les appareils mobiles */
+    box-sizing: border-box;
+    
+}
+th {
+    font-family: var(--font-pokemon);
+    border: none; /* Supprimer les bordures */
+}
+table{
+border: none; /* Supprimer les bordures */
+}
+td{
+border: none; /* Supprimer les bordures */
+}
+
+a.button{
+  color: black;
+  text-decoration: none;
+}
+
+
+
+/* pokemon card*/
+
+.grid-card-container {
+  /* grid = responsive grid that fills the page, inline-grid = fixed size */
+  display: grid;
+  /* 1 "auto" for each column, auto = fill the page */
+  grid-template-columns: auto auto auto ;
+  /* space the cards a minimum of 50px apart */
+  grid-gap: 50px;
+}
+
+.grid-individual-card {
+  /* set size of card but still allow them to be arranged higher up with grid & auto */
+  width: 315px;
+  height: 500px;
+  /* serve as containers for card information - but with fixed sizes */
+  display: inline-grid;
+  /* there are 6 columns which helps with organization later */
+  grid-template-columns: auto auto auto auto auto auto;
+  /* thick yellow rounded border */
+  border: 10px solid gold;
+  border-radius: 20px;
+  padding: 5px;
+}
+.card-background-black {
+  background: linear-gradient(to bottom right, #000000, #333333, #666666, #999999, #666666, #333333);
+}
+.card-background-brown {
+  background: linear-gradient(to bottom right, #8B4513, #A0522D, #CD853F, #DEB887, #CD853F, #A0522D);
+}
+.card-background-pink {
+  background: linear-gradient(to bottom right, #ff99aa, #ff6699, #ff3385, #ff0066, #ff3385, #ff6699);
+}
+.card-background-white {
+  background: linear-gradient(to bottom right, #ffffff, #f2f2f2, #e6e6e6, #d9d9d9, #e6e6e6, #f2f2f2);
+}
+
+.card-background-grey {
+  background: linear-gradient(to bottom right, #d9d9d9, #b3b3b3, #999999, #808080, #999999, #b3b3b3);
+}
+.card-background-blue {
+  background: linear-gradient(to bottom right, #d9e4ec, #adc1d1, #7d99af, #557792, #7d99af, #adc1d1);
+}
+.card-background-redorange {
+  background: linear-gradient(to bottom right, #ffbfba, #ff978f, #ff756b, #ff594c, #ff756b, #ff978f);
+}
+.card-background-green {
+  background: linear-gradient(to bottom right, #aae5b7, #78cf8b, #4fb665, #319d49, #4fb665, #78cf8b);
+}
+.card-background-yellow {
+  background: linear-gradient(to bottom right, #ffffa4, #fff870, #fff200, #fff870, #ffffa4, #fff870);
+}
+
+div {
+  font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', 'Calibri', sans-serif;
+  font-stretch: ultra-condensed;
+}
+
+/* SET UP THE CARD TEXT */
+
+/* HEADER - ABOVE IMAGE */
+
+.header-basic-pokemon {
+  font-size: 9px;
+  font-weight: 600;
+  /* span all the way across the card */
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.header-pokemon-name {
+  font-size: 20px;
+  font-weight: 600;
+  /* span first 4 columns of card grid */
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.header-hp {
+  /* Note: Fills 1 cell - 5th cell of row */
+  /* red font color */
+  color: crimson;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.header-type-icon {
+  /* Note: Fills 1 cell - 6th and last cell of row */
+  /* larger font size */
+  font-size: 20px;
+  text-align: center;
+}
+
+/* IMAGE */
+
+.image-holder {
+  /* needs to span across card */
+  grid-column-start: 1;
+  grid-column-end: 7;
+  color: blue;
+}
+
+img {
+  /* Force desired image size */
+  width: 300px;
+  height: 200px;
+  border: 5px yellow outset;
+  box-shadow: 3px 3px 10px #000;
+}
+
+/* DESCRIPTION BELOW IMAGE */
+
+.description-below-image {
+  /* Note: Has 1 empty cell on either side */
+  /* These have a class in the HTML but it is not used */
+  /* Span from cell 2 to cell 5 */
+  grid-column-start: 2;
+  grid-column-end: 6;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.description-below-image-background {
+  /* Set this way because it looks a little better if it's more dynamic */
+  background: linear-gradient(to right, goldenrod, yellow, goldenrod);
+  padding: 2px 10px;
+  margin: 2px;
+}
+
+/* ATTACKS */
+.attack-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.attack-description {
+  /* Span from cell 2 to cell 5 */
+  grid-column-start: 2;
+  grid-column-end: 6;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid #aaa;
+}
