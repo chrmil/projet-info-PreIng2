@@ -3,7 +3,6 @@
     include("users.php");  
     global $search;
     $search=$_SESSION["search"];
-    $search_fail=$_SESSION["search_fail"];
     try {
         if(!isset($search) || empty($search)){
                 throw new Exception("Error: results.php : search user list");
@@ -19,7 +18,7 @@
     catch(Exception $e){
         echo $e->getMessage();
     }   
-    if($search_fail=="no user found"){ //if no  user found with specified username
+    if($search[0]==0){ //if no  user found
         $userDetails = array();
         for($i=0;$i<9;$i++) {
                $userDetails[] = array(
@@ -33,8 +32,7 @@
          
     }
     elseif(count($search)>=9){
-            // array to stock user's details 
-        $userDetails = array();
+        $userDetails = array();// array to stock users' details 
         foreach ($search as $user) {
                 $userDetails[] = array(
                     "nom" => $user[1], // adds username

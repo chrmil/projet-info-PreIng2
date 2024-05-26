@@ -33,7 +33,7 @@ header p.title{
                                               
 }
 /*sets the police for all text */
-*{
+* *{
   font-family: var(--font-pokemon);
 }
 
@@ -87,8 +87,18 @@ nav.navbar {
  
 
 
-
-
+  #div1{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
+  #div2{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
+  #div3{
+    font-size: medium;
+    font-family: var(--font-pokemon);
+  }
 
 
 
@@ -300,7 +310,7 @@ img {
   /* Set this way because it looks a little better if it's more dynamic */
   background: linear-gradient(to right, goldenrod, yellow, goldenrod);
   padding: 2px 10px;
-  margins: 2px;
+  margin: 2px;
 }
 
 /* ATTACKS */

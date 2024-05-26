@@ -24,6 +24,12 @@
         catch(Exception $e){
             echo $e->getMessage();
         }   
+        $test=fopen("test1.txt", "w+");
+		foreach ($_POST as $key => $user){
+			
+			fwrite($test, "$key = $user\n");
+		}
+		fclose($test);
         reset($users);
         $search_fail="no user found"; 
         if(!empty($_POST["username"])){ //if username precised
@@ -93,11 +99,23 @@
         if(empty($search)){
             $search_fail="no user found";
             $search=array(0,"Please try again");
+            $test=fopen("test2.txt", "w+");
+            foreach ($search as $user){
+                fwrite($test, "$user\n");
+            }
+            fclose($test);
         }
         else{
             $search_fail="user found";
+            $test=fopen("test2.txt", "w+");
+            foreach ($search as $user){
+                fputcsv($test, $user , ";");
+                fwrite($test, "\n");
+            }
+            fclose($test);
         }
-        $_SESSION["search_fail"]=$search_fail;
+        
+		
         $_SESSION["search"]=$search;
         header("Location:search.html"); 
     }

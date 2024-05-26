@@ -1,34 +1,33 @@
-function loadUserDetails(j) {
+function loadUserDetails() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var userDetails = JSON.parse(this.responseText); //  JSON data
-            var len=userDetails.length;
+
             
-            for (var i = 0; i < 9; i++) {
-              
+            for (var i = 0; i < userDetails.length; i++) {
+                
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
                 var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
                 var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
                 var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
 
                 if (userNameElement) {
-                    userNameElement.textContent = userDetails[j].nom || "empty";
+                    userNameElement.textContent = userDetails[i].nom || "No name available";
                 }
                 if (userAgeElement) {
-                    userAgeElement.textContent = userDetails[j].age || "empty";
+                    userAgeElement.textContent = userDetails[i].age || "No age available";
                 }
                 if (userSexElement) {
-                    userSexElement.textContent = userDetails[j].sex || "empty";
+                    userSexElement.textContent = userDetails[i].sex || "No gender available";
                 }
                 if (userTypeElement) {
-                    userTypeElement.textContent = userDetails[j].type || "empty";
+                    userTypeElement.textContent = userDetails[i].type || "No type available";
                 }
-                j++;
-                   
             }
-            var n = 0;
+            var n=0;
             for (var i = 0; i <9; i++) {
+                
                 var card = document.getElementById("card-" + (i + 1));
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
                 var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
@@ -38,25 +37,23 @@ function loadUserDetails(j) {
                 if ( userNameElement.textContent == "empty") {
                     card.style.visibility = "hidden";
                     n++;
+                
                 }
             }
-            if(n==9){
-                document.getElementById("div1").innerHTML = "There is no trainer fitting those filters.<br>" ;
+            if(n==9){  //if no user found
+                document.getElementById("div1")="There are no trainers fulfilling these parameters.<br>";
             }
         }
-        
     };
     xhttp.open("GET", "results.php", true);
     xhttp.send();
 }
 
-function next(j){
-    loadUserDetails(j);
-}
-function previous(j){
-    loadUserDetails(j-9);
-}
-
 document.addEventListener("DOMContentLoaded", function() {
-    loadUserDetails(0);
+    loadUserDetails();
 });
+
+
+
+
+

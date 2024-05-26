@@ -1,1 +1,1 @@
-907;test;mail@mail;$2y$10$BnWu9A/ydRR3Yh2TA.nBNeKkZdJ.Evf4acr2BY1aXl9NS8CFiY.LS;2;0;woman;25/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;2
+907;test;mail@mail;$2y$10$BnWu9A/ydRR3Yh2TA.nBNeKkZdJ.Evf4acr2BY1aXl9NS8CFiY.LS;1;26/06/2024;woman;25/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;2
