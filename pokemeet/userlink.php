@@ -9,7 +9,7 @@
                     $res=$user[0];
                 }
             }
-            echo "userprofile.php?".$res;
+            echo "userprofile.php?user=".$res;
         }
         else{
             try {
@@ -23,7 +23,7 @@
             catch(Exception $e){
                 echo  $e->getMessage();
             }  
-            echo "userprofile.php?".$_SESSION["userID"];
+            echo "userprofile.php?user=".$_SESSION["userID"];
         }
     
 ?>
