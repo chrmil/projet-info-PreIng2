@@ -29,6 +29,9 @@
 			displayInfo($user, $cur);
 		?>
 		<br>
+		<a href=chat.php?<?php echo "own=".$cur."&oth=".$user;?> target=_self>
+			<button type=button>Chat with them</button>
+		</a><br>
 		<a href=useredit.php<?php echo "?user=".$user ?> target='_self'>
 			<?php
 				if (checkUser($user, $cur)){
