@@ -1,1 +1,1 @@
-1;user1;1@test.fr;password1;1;24/06/2024;man;19/05/2024;04/02/2005;student;france;single;1;cyndaquil;1;electric;calm;zadzd_keza__d_d__d_d__d;0
+1;user1;1@test.fr;password1;1;24/06/2024;man;19/05/2024;04/02/2005;student;france;single;1;charmander;1;electric;calm;zadzd_keza__d_d__d_d__d;0
