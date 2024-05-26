@@ -1,5 +1,0 @@
-username = 
-min_age = 18
-max_age = 50
-type = unspecified
-gender = man

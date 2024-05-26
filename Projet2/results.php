@@ -69,6 +69,8 @@
             }
         }
      }
+   
+    
  
      // Converts the array with user names and ages in JSON
      $userDetailsJSON = json_encode($userDetails);
