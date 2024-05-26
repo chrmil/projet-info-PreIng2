@@ -27,7 +27,8 @@
                     "age" => "empty", // adds user age
                     "sex" => "empty", // adds user gender
                     "type" => "empty",  // adds user type
-                    "starter" => "empty"  // adds user starter
+                    "starter" => "empty" , // adds user starter
+                    "color" => "empty" // adds user type color
                 );
         }
          
@@ -41,7 +42,8 @@
                     "age" => $user[2], // adds user age
                     "sex" => $user[6], // adds user gender
                     "type" => $user[15],  // adds user type
-                    "starter" => $user[13]  // adds user starter
+                    "starter" => $user[13] , // adds user starter
+                    "color" => $type_color[$user[15]] // adds user type color
                 );
             
         }
@@ -55,7 +57,8 @@
                         "age" => "empty", // adds user age
                         "sex" => "empty", // adds user gender
                         "type" => "empty",  // adds user type
-                        "starter" => "empty"  // adds user starter
+                        "starter" => "empty" , // adds user starter
+                        "color" => "empty" // adds user type color
                 );
             }
             else{
@@ -64,7 +67,8 @@
                     "age" => $search[$i][2], // adds user age
                     "sex" => $search[$i][6], // adds user gender
                     "type" => $search[$i][15],  // adds user type
-                    "starter" => $search[$i][13]  // adds user starter
+                    "starter" => $search[$i][13] , // adds user starter
+                    "color" => $type_color[$search[$i][13]] // adds user type color
                 );
             }
         }

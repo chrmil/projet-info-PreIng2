@@ -35,12 +35,19 @@ function loadUserDetails() {
 
             
             for (var i = 0; i < userDetails.length; i++) {
-                
+                var card = document.getElementById("card-" + (i + 1));
                 var userNameElement = document.getElementById("user-" + (i + 1) + "-nom");
                 var userAgeElement = document.getElementById("user-" + (i + 1) + "-age");
                 var userSexElement = document.getElementById("user-" + (i + 1) + "-sex");
                 var userTypeElement = document.getElementById("user-" + (i + 1) + "-type");
-
+                var userImage = document.getElementById("image-" + (i + 1));
+                
+                if(userDetails[i].color!="empty" && card){
+                    card.setAttribute("class", "grid-individual-card card-background-"+userDetails[i].color);
+                }
+                if(userDetails[i].starter!="empty" && userImage){
+                    userImage.setAttribute("src", "https://heatherketten.files.wordpress.com/2018/03/"+userDetails[i].starter+".png");
+                }
                 if (userNameElement) {
                     userNameElement.textContent = userDetails[i].nom || "No name available";
                 }

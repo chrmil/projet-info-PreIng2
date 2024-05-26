@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include("users.php");   
+    include("type.php");
     $users = getUserlist(); //gets user list
     
     try {
@@ -43,7 +44,8 @@
                 "age" => $user[2], // adds user age
                 "sex" => $user[6],// adds user gender
                 "starter" => $user[13],  // adds user starter
-                "type" => $user[15] // adds user type
+                "type" => $user[15], // adds user type
+                "color" => $type_color[$user[15]] // adds user type color
             );
         }
         else{ //if not enough users to fill the array
@@ -52,7 +54,8 @@
                 "age" => "empty", 
                 "sex" =>"empty",
                 "starter" =>"empty",
-                "type" => "empty"
+                "type" => "empty",
+                "color" => "empty"
 
             );
         }

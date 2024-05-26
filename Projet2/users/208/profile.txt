@@ -1,1 +1,1 @@
-208;user9;user@user9;$2y$10$ZuSc/OngbchQJz0Aza5VkuYis0omHO7.ulJoxRuo7t5NNZzmWyebm;2;0;man;26/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;13
+208;user9;user@user9;$2y$10$ZuSc/OngbchQJz0Aza5VkuYis0omHO7.ulJoxRuo7t5NNZzmWyebm;2;0;man;26/05/2024;empty;empty;empty;empty;empty;bulbasaur;empty;grass;empty;empty;13

@@ -1,6 +1,6 @@
 124;test3;test3@mail;$2y$10$bgs/ukMXQaQEb0JHbdQome1BFvj8XT8WjDFmJxAYTmLXJzlA0JyOe;2;0;woman;24/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;1
 
-208;user9;user@user9;$2y$10$ZuSc/OngbchQJz0Aza5VkuYis0omHO7.ulJoxRuo7t5NNZzmWyebm;2;0;man;26/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;13
+208;user9;user@user9;$2y$10$ZuSc/OngbchQJz0Aza5VkuYis0omHO7.ulJoxRuo7t5NNZzmWyebm;2;0;man;26/05/2024;empty;empty;empty;empty;empty;bulbasaur;empty;grass;empty;empty;13
 
 354;test10;mail10@mail;$2y$10$X281rg9tZK4siR/h0fGoUeMf.L55oiRoR5myKWkO04.HvZTZq0Aby;2;0;woman;26/05/2024;empty;empty;empty;empty;empty;empty;empty;empty;empty;empty;5
 
