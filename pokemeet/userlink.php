@@ -11,17 +11,19 @@
             }
             echo "userprofile.php?".$res;
         }
-        try {
-           
-            if(!isset($_SESSION["userID"]) || empty($_SESSION["userID"])){
-                throw new Exception("Error: not logged in");
+        else{
+            try {
+            
+                if(!isset($_SESSION["userID"]) || empty($_SESSION["userID"])){
+                    throw new Exception("Error: not logged in");
+                }
+            
+            
             }
-           
-           
+            catch(Exception $e){
+                echo  $e->getMessage();
+            }  
+            echo "userprofile.php?".$_SESSION["userID"];
         }
-        catch(Exception $e){
-            echo  $e->getMessage();
-        }  
-        echo "userprofile.php?".$_SESSION["userID"];
-   
+    
 ?>
