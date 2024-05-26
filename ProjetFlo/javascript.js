@@ -1,27 +1,3 @@
-function checkusernameedit(){
-	var xhttp; 
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("usernamediv").innerHTML = this.responseText ;
-		}
-	};  
-	var userInfo = document.forms.editprofile;
-	var formData = new FormData(userInfo);
-	username=formData.get("username");
-	if (username.length == 0 ) {
-		document.getElementById("usernamediv").innerHTML = "Please enter an username.";
-	}
-	else if (username.length<3){
-		document.getElementById("usernamediv").innerHTML = "This username is too short. The minimum length is 3 characters.";
-	}
-	else{
-		document.getElementById("usernamediv").innerHTML = "";
-		xhttp.open("GET", "useredit.php", true);
-	}
-	xhttp.send();
-}
-
 function editprofile(info){
 	const n = JSON.parse(info);
 	var xhttp, xmlDoc, txt, x, i;
@@ -30,7 +6,7 @@ function editprofile(info){
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
 			txt = "";
-			x = ["UserID", "Username", "Email", "Password", "Subscription", "Subtime", "Gender", "Accdate", "Birthdate", "Profession", "Home", "Relationship", "Children", "Pokemon", "Generation", "Type", "Nature", "Description"];
+			x = ["userID", "username", "email", "password", "subscription", "subtime", "gender", "accdate", "birthdate", "profession", "home", "relationship", "children", "pokemon", "generation", "type", "nature", "description"];
 			for (i = 1; i < x.length; i++){
 				if (i != 3 && i != 5 && i != 7 && i < x.length-1){
 					txt = txt + "<input type='text' id='" + x[i] + "' name='" + x[i] + "' value='" + n[i] + "'><br>";
@@ -47,7 +23,7 @@ function editprofile(info){
 	xhttp.send();
 }
 
-function piclist(x, user, own){
+function piclist(x, user){
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
@@ -55,7 +31,7 @@ function piclist(x, user, own){
 			xmlDoc = this.responseXML;
 			txt = "";
 			for (i = 1; i <= x; i++) {
-				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png&own=" + own + " target='_self'><img src='./users/" + user + "/pic" + i + ".png' id='pics'></a>";
+				txt = txt + "<a href=image.php?user=" + user + "&pic=pic" + i + ".png target='_self'><img src='./users/" + user + "/pic" + i + ".png' id='pics'></a>";
 			}
 			document.getElementById("piclist").innerHTML = txt;
 		}
@@ -64,15 +40,15 @@ function piclist(x, user, own){
 	xhttp.send();
 }
 
-function picdel(x, user, own){
+function picdel(x){
 	const n = JSON.parse(x);
 	var xhttp, xmlDoc, txt, i = 1;
 	xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			xmlDoc = this.responseXML;
-			if (own){
-				txt = "Confirm delete ?<br><a href=userprofile.php?user=" + user + "&picdel=" + n + "&own=" + own + " target='_self'> Yes </a> <a href=image.php?user=" + user + "&pic=" + n + "&own=" + own + " target='_self'> No </a>";
+			if (n[2] == n[1] || n[3]){
+				txt = "Confirm delete ?<br><a href=userprofile.php?user=" + n[1] + "&picdel=" + n[0] + " target='_self'> Yes </a> <a href=image.php?user=" + n[1] + "&pic=" + n[0] + " target='_self'> No </a>";
 				document.getElementById("delbutton").innerHTML = txt;
 			}
 		}
@@ -84,7 +60,7 @@ function picdel(x, user, own){
 function refreshmessage(){
 	var auto_refresh = setInterval(function (){
 		var url = window.location.href;
-		$('#test').load(url + ' #test');
+		$('#chat').load(url + ' #chat');
 	}, 1000); // refresh every 1000 milliseconds
 }
 
