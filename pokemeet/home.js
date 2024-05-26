@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const searchButton = document.getElementById("search-btn");
     const searchOptions = document.getElementById("search-options");
-    const ageValue = document.getElementById("age-value");
-    const max_ageSlider = document.getElementById("max-age-slider");
-    const max_ageValue = document.getElementById("max-age-value");
-    
+
      // show or hide reasearch options on click
     searchButton.addEventListener("click", function() {
         if (searchOptions.style.display === "none") {
@@ -14,9 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-
-    
-    
 });
 
 function loadUserDetails() {
@@ -76,10 +70,42 @@ function loadUserDetails() {
 
 document.addEventListener("DOMContentLoaded", function() {
     loadUserDetails();
+    usernav();
+    chatnav();
 });
 
+function usernav(){
+    var userlink= document.getElementById("nav-user");
+ 
+    userlink.addEventListener("click",  function(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            window.location.href=this.response;
+        }
+       
+    } 
+    xhttp.open("GET", "userlink.php", true);
+    xhttp.send();
+ 
+    } );   
+}
 
-
+function chatnav(){
+    var chatlink= document.getElementById("nav-chat");
+    chatlink.addEventListener("click",  function(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("nav-chat").setAttribute("href",this.responseURL);
+        }
+        
+    }
+    xhttp.open("GET", "chatlink.php", true);
+    xhttp.send();
+ 
+    } );
+}
 
 
 

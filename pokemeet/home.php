@@ -29,8 +29,10 @@
                     $t1 = 0;
                 }
             }
-            if($t1 && $lastUsers[$i][18] < $users[$j][18]) {
-                $lastUsers[$i] = $users[$j];
+            if(!empty($users[$j][18])){
+                if($t1 && $lastUsers[$i][18] < $users[$j][18]) {
+                    $lastUsers[$i] = $users[$j];
+                }
             }
         }
     } 
