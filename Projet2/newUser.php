@@ -6,7 +6,13 @@
                 throw new Exception("Error: incorrect username");
             }
             if(!isset($_POST["password1"]) || empty($_POST["password1"])){
-                throw new Exception("Error: incorrect password");
+                throw new Exception("Error: incorrect password : field 1");
+            }
+            if(!isset($_POST["password2"]) || empty($_POST["password2"])){
+                throw new Exception("Error: incorrect password : field 2");
+            }
+            if($_POST["password1"]!=$_POST["password2"]){
+                throw new Exception("Error: incorrect password : field 1 and 2");
             }
             if(!isset($_POST["email"]) || empty($_POST["email"])){
                 throw new Exception("Error: incorrect email");
