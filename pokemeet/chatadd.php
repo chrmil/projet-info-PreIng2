@@ -64,7 +64,7 @@
 					else if ($tab[1] == $oth){
 						$tab2 = array_slice($tab, 2);
 						$message = implode($tab2);
-						if ($tabinfo[4] == "admin"){
+						if ($tabinfo[4] == 0){
 							editChat($own, $oth, $edit, $tab[0], $message);
 						}
 						else{
@@ -76,7 +76,7 @@
 					else{
 						$tab2 = array_slice($tab, 2);
 						$message = implode($tab2);
-						if ($tabinfo[4] == "admin"){
+						if ($tabinfo[4] == 0){
 							editChat($own, $oth, $edit, $tab[0], $message);
 						}
 						else{
@@ -157,7 +157,7 @@
 		$curinfo = fopen('./users/'.$cur.'/profile.txt', 'r');
 		$tab = explode(";", fgets($curinfo));
 		fclose($curinfo);
-		if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && (($cur == $own && $tab[4] == "subscribed") || $tab[4] == "admin")){
+		if((isset($message) || is_uploaded_file($_FILES["file"]["tmp_name"])) && (($cur == $own && $tab[4] == 1) || $tab[4] == 0))){
 			if (isset($message)){
 				$i = 0;
 				$chat = fopen('./users/'.$own.'/chat'.$oth.'.txt', 'r');
