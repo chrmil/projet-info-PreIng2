@@ -1,6 +1,16 @@
 <?php 
     session_start();
-
+        if(!empty($_REQUEST["t"])){
+            $t=$_REQUEST["t"];
+            include("users.php");
+            $users=getUserlist();
+            foreach ($users as $user){
+                if($user[1]==$t){
+                    $res=$user[0];
+                }
+            }
+            echo "userprofile.php?".$res;
+        }
         try {
            
             if(!isset($_SESSION["userID"]) || empty($_SESSION["userID"])){

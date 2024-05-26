@@ -165,5 +165,22 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.addEventListener("click", function(event) { //links to user profile when click on name
+    if(event.target.getAttribute("class")=="header-pokemon-name"){
+    var t=event.target.textContent;
+    var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.href=this.response;
+            }
+        
+        } 
+        xhttp.open("GET", "userlink.php?t="+t, true);
+        xhttp.send();
+    
+        }    
+    });
+    
+   
 
 
