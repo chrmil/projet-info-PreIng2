@@ -99,7 +99,7 @@
 		if(checkUser($own, $cur)){
 			echo "
 			<form method='post' enctype='multipart/form-data'>
-				<a href=userprofile.php?user=".$own." target='_self'> <- Back </a>
+				<a href=messages.php?user=".$own." target='_self'> <- Back </a>
 				<textarea id=message name=message></textarea>
 				<input type=file name=file accept='image/png,image/jpg,image/jpeg'>
 				<button type=submit id=send> Send </button>
