@@ -26,7 +26,7 @@
 		<?php
 			pfpButton($user, $cur);
 			
-			displayinfo($user);
+			displayInfo($user, $cur);
 		?>
 		<br>
 		<a href=useredit.php<?php echo "?user=".$user ?> target='_self'>
