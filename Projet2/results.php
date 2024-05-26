@@ -1,7 +1,9 @@
 <?php 
     session_start();
-    include("users.php");   
+    include("users.php");  
     global $search;
+    $search=$_SESSION["search"];
+    $search_fail=$_SESSION["search_fail"];
     try {
         if(!isset($search) || empty($search)){
                 throw new Exception("Error: results.php : search user list");
@@ -17,25 +19,14 @@
     catch(Exception $e){
         echo $e->getMessage();
     }   
-    if($search="empty"){ //if no filters
-        $users=getUserlist();
-        try {
-            if(!isset($users) || empty($users)){
-                throw new Exception("Error: results.php : user list");
-            }
-        }
-        catch(Exception $e){
-            echo $e->getMessage();
-        } 
-        foreach ($users as $user){ //display the results
-            echo "$user[1]\n"; //to modify in order to display the profiles more properly 
+    if($search_fail=="no user found"){ //if no  user found with specified username
+        echo "There is no trainer fitting those filters.<br>"; 
          
-        }
     }
     else{
         foreach ($search as $user){ //display the results
-            echo "$user[1]\n"; //to modify in order to display the profiles more properly 
-     
+            echo "$user[1]<br>"; //to modify in order to display the profiles more properly 
+        
         }
     }
    
