@@ -160,8 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } );
     reset_button.addEventListener("click",  function(){
         document.getElementById("div1").innerHTML="";
-        count=0;
-        loadUserDetails();
+        window.location.href=window.location.href;
     } );
 });
 
