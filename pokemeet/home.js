@@ -70,43 +70,8 @@ function loadUserDetails() {
 
 document.addEventListener("DOMContentLoaded", function() {
     loadUserDetails();
-    usernav();
-    chatnav();
+   
 });
-
-function usernav(){
-    var userlink= document.getElementById("nav-user");
- 
-    userlink.addEventListener("click",  function(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            window.location.href=this.response;
-        }
-       
-    } 
-    xhttp.open("GET", "userlink.php", true);
-    xhttp.send();
- 
-    } );   
-}
-
-function chatnav(){
-    var chatlink= document.getElementById("nav-chat");
-    chatlink.addEventListener("click",  function(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("nav-chat").setAttribute("href",this.responseURL);
-        }
-        
-    }
-    xhttp.open("GET", "chatlink.php", true);
-    xhttp.send();
- 
-    } );
-}
-
 
 
 
